@@ -29,7 +29,7 @@ function Get-BrowserProfile {
 	)
 	if (!$AllUsers) {
 		if ($Browser -eq 'Default') {
-			$app = Get-DsDefaultBrowser
+			$app = Get-DefaultBrowser
 		} else {
 			$app = $Browser
 		}
@@ -80,7 +80,7 @@ function Get-BrowserProfile {
 	} else {
 		$exclude = @('AppData','Public')
 		if ($Browser -eq 'Default') {
-			$app = Get-DsDefaultBrowser
+			$app = Get-DefaultBrowser
 		} else {
 			$app = $Browser
 		}

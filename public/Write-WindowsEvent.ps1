@@ -27,14 +27,13 @@ function Write-WindowsEvent {
 	.EXAMPLE
 		Write-WindowsEvent -EventID 101 -Source "SCORCH" -Message "Runbook FUBAR-TARFU state: Stopped" -Severity "Warning"
 	.LINK
-		#
+		https://github.com/Skatterbrainz/helium/blob/master/docs/Write-WindowsEvent.md
 	#>
 	param (
 		[parameter()][string][ValidateSet('System','Application')]$LogName = "Application",
 		[parameter()][int][ValidateRange(1,16384)]$EventID = 1,
 		[parameter()][int]$Category = 1,
 		[parameter()][string][ValidateSet('Information','Warning','Error')]$Severity = 'Information',
-		[parameter()][string]$ComputerName = $env:COMPUTERNAME,
 		[parameter(Mandatory)][string][ValidateNotNullOrEmpty()]$Source,
 		[parameter(Mandatory)][string][ValidateNotNullOrEmpty()]$Message
 	)
@@ -44,5 +43,5 @@ function Write-WindowsEvent {
 	if (-not $SourceExists) {
 		$null = New-EventLog -LogName Application -Source $Source
 	}
-	Write-EventLog -ComputerName $ComputerName -LogName $LogName -Source $Source -EventID $EventID -Message $Message -Category $Category -EntryType $Severity
+	Write-EventLog -LogName $LogName -Source $Source -EventID $EventID -Message $Message -Category $Category -EntryType $Severity
 }

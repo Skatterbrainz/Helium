@@ -1,9 +1,14 @@
 function Set-NetConnectionPrivate {
 	<#
 	.SYNOPSIS
+		Set IPv4 network connections to "private"
 	.DESCRIPTION
+		Set IPv4 network connections to private profile state, or list
+		current IPv4 network connections and their current profile states
 	.EXAMPLE
+		Set-NetConnectionPrivate
 	.LINK
+		https://github.com/Skatterbrainz/helium/blob/master/docs/Set-NetConnectionPrivate.md
 	#>
 	[CmdletBinding()]
 	param (
