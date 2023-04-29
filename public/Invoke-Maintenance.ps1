@@ -23,6 +23,7 @@ function Invoke-Maintenance {
 	.EXAMPLE
 		Invoke-Maintenance -WindowsUpdate -Chocolatey -Winget -Modules -Help -ShowConfirmation
 	.LINK
+		https://github.com/Skatterbrainz/helium/blob/master/docs/Invoke-Maintenance.md
 	#>
 	[CmdletBinding()]
 	param (
