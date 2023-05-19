@@ -1,7 +1,7 @@
 ---
 external help file: helium-help.xml
 Module Name: helium
-online version:
+online version: https://github.com/Skatterbrainz/helium/blob/master/docs/Write-WindowsEvent.md
 schema: 2.0.0
 ---
 
@@ -14,7 +14,7 @@ Workaround for Write-EventLog where -Source often pisses me off
 
 ```
 Write-WindowsEvent [[-LogName] <String>] [[-EventID] <Int32>] [[-Category] <Int32>] [[-Severity] <String>]
- [[-ComputerName] <String>] [-Source] <String> [-Message] <String> [<CommonParameters>]
+ [-Source] <String> [-Message] <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -97,21 +97,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ComputerName
-{{ Fill ComputerName Description }}
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 5
-Default value: $env:COMPUTERNAME
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -Source
 And now, for the main event: The event source name.
 The docs (as of 3/27/2023) show examples that
@@ -131,7 +116,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: True
-Position: 6
+Position: 5
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -148,7 +133,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: True
-Position: 7
+Position: 6
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -165,5 +150,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[#]()
+[https://github.com/Skatterbrainz/helium/blob/master/docs/Write-WindowsEvent.md](https://github.com/Skatterbrainz/helium/blob/master/docs/Write-WindowsEvent.md)
 

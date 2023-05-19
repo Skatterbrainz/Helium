@@ -1,14 +1,14 @@
 ---
 external help file: helium-help.xml
 Module Name: helium
-online version: https://github.com/Skatterbrainz/helium/blob/master/docs/Split-Url.md
+online version: https://github.com/Skatterbrainz/helium/blob/master/docs/Test-IsAdmin.md
 schema: 2.0.0
 ---
 
 # Test-IsAdmin
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Returns True if session running in Administrator context
 
 ## SYNTAX
 
@@ -17,26 +17,24 @@ Test-IsAdmin
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Returns True if session running in Administrator context
 
 ## EXAMPLES
 
-### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
+### EXAMPLE 1
 ```
-
-{{ Add example description here }}
+if (Test-IsAdmin) { ... }
+```
 
 ## PARAMETERS
 
 ## INPUTS
 
-### None
-
 ## OUTPUTS
 
-### System.Object
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Skatterbrainz/helium/blob/master/docs/Test-IsAdmin.md](https://github.com/Skatterbrainz/helium/blob/master/docs/Test-IsAdmin.md)
+

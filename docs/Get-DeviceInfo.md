@@ -1,30 +1,28 @@
 ---
 external help file: helium-help.xml
 Module Name: helium
-online version: https://github.com/Skatterbrainz/helium/blob/master/docs/Get-DefaultBrowser.md
+online version: https://github.com/Skatterbrainz/helium/blob/master/docs/Get-DeviceInfo.md
 schema: 2.0.0
 ---
 
-# Get-DefaultBrowser
+# Get-DeviceInfo
 
 ## SYNOPSIS
-Get-DefaultBrowser
 
 ## SYNTAX
 
 ```
-Get-DefaultBrowser [<CommonParameters>]
+Get-DeviceInfo [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Returns default browser for current user
+Get Machine and OS summary information
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 ```
-Get-DefaultBrowser
-Example return: "Edge"
+Get-DeviceInfo
 ```
 
 ## PARAMETERS
@@ -40,5 +38,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://github.com/Skatterbrainz/helium/blob/master/docs/Get-DefaultBrowser.md](https://github.com/Skatterbrainz/helium/blob/master/docs/Get-DefaultBrowser.md)
+[https://github.com/Skatterbrainz/helium/blob/master/docs/Get-DeviceInfo.md](https://github.com/Skatterbrainz/helium/blob/master/docs/Get-DeviceInfo.md)
 

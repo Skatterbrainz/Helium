@@ -1,13 +1,14 @@
 ---
 external help file: helium-help.xml
 Module Name: helium
-online version:
+online version: https://github.com/Skatterbrainz/helium/blob/master/docs/Set-NetConnectionPrivate.md
 schema: 2.0.0
 ---
 
 # Set-NetConnectionPrivate
 
 ## SYNOPSIS
+Set IPv4 network connections to "private"
 
 ## SYNTAX
 
@@ -16,13 +17,14 @@ Set-NetConnectionPrivate [-Show] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Set IPv4 network connections to private profile state, or list
+current IPv4 network connections and their current profile states
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 ```
-
+Set-NetConnectionPrivate
 ```
 
 ## PARAMETERS
@@ -52,3 +54,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Skatterbrainz/helium/blob/master/docs/Set-NetConnectionPrivate.md](https://github.com/Skatterbrainz/helium/blob/master/docs/Set-NetConnectionPrivate.md)
+

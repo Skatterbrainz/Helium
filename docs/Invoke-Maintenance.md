@@ -1,7 +1,7 @@
 ---
 external help file: helium-help.xml
 Module Name: helium
-online version:
+online version: https://github.com/Skatterbrainz/helium/blob/master/docs/Invoke-Maintenance.md
 schema: 2.0.0
 ---
 
@@ -153,3 +153,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Skatterbrainz/helium/blob/master/docs/Invoke-Maintenance.md](https://github.com/Skatterbrainz/helium/blob/master/docs/Invoke-Maintenance.md)
+
