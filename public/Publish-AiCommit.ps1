@@ -1,6 +1,7 @@
 function Publish-AiCommit {
 	<#
 	.SYNOPSIS
+		Use PowerShellAI to handle your Git commits
 	.DESCRIPTION
 		Invoke git stage, commit, push from a local repo path, where the commit
 		message is produced by submitting a request from the git status through openAI

@@ -8,9 +8,7 @@ schema: 2.0.0
 # Get-LoggedOnUser
 
 ## SYNOPSIS
-This will check the specified machine to see all users who are logged on.
-For updated help and examples refer to -Online version.
-This function was added to DS-UTILS but I did not write it (see below)
+Get currently logged-on users
 
 ## SYNTAX
 
@@ -19,7 +17,9 @@ Get-LoggedOnUser [[-ComputerName] <String[]>] [-UserName <String>] [<CommonParam
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+This will check the specified machine to see all users who are logged on.
+For updated help and examples refer to -Online version.
+This function was added to DS-UTILS but I did not write it (see below)
 
 ## EXAMPLES
 

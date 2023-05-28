@@ -18,9 +18,7 @@ Write-WindowsEvent [[-LogName] <String>] [[-EventID] <Int32>] [[-Category] <Int3
 ```
 
 ## DESCRIPTION
-I'm still pissed.
-I mean,seriously, too busy?
-More things to rename to Defender something something?
+Workaround for Write-EventLog where -Source often pisses me off
 
 ## EXAMPLES
 
@@ -147,6 +145,9 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
+I mean,seriously, are they too busy?
+More things to rename to Defender something something?
+Stuffing ChatGPT into something?
 
 ## RELATED LINKS
 

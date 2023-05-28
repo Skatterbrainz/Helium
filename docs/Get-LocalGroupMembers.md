@@ -17,7 +17,7 @@ Get-LocalGroupMembers [[-ComputerName] <String>] [[-GroupName] <String>] [<Commo
 ```
 
 ## DESCRIPTION
-I hate repeating myself
+Returns local group members
 
 ## EXAMPLES
 

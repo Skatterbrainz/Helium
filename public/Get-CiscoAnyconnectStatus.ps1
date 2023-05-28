@@ -1,16 +1,16 @@
 function Get-CiscoAnyconnectStatus {
-		<#
-		.SYNOPSIS
-			Get current AnyConnect state/status
-		.DESCRIPTION
-			Gets the current Cisco AnyConnect VPN state
-		.PARAMETER (none)
-		.EXAMPLE
-			Get-CiscoAnyConnectStatus
-		.LINK
-			https://github.com/Skatterbrainz/helium/blob/master/docs/Get-CiscoAnyConnectStatus.md
-		#>
-[CmdletBinding()]
+	<#
+	.SYNOPSIS
+		Get current AnyConnect state/status
+	.DESCRIPTION
+		Gets the current Cisco AnyConnect VPN state
+	.PARAMETER (none)
+	.EXAMPLE
+		Get-CiscoAnyConnectStatus
+	.LINK
+		https://github.com/Skatterbrainz/helium/blob/master/docs/Get-CiscoAnyConnectStatus.md
+	#>
+	[CmdletBinding()]
 	param()
 	$VPNExe = "$(${env:ProgramFiles(x86)})\Cisco\Cisco AnyConnect Secure Mobility Client\vpncli.exe"
 	if (Test-Path $VPNExe) {

@@ -17,7 +17,7 @@ Join-Url [-Path] <String> [-ChildPath] <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Same as the SYNOPSIS
+Join-Path for WEB URL strings
 
 ## EXAMPLES
 

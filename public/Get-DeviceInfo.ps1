@@ -1,5 +1,7 @@
 function Get-DeviceInfo {
 	<#
+	.SYNOPSIS
+		Get Machine and OS summary information
 	.DESCRIPTION
 		Get Machine and OS summary information
 	.PARAMETER none

@@ -8,7 +8,7 @@ schema: 2.0.0
 # Invoke-Sed
 
 ## SYNOPSIS
-Invoke-Sed
+Search/Replace matching text pattern within specified files
 
 ## SYNTAX
 

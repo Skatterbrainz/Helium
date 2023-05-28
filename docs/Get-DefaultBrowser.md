@@ -8,7 +8,7 @@ schema: 2.0.0
 # Get-DefaultBrowser
 
 ## SYNOPSIS
-Get-DefaultBrowser
+Returns default browser for current user
 
 ## SYNTAX
 

@@ -3,7 +3,7 @@ function Get-LocalGroupMembers {
 	.SYNOPSIS
 		Returns local group members
 	.DESCRIPTION
-		I hate repeating myself
+		Returns local group members
 	.PARAMETER ComputerName
 		Name of computer (if remote). Default = 'localhost'
 	.PARAMETER GroupName

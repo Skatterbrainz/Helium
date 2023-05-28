@@ -8,6 +8,7 @@ schema: 2.0.0
 # Publish-AiCommit
 
 ## SYNOPSIS
+Use PowerShellAI to handle your Git commits
 
 ## SYNTAX
 

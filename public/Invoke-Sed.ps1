@@ -1,7 +1,7 @@
 function Invoke-Sed {
 	<#
 	.SYNOPSIS
-		Invoke-Sed
+		Search/Replace matching text pattern within specified files
 	.DESCRIPTION
 		Search/Replace matching text pattern within specified files
 	.PARAMETER FilePath

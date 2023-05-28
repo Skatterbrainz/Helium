@@ -1,9 +1,9 @@
 function Get-PublicIPv4Address {
 	<#
 	.SYNOPSIS
-	Get current public IPv4 address
+		Get current public IPv4 address
 	.DESCRIPTION
-	Geez. Do I really need to elaborate on this one?
+		Geez. Do I really need to elaborate on this one?
 	.PARAMETER (none)
 	.EXAMPLE
 		Get-PublicIPv4Address

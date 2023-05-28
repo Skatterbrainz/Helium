@@ -1,42 +1,43 @@
 ---
 external help file: helium-help.xml
 Module Name: helium
-online version: https://github.com/Skatterbrainz/helium/blob/master/docs/ConvertFrom-DecimalErrorCode.md
+online version: https://github.com/Skatterbrainz/helium/blob/master/docs/Get-BadServices.md
 schema: 2.0.0
 ---
 
 # Get-BadServices
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Get services which are configured to auto-start but are currently stopped
 
 ## SYNTAX
 
 ```
-Get-BadServices
+Get-BadServices [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Get services which are configured to auto-start but are currently stopped
 
 ## EXAMPLES
 
-### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
+### EXAMPLE 1
 ```
-
-{{ Add example description here }}
+Get-BadServices
+```
 
 ## PARAMETERS
 
-## INPUTS
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
-### None
+## INPUTS
 
 ## OUTPUTS
 
-### System.Object
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Skatterbrainz/helium/blob/master/docs/Get-BadServices.md](https://github.com/Skatterbrainz/helium/blob/master/docs/Get-BadServices.md)
+

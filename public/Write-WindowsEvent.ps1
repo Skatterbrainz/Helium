@@ -3,7 +3,7 @@ function Write-WindowsEvent {
 	.SYNOPSIS
 		Workaround for Write-EventLog where -Source often pisses me off
 	.DESCRIPTION
-		I'm still pissed. I mean,seriously, too busy? More things to rename to Defender something something?
+		Workaround for Write-EventLog where -Source often pisses me off
 	.PARAMETER LogName
 		For now: System or Application. That's it. I'm cheap.
 	.PARAMETER EventID
@@ -26,6 +26,8 @@ function Write-WindowsEvent {
 		Say something. I don't care. You can say 'Hello world!' if it makes you happy.
 	.EXAMPLE
 		Write-WindowsEvent -EventID 101 -Source "SCORCH" -Message "Runbook FUBAR-TARFU state: Stopped" -Severity "Warning"
+	.NOTES
+		I mean,seriously, are they too busy? More things to rename to Defender something something? Stuffing ChatGPT into something?
 	.LINK
 		https://github.com/Skatterbrainz/helium/blob/master/docs/Write-WindowsEvent.md
 	#>

@@ -8,7 +8,7 @@ schema: 2.0.0
 # Invoke-Grep
 
 ## SYNOPSIS
-Invoke-Grep
+Search text or file content for matching string pattern
 
 ## SYNTAX
 

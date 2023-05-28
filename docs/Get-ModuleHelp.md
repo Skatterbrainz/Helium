@@ -1,40 +1,37 @@
 ---
 external help file: helium-help.xml
 Module Name: helium
-online version: https://github.com/Skatterbrainz/helium/blob/master/docs/Invoke-InputBox.md
+online version: https://github.com/Skatterbrainz/helium/blob/master/docs/Get-LoggedOnUsers.md
 schema: 2.0.0
 ---
 
-# Invoke-InputBox
+# Get-ModuleHelp
 
 ## SYNOPSIS
-Provide InputBox() clone for PowerShell
+Return Get-Help summary for all commands in a given module
 
 ## SYNTAX
 
 ```
-Invoke-InputBox [-Title] <String> [-Message] <String> [[-DefaultResponse] <String>] [<CommonParameters>]
+Get-ModuleHelp [-ModuleName] <String> [-Export] [[-OutputPath] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Provide InputBox() clone for PowerShell
+Return Get-Help summary for all commands in a given module
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 ```
-$zip = Invoke-InputBox -Title "Mail Delivery" -Message "Enter ZIP code"
+Get-ModuleHelp -ModuleName PowerShellAI
 ```
 
-### EXAMPLE 2
-```
-$zip = Invoke-InputBox -Title "Mail Delivery" -Message "Enter ZIP code" -DefaultResponse "12345-0987"
-```
+Displays help summary for all commands in the module PowerShellAI (if it is installed)
 
 ## PARAMETERS
 
-### -Title
-Form Title / caption
+### -ModuleName
+Name of module
 
 ```yaml
 Type: String
@@ -48,23 +45,27 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Message
-Form prompt or message text
+### -Export
+Send output to a CSV or XLSX file.
+If module ImportExcel is installed, it 
+will default to XLSX format.
+The filename is pshelp_\<MODULENAME\>.\<EXTENSION\>.
+If XLSX format is used, the file is automatically opened in Excel.
 
 ```yaml
-Type: String
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
 
-Required: True
-Position: 2
-Default value: None
+Required: False
+Position: Named
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -DefaultResponse
-Default value to offer to user.
+### -OutputPath
+Path where output file is saved when using -Export
 
 ```yaml
 Type: String
@@ -72,8 +73,8 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 3
-Default value: None
+Position: 2
+Default value: "$env:TEMP"
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -88,6 +89,3 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
-
-[https://github.com/Skatterbrainz/helium/blob/master/docs/Invoke-InputBox.md](https://github.com/Skatterbrainz/helium/blob/master/docs/Invoke-InputBox.md)
-

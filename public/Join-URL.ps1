@@ -3,7 +3,7 @@ function Join-Url {
 	.SYNOPSIS
 		Join-Path for WEB URL strings
 	.DESCRIPTION
-		Same as the SYNOPSIS
+		Join-Path for WEB URL strings
 	.PARAMETER Path
 		Base path string
 	.PARAMETER ChildPath

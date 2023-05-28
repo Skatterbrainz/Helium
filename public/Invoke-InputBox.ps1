@@ -1,5 +1,7 @@
 function Invoke-InputBox {
 	<#
+	.SYNOPSIS
+		Provide InputBox() clone for PowerShell
 	.DESCRIPTION
 		Provide InputBox() clone for PowerShell
 	.PARAMETER Title

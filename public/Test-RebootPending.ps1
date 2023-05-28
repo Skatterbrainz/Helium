@@ -3,6 +3,8 @@ function Test-RebootPending {
 	<#
 	.SYNOPSIS
 		Return true if a reboot is pending (local machine)
+	.DESCRIPTION
+		Return true if a reboot is pending (local machine)
 	.EXAMPLE
 		if (Test-DsRebootPending) { ... }
 	.NOTES

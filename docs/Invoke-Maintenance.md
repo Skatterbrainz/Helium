@@ -115,6 +115,8 @@ Accept wildcard characters: False
 
 ### -Help
 Update PowerShell help files.
+If invoked without administrator context, this will
+only update help content under the CurrentUser scope (PS 6.1 or later)
 
 ```yaml
 Type: SwitchParameter

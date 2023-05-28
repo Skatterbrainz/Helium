@@ -3,7 +3,7 @@ function Set-TLS12 {
 	.SYNOPSIS
 		Sets TLS channel to v1.2 for the active/current session only
 	.DESCRIPTION
-		Same as SYNOPSIS. I know. Shocking, right?
+		Sets TLS channel to v1.2 for the active/current session only
 	.PARAMETER (none)
 	.EXAMPLE
 		Set-TLS12

@@ -17,7 +17,7 @@ Test-RebootPending [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Return true if a reboot is pending (local machine)
 
 ## EXAMPLES
 

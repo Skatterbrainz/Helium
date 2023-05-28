@@ -8,6 +8,7 @@ schema: 2.0.0
 # Get-DeviceInfo
 
 ## SYNOPSIS
+Get Machine and OS summary information
 
 ## SYNTAX
 

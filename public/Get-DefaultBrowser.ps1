@@ -1,7 +1,7 @@
 function Get-DefaultBrowser {
 	<#
 	.SYNOPSIS
-		Get-DefaultBrowser
+		Returns default browser for current user
 	.DESCRIPTION
 		Returns default browser for current user
 	.PARAMETER (none)
