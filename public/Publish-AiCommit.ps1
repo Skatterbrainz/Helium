@@ -40,9 +40,13 @@ function Publish-AiCommit {
 			throw "Missing required application: git"
 		}
 		if (![string]::IsNullOrWhiteSpace($Path)) {
-			$loc = (Get-Location).Path
-			Write-Verbose "-- moving to path: $Path"
-			Set-Location -Path $Path
+			if (Test-Path $Path) {
+				$loc = (Get-Location).Path
+				Write-Verbose "-- moving to path: $Path"
+				Set-Location -Path $Path
+			} else {
+				throw "Any AI could tell you that path doesn't exist: $Path"
+			}
 		}
 		Write-Verbose "-- requesting git status for repo"
 		$status = git status
