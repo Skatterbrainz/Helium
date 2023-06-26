@@ -50,7 +50,7 @@ function Publish-AiCommit {
 		}
 		Write-Verbose "-- requesting git status for repo"
 		$status = git status
-		if ($status -notlike "fatal*") {
+		if ($status -notlike "*Your branch is up to date*") {
 			Write-Verbose "-- staging git repo changes"
 			git stage --all
 			Write-Verbose "-- requesting commit message from OpenAI prompt"
