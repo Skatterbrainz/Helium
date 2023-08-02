@@ -13,7 +13,8 @@ Query Browser Profiles
 ## SYNTAX
 
 ```
-Get-BrowserProfile [[-Browser] <String>] [-AllUsers] [<CommonParameters>]
+Get-BrowserProfile [[-ProfileName] <String>] [-PreferenceDetails] [[-Browser] <String>] [-AllUsers]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -37,7 +38,42 @@ Get-BrowserProfile -Browser Edge
 Get-BrowserProfile -Browser Chrome -AllUsers
 ```
 
+### EXAMPLE 4
+```
+Get-BrowserProfile -ProfileName "Azure" -PreferenceDetails
+```
+
 ## PARAMETERS
+
+### -ProfileName
+Return information on one specific profile only
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 1
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -PreferenceDetails
+If ProfileName is specified, will return the Preferences object
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
 
 ### -Browser
 Optional.
@@ -54,7 +90,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 1
+Position: 2
 Default value: Default
 Accept pipeline input: False
 Accept wildcard characters: False
