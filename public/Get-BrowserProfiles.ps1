@@ -11,6 +11,10 @@ function Get-BrowserProfile {
 		* Edge
 		* Brave
 		* Firefox
+	.PARAMETER ProfileName
+		Return information on one specific profile only
+	.PARAMETER PreferenceDetails
+		If ProfileName is specified, will return the Preferences object
 	.PARAMETER AllUsers
 		Query all users on the computer
 	.EXAMPLE
@@ -19,14 +23,19 @@ function Get-BrowserProfile {
 		Get-BrowserProfile -Browser Edge
 	.EXAMPLE
 		Get-BrowserProfile -Browser Chrome -AllUsers
+	.EXAMPLE
+		Get-BrowserProfile -ProfileName "Azure" -PreferenceDetails
 	.LINK
 		https://github.com/Skatterbrainz/helium/blob/master/docs/Get-BrowserProfile.md
 	#>
 	[CmdletBinding()]
 	param (
+		[parameter(Mandatory=$False)][string]$ProfileName = "",
+		[parameter(Mandatory=$False)][switch]$PreferenceDetails,
 		[parameter(Mandatory=$False)][string][ValidateSet('Chrome','Edge','Brave','Firefox','Default')]$Browser = 'Default',
 		[parameter(Mandatory=$False)][switch]$AllUsers
 	)
+	$results = @()
 	if (!$AllUsers) {
 		if ($Browser -eq 'Default') {
 			$app = Get-DefaultBrowser
@@ -56,24 +65,26 @@ function Get-BrowserProfile {
 				[string]$pref = Join-Path $folder.FullName "Preferences"
 				if (Test-Path $pref) {
 					$prefdata = Get-Content $pref -Raw | ConvertFrom-Json
-					$name = $prefdata.profile.name
-					[pscustomobject]@{
+					$pname = $prefdata.profile.name
+					$results += [pscustomobject]@{
 						UserName    = $env:USERNAME
 						ProfileID   = $folder.Name
-						ProfileName = $name
+						ProfileName = $pname
 						Browser     = $app
+						Path        = $folder.FullName
 					}
 				}
 			}
 		} else {
 			foreach ($folder in $profileFolders) {
 				$prefdata = $folder.Name.Split('.')
-				$name = $prefdata[1]
-				[pscustomobject]@{
+				$pname = $prefdata[1]
+				$results += [pscustomobject]@{
 					UserName    = $env:USERNAME
 					ProfileID   = $folder.Name
-					ProfileName = $name
+					ProfileName = $pname
 					Browser     = $app
+					Path        = $folder.FullName
 				}
 			}
 		}
@@ -109,12 +120,13 @@ function Get-BrowserProfile {
 					[string]$pref = Join-Path $folder.FullName "Preferences"
 					if (Test-Path $pref) {
 						$prefdata = Get-Content $pref -Raw | ConvertFrom-Json
-						$name = $prefdata.profile.name
-						[pscustomobject]@{
+						$pname = $prefdata.profile.name
+						$results += [pscustomobject]@{
 							UserName    = $userpath.Name
 							ProfileID   = $folder.Name
-							ProfileName = $name
+							ProfileName = $pname
 							Browser     = $app
+							Path        = $folder.FullName
 						}
 					}
 				}
@@ -122,15 +134,27 @@ function Get-BrowserProfile {
 				[array]$profileFolders = Get-ChildItem -Path $profilePath -Directory | select-object Name,FullName
 				foreach ($folder in $profileFolders) {
 					$prefdata = $folder.Name.Split('.')
-					$name = $prefdata[1]
-					[pscustomobject]@{
+					$pname = $prefdata[1]
+					$results += [pscustomobject]@{
 						UserName    = $env:USERNAME
 						ProfileID   = $folder.Name
-						ProfileName = $name
+						ProfileName = $pname
 						Browser     = $app
+						Path        = $folder.FullName
 					}
 				}
 			}
 		}
+	}
+	if (![string]::IsNullOrWhiteSpace($ProfileName)) {
+		if ($PreferenceDetails) {
+			$ppath = $results | Where-Object {$_.ProfileName -eq $ProfileName} | Select-Object -ExpandProperty Path
+			$pref = Join-Path $ppath "Preferences"
+			Get-Content -Path $pref | ConvertFrom-Json
+		} else {
+			$results | Where-Object {$_.ProfileName -eq $ProfileName}
+		}
+	} else {
+		$results
 	}
 }
