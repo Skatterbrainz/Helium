@@ -16,6 +16,8 @@ function Get-ModuleHelp {
 		Get-ModuleHelp -ModuleName PowerShellAI
 
 		Displays help summary for all commands in the module PowerShellAI (if it is installed)
+	.LINK
+		https://github.com/Skatterbrainz/helium/blob/master/docs/Get-ModuleHelp.md
 	#>
 	param (
 		[parameter(Mandatory)][string]$ModuleName,

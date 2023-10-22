@@ -12,5 +12,6 @@ function Get-BadServices {
 	#>
 	[CmdletBinding()]
 	param()
-	Get-Service | Where-Object {$_.StartType -eq 'Automatic' -and $_.State -ne 'Running'}
+	Write-Host "The following services are configured for Automatic start, but are not currently running:" -ForegroundColor Cyan
+	Get-Service -ErrorAction SilentlyContinue | Where-Object {$_.StartType -eq 'Automatic' -and $_.State -ne 'Running'}
 }

@@ -83,6 +83,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
+Requires PowerShellAI module and having the OpenAI API key defined as environment variable "OpenAIKey"
 
 ## RELATED LINKS
 

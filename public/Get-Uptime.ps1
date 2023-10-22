@@ -1,6 +1,9 @@
 function Get-UpTime {
 	<#
+	.SYNOPSIS
+		Get system uptime
 	.DESCRIPTION
+		Get system uptime (time since last restart)
 	.PARAMETER ComputerName
 		Optional. Name of remote computer to query
 	.PARAMETER Credential

@@ -8,6 +8,8 @@ schema: 2.0.0
 # Get-UpTime
 
 ## SYNOPSIS
+Get system uptime
+
 ## SYNTAX
 
 ```
@@ -15,7 +17,7 @@ Get-UpTime [[-ComputerName] <String>] [[-Credential] <PSCredential>] [<CommonPar
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Get system uptime (time since last restart)
 
 ## EXAMPLES
 

@@ -21,6 +21,8 @@ function Publish-AiCommit {
 		Publish-AiCommit -Path ".\repo42\" -Send
 
 		Shows the staging message from OpenAI for the repo in the specified path, and commits the changes, then issues a push command
+	.NOTES
+		Requires PowerShellAI module and having the OpenAI API key defined as environment variable "OpenAIKey"
 	.LINK
 		https://github.com/Skatterbrainz/helium/blob/master/docs/Publish-AiCommit.md
 	#>

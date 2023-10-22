@@ -26,8 +26,7 @@ function Get-CommandSyntax {
 	$params = @{
 		Name =  if ($check.CommandType -eq 'Alias') {
 					Get-Command -Name $check.Definition
-				}
-				else {
+				} else {
 					$Command
 				}
 		Syntax = $true
