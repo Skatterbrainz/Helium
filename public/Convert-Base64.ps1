@@ -28,25 +28,9 @@ function Convert-Base64 {
 	begin {}
 	process {
 		if ($Output -eq 'Base64') {
-			$enc = [system.Text.Encoding]::UTF8
-			$data = $enc.GetBytes($string)
-			$compressedStream = [System.IO.MemoryStream]::new()
-			$zipStream = [System.IO.Compression.GZipStream]::new($compressedStream, [System.IO.Compression.CompressionMode]::Compress)
-			$zipStream.Write($data, 0, $data.Length);
-			$zipStream.Close();
-			$compressedData = $compressedStream.ToArray()
-			[Convert]::ToBase64String($compressedData)
+			[Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes($String))
 		} else {
-			$data = [System.Convert]::FromBase64String($EncodedText)
-			$compressedStream = [System.IO.MemoryStream]::new($data)
-			$zipStream = [System.IO.Compression.GZipStream]::new($compressedStream, [System.IO.Compression.CompressionMode]::Decompress)
-			$resultStream = [System.IO.MemoryStream]::new()
-			$buffer = [System.Byte[]]::CreateInstance([System.Byte],4096)
-			while (($read = $zipStream.Read($buffer, 0, $buffer.Length)) -gt 0){
-				$resultStream.Write($buffer, 0, $read)
-			}
-			$decompressed = $resultStream.ToArray()
-			[System.Text.Encoding]::UTF8.GetString($decompressed, 0, $decompressed.Length)
+			[System.Text.Encoding]::Unicode.GetString([System.Convert]::FromBase64String($String))
 		}
 	}
 	end {}
