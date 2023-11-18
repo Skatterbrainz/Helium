@@ -13,7 +13,7 @@ Convert string to Base64 compressed, or from Base64 compressed to ASCII
 ## SYNTAX
 
 ```
-Convert-Base64 [-String] <Object> [-Output] <String> [<CommonParameters>]
+Convert-Base64 [-String] <Object> [-Output] <String> [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -65,6 +65,21 @@ Aliases:
 
 Required: True
 Position: 2
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ProgressAction
+{{ Fill ProgressAction Description }}
+
+```yaml
+Type: ActionPreference
+Parameter Sets: (All)
+Aliases: proga
+
+Required: False
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

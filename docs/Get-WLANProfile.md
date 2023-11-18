@@ -1,46 +1,54 @@
 ---
 external help file: helium-help.xml
 Module Name: helium
-online version: https://github.com/Skatterbrainz/helium/blob/master/docs/Get-CleanText.md
+online version: https://github.com/Skatterbrainz/helium/blob/master/docs/Get-WLANProfile.md
 schema: 2.0.0
 ---
 
-# Get-CleanText
+# Get-WLANProfile
 
 ## SYNOPSIS
-Remove non-ASCII alphanumeric characters from text string
+Get Wireless profile names and passwords.
 
 ## SYNTAX
 
 ```
-Get-CleanText [[-String] <String>] [-NoSpaces] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+Get-WLANProfile [[-Name] <String>] [-ClearText] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Remove non-ASCII alphanumeric characters from test string, such as diactritics and
-optionally remove spaces.
+Get Wireless connection profile names and passwords.
+Same as using: netsh wlan show profiles
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 ```
-Get-CleanText "Entrepôt Jalapeño"
+Get-WLANProfile
 ```
 
-Returns "Entrepot Jalapeno"
+Returns all WLAN profiles with encrypted passwords.
 
 ### EXAMPLE 2
 ```
-Get-CleanText "Entrepôt Jalapeño" -NoSpaces
+Get-WLANProfile -Name Home123
 ```
 
-Returns "EntrepotJalapeno"
+Returns WLAN profile Home123 and its encrypted password.
+
+### EXAMPLE 3
+```
+Get-WLANProfile -Name Home123 -ClearText
+```
+
+Returns WLAN profile Home123 and its password in clear text.
 
 ## PARAMETERS
 
-### -String
-Required.
-Input string value
+### -Name
+Optional.
+Name of WLAN profile to query.
+Default (blank) returns all WLAN profiles.
 
 ```yaml
 Type: String
@@ -54,9 +62,10 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -NoSpaces
+### -ClearText
 Optional.
-Remove spaces
+Return passwords in clear text.
+Default is to return as secure string values.
 
 ```yaml
 Type: SwitchParameter
@@ -96,5 +105,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://github.com/Skatterbrainz/helium/blob/master/docs/Get-CleanText.md](https://github.com/Skatterbrainz/helium/blob/master/docs/Get-CleanText.md)
+[https://github.com/Skatterbrainz/helium/blob/master/docs/Get-WLANProfile.md](https://github.com/Skatterbrainz/helium/blob/master/docs/Get-WLANProfile.md)
 

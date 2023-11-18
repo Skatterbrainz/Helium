@@ -13,7 +13,8 @@ Show Windows processes using the most resources
 ## SYNTAX
 
 ```
-Get-ResourceHogs [[-Metric] <String>] [[-Top] <Int32>] [-ShowPath] [<CommonParameters>]
+Get-ResourceHogs [[-Metric] <String>] [[-Top] <Int32>] [-ShowPath] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -80,6 +81,21 @@ Aliases:
 Required: False
 Position: Named
 Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ProgressAction
+{{ Fill ProgressAction Description }}
+
+```yaml
+Type: ActionPreference
+Parameter Sets: (All)
+Aliases: proga
+
+Required: False
+Position: Named
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

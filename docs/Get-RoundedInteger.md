@@ -13,7 +13,8 @@ Get rounded integer to nearest base or floor number
 ## SYNTAX
 
 ```
-Get-RoundedInteger [-Integer] <Int32> [[-Nearest] <Int32>] [<CommonParameters>]
+Get-RoundedInteger [-Integer] <Int32> [[-Nearest] <Int32>] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -70,6 +71,21 @@ Aliases:
 Required: False
 Position: 2
 Default value: 100
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ProgressAction
+{{ Fill ProgressAction Description }}
+
+```yaml
+Type: ActionPreference
+Parameter Sets: (All)
+Aliases: proga
+
+Required: False
+Position: Named
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

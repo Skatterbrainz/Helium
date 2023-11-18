@@ -13,7 +13,8 @@ Get currently logged-on users
 ## SYNTAX
 
 ```
-Get-LoggedOnUser [[-ComputerName] <String[]>] [-UserName <String>] [<CommonParameters>]
+Get-LoggedOnUser [[-ComputerName] <String[]>] [-UserName <String>] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -60,6 +61,21 @@ If the specified username is found logged into a machine, it will display it in 
 Type: String
 Parameter Sets: (All)
 Aliases: SamAccountName
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ProgressAction
+{{ Fill ProgressAction Description }}
+
+```yaml
+Type: ActionPreference
+Parameter Sets: (All)
+Aliases: proga
 
 Required: False
 Position: Named

@@ -13,7 +13,8 @@ Returns local group members
 ## SYNTAX
 
 ```
-Get-LocalGroupMembers [[-ComputerName] <String>] [[-GroupName] <String>] [<CommonParameters>]
+Get-LocalGroupMembers [[-ComputerName] <String>] [[-GroupName] <String>] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -58,6 +59,21 @@ Aliases: Group
 Required: False
 Position: 2
 Default value: Administrators
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ProgressAction
+{{ Fill ProgressAction Description }}
+
+```yaml
+Type: ActionPreference
+Parameter Sets: (All)
+Aliases: proga
+
+Required: False
+Position: Named
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
