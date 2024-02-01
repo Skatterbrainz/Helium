@@ -1,4 +1,4 @@
-function Convert-CsvToJson {
+function ConvertFrom-CsvToJson {
 	<#
 	.SYNOPSIS
 		Convert a CSV file to JSON format
@@ -11,23 +11,23 @@ function Convert-CsvToJson {
 	.PARAMETER OutputFile
 		Path and name of JSON output file. The default is to use the same path and filename replacing the file extension with .json
 	.EXAMPLE
-		Convert-CsvToJson -Path "c:\temp\myfile.csv"
+		ConvertFrom-CsvToJson -Path "c:\temp\myfile.csv"
 
 		Exports the CSV file "c:\temp\myfile.csv"
 	.EXAMPLE
-		Get-ChildItem -Path "c:\temp" -Filter "*.csv" | Select FullName | Convert-CsvToJson
+		Get-ChildItem -Path "c:\temp" -Filter "*.csv" | Select FullName | ConvertFrom-CsvToJson
 
 		Exports each CSV file in the path "c:\temp" to a new JSON file with the same filename and in the same folder path
 	.EXAMPLE
-		Convert-CsvToJson -Path "c:\temp\myfile.csv" -OutputFile "f:\docs\newfile.json"
+		ConvertFrom-CsvToJson -Path "c:\temp\myfile.csv" -OutputFile "f:\docs\newfile.json"
 
 		Exports the CSV file to a different path and JSON filename.
 	.EXAMPLE
-		Convert-JsonToCsv -Path "c:\temp\myfile.csv" -TranslateFileName
+		ConvertFrom-CsvToJson -Path "c:\temp\myfile.csv" -TranslateFileName
 
 		Exports the JSON file to c:\temp\myfile.json
 	.LINK
-		https://github.com/Skatterbrainz/helium/blob/master/docs/Convert-CsvToJson.md
+		https://github.com/Skatterbrainz/helium/blob/master/docs/ConvertFrom-CsvToJson.md
 	#>
 	[CmdletBinding()]
 	param (

@@ -1,40 +1,38 @@
 ---
 external help file: helium-help.xml
 Module Name: helium
-online version: https://github.com/Skatterbrainz/helium/blob/master/docs/ConvertTo-Base64Compressed.md
+online version: https://github.com/Skatterbrainz/helium/blob/master/docs/ConvertFrom-HtmlTable.md
 schema: 2.0.0
 ---
 
-# ConvertTo-Base64Compressed
+# ConvertFrom-HtmlTable
 
 ## SYNOPSIS
-Convert string to Base64 compressed
+Convert HTML Table rows into objects
 
 ## SYNTAX
 
 ```
-ConvertTo-Base64Compressed [-string] <Object> [<CommonParameters>]
+ConvertFrom-HtmlTable [-Path] <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Convert an ASCII string to Base64 compressed format
+Convert HTML table rows into objects
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 ```
-"this is a test string" | ConvertTo-Base64Compressed
-returns "H4sIAAAAAAAEACvJyCxWAKJEhZLU4hKF4pKizLx0ALXWhvwVAAAA"
+ConvertFrom-HtmlTable -Path "c:\temp\myfile.htm"
 ```
 
 ## PARAMETERS
 
-### -string
-Required.
-Text string to convert.
+### -Path
+HTML file path
 
 ```yaml
-Type: Object
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -56,5 +54,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://github.com/Skatterbrainz/helium/blob/master/docs/ConvertTo-Base64Compressed.md](https://github.com/Skatterbrainz/helium/blob/master/docs/ConvertTo-Base64Compressed.md)
+[https://github.com/Skatterbrainz/helium/blob/master/docs/ConvertFrom-HtmlTable.md](https://github.com/Skatterbrainz/helium/blob/master/docs/ConvertFrom-HtmlTable.md)
 

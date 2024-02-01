@@ -13,8 +13,7 @@ Get Windows default app associations table
 ## SYNTAX
 
 ```
-Get-DefaultAppAssociations [[-FilePath] <String>] [[-RefreshDays] <Int32>] [-Force]
- [-ProgressAction <ActionPreference>] [<CommonParameters>]
+Get-DefaultAppAssociations [[-FilePath] <String>] [[-RefreshDays] <Int32>] [-Force] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -79,21 +78,6 @@ Aliases:
 Required: False
 Position: Named
 Default value: False
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ProgressAction
-{{ Fill ProgressAction Description }}
-
-```yaml
-Type: ActionPreference
-Parameter Sets: (All)
-Aliases: proga
-
-Required: False
-Position: Named
-Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

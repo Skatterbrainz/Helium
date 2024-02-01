@@ -1,11 +1,11 @@
 ---
 external help file: helium-help.xml
 Module Name: helium
-online version: https://github.com/Skatterbrainz/helium/blob/master/docs/Convert-CsvToJson.md
+online version: https://github.com/Skatterbrainz/helium/blob/master/docs/ConvertFrom-CsvToJson.md
 schema: 2.0.0
 ---
 
-# Convert-CsvToJson
+# ConvertFrom-CsvToJson
 
 ## SYNOPSIS
 Convert a CSV file to JSON format
@@ -13,7 +13,7 @@ Convert a CSV file to JSON format
 ## SYNTAX
 
 ```
-Convert-CsvToJson [-Path] <String> [-TranslateFileName] [[-OutputFile] <String>] [<CommonParameters>]
+ConvertFrom-CsvToJson [-Path] <String> [-TranslateFileName] [[-OutputFile] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -23,28 +23,28 @@ Convert a CSV file to JSON format file.
 
 ### EXAMPLE 1
 ```
-Convert-CsvToJson -Path "c:\temp\myfile.csv"
+ConvertFrom-CsvToJson -Path "c:\temp\myfile.csv"
 ```
 
 Exports the CSV file "c:\temp\myfile.csv"
 
 ### EXAMPLE 2
 ```
-Get-ChildItem -Path "c:\temp" -Filter "*.csv" | Select FullName | Convert-CsvToJson
+Get-ChildItem -Path "c:\temp" -Filter "*.csv" | Select FullName | ConvertFrom-CsvToJson
 ```
 
 Exports each CSV file in the path "c:\temp" to a new JSON file with the same filename and in the same folder path
 
 ### EXAMPLE 3
 ```
-Convert-CsvToJson -Path "c:\temp\myfile.csv" -OutputFile "f:\docs\newfile.json"
+ConvertFrom-CsvToJson -Path "c:\temp\myfile.csv" -OutputFile "f:\docs\newfile.json"
 ```
 
 Exports the CSV file to a different path and JSON filename.
 
 ### EXAMPLE 4
 ```
-Convert-JsonToCsv -Path "c:\temp\myfile.csv" -TranslateFileName
+ConvertFrom-CsvToJson -Path "c:\temp\myfile.csv" -TranslateFileName
 ```
 
 Exports the JSON file to c:\temp\myfile.json
@@ -109,5 +109,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://github.com/Skatterbrainz/helium/blob/master/docs/Convert-CsvToJson.md](https://github.com/Skatterbrainz/helium/blob/master/docs/Convert-CsvToJson.md)
+[https://github.com/Skatterbrainz/helium/blob/master/docs/ConvertFrom-CsvToJson.md](https://github.com/Skatterbrainz/helium/blob/master/docs/ConvertFrom-CsvToJson.md)
 

@@ -1,4 +1,4 @@
-function Convert-HtmlTable {
+function ConvertFrom-HtmlTable {
 	<#
 	.SYNOPSIS
 		Convert HTML Table rows into objects
@@ -7,9 +7,9 @@ function Convert-HtmlTable {
 	.PARAMETER Path
 		HTML file path
 	.EXAMPLE
-		Convert-HtmlTable -Path "c:\temp\myfile.htm"
+		ConvertFrom-HtmlTable -Path "c:\temp\myfile.htm"
 	.LINK
-		https://github.com/Skatterbrainz/helium/blob/master/docs/Convert-HtmlTable.md
+		https://github.com/Skatterbrainz/helium/blob/master/docs/ConvertFrom-HtmlTable.md
 	#>
 	[CmdletBinding()]
 	param (

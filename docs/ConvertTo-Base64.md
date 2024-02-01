@@ -1,62 +1,62 @@
 ---
 external help file: helium-help.xml
 Module Name: helium
-online version: https://github.com/Skatterbrainz/helium/blob/master/docs/Get-CleanText.md
+online version: https://github.com/Skatterbrainz/helium/blob/master/docs/ConvertTo-Base64.md
 schema: 2.0.0
 ---
 
-# Get-CleanText
+# ConvertTo-Base64
 
 ## SYNOPSIS
-Remove non-ASCII alphanumeric characters from text string
+Convert ASCII or Unicode string to Base64
 
 ## SYNTAX
 
 ```
-Get-CleanText [[-String] <String>] [-NoSpaces] [<CommonParameters>]
+ConvertTo-Base64 [-String] <Object> [-Compressed] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Remove non-ASCII alphanumeric characters from test string, such as diactritics and
-optionally remove spaces.
+Convert ASCII or Unicode string to Base64 string
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 ```
-Get-CleanText "Entrep ´t Jalape ±o"
+$x = "this is a test string"
 ```
 
-Returns "Entrepot Jalapeno"
+$x | ConvertTo-Base64
+Returns: "H4sIAAAAAAAEACvJyCxWAKJEhZLU4hKF4pKizLx0ALXWhvwVAAAA"
 
 ### EXAMPLE 2
 ```
-Get-CleanText "Entrep ´t Jalape ±o" -NoSpaces
+"this is a compressed test string" | ConvertTo-Base64 -Compressed
 ```
 
-Returns "EntrepotJalapeno"
+returns: "H4sIAAAAAAAACivJyCxWAKJEheT83IKi1OLi1BSFktTiEoXikqLMvHQAhzKd/iAAAAA="
 
 ## PARAMETERS
 
 ### -String
 Required.
-Input string value
+ASCII or Unicode string value to be converted.
 
 ```yaml
-Type: String
+Type: Object
 Parameter Sets: (All)
 Aliases:
 
-Required: False
+Required: True
 Position: 1
 Default value: None
-Accept pipeline input: False
+Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 
-### -NoSpaces
+### -Compressed
 Optional.
-Remove spaces
+Compress results, or decode from compressed source
 
 ```yaml
 Type: SwitchParameter
@@ -78,8 +78,9 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
+Compressed may result in a longer Base64 output.
 
 ## RELATED LINKS
 
-[https://github.com/Skatterbrainz/helium/blob/master/docs/Get-CleanText.md](https://github.com/Skatterbrainz/helium/blob/master/docs/Get-CleanText.md)
+[https://github.com/Skatterbrainz/helium/blob/master/docs/ConvertTo-Base64.md](https://github.com/Skatterbrainz/helium/blob/master/docs/ConvertTo-Base64.md)
 

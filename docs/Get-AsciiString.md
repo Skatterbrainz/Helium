@@ -13,7 +13,7 @@ Trim leading and trailing spaces from string, and optionally replace non-ASCII c
 ## SYNTAX
 
 ```
-Get-AsciiString [[-String] <String>] [-Cleanup] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+Get-AsciiString [[-String] <String>] [-Cleanup] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -24,17 +24,17 @@ such as diacritic characters with corresponding ASCII characters
 
 ### EXAMPLE 1
 ```
-Get-AsciiString 'diakritikós '
+Get-AsciiString 'diakritik ³s '
 ```
 
-returns 'diakritikós' (trailing space removed)
+returns 'diakritik ³s' (trailing space removed)
 
 ### EXAMPLE 2
 ```
-Get-AsciiString 'diakritikós ' -Cleanup
+Get-AsciiString 'diakritik ³s ' -Cleanup
 ```
 
-returns 'diakritikos' (trailing space removed, and ó is replace with o)
+returns 'diakritikos' (trailing space removed, and  ³ is replace with o)
 
 ## PARAMETERS
 
@@ -66,21 +66,6 @@ Aliases:
 Required: False
 Position: Named
 Default value: False
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ProgressAction
-{{ Fill ProgressAction Description }}
-
-```yaml
-Type: ActionPreference
-Parameter Sets: (All)
-Aliases: proga
-
-Required: False
-Position: Named
-Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

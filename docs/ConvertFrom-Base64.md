@@ -1,38 +1,41 @@
 ---
 external help file: helium-help.xml
 Module Name: helium
-online version: https://github.com/Skatterbrainz/helium/blob/master/docs/Convert-HtmlTable.md
+online version: https://github.com/Skatterbrainz/helium/blob/master/docs/ConvertFrom-Base64.md
 schema: 2.0.0
 ---
 
-# Convert-HtmlTable
+# ConvertFrom-Base64
 
 ## SYNOPSIS
-Convert HTML Table rows into objects
+Convert string from Base64 to ASCII
 
 ## SYNTAX
 
 ```
-Convert-HtmlTable [-Path] <String> [-ProgressAction <ActionPreference>] [<CommonParameters>]
+ConvertFrom-Base64 [-String] <Object> [-Compressed] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Convert HTML table rows into objects
+Convert string to Base64 string to ASCII string
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 ```
-Convert-HtmlTable -Path "c:\temp\myfile.htm"
+"H4sIAAAAAAAEACvJyCxWAKJEhZLU4hKF4pKizLx0ALXWhvwVAAAA" | ConvertFrom-Base64
 ```
+
+returns: "this is a test string"
 
 ## PARAMETERS
 
-### -Path
-HTML file path
+### -String
+Required.
+Base64 encoded string value to be converted.
 
 ```yaml
-Type: String
+Type: Object
 Parameter Sets: (All)
 Aliases:
 
@@ -43,17 +46,18 @@ Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 
-### -ProgressAction
-{{ Fill ProgressAction Description }}
+### -Compressed
+Optional.
+Decode from compressed source
 
 ```yaml
-Type: ActionPreference
+Type: SwitchParameter
 Parameter Sets: (All)
-Aliases: proga
+Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -69,5 +73,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://github.com/Skatterbrainz/helium/blob/master/docs/Convert-HtmlTable.md](https://github.com/Skatterbrainz/helium/blob/master/docs/Convert-HtmlTable.md)
+[https://github.com/Skatterbrainz/helium/blob/master/docs/ConvertFrom-Base64.md](https://github.com/Skatterbrainz/helium/blob/master/docs/ConvertFrom-Base64.md)
 

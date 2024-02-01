@@ -13,8 +13,7 @@ Split LDAP path string
 ## SYNTAX
 
 ```
-Split-LDAP [-Path] <String> [[-Delimiter] <String>] [[-Part] <String>] [-ProgressAction <ActionPreference>]
- [<CommonParameters>]
+Split-LDAP [-Path] <String> [[-Delimiter] <String>] [[-Part] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -26,23 +25,26 @@ and LDAP object DistinguishedName, or the Domain suffix portion.
 ### EXAMPLE 1
 ```
 $p1 = "CN=JSmith,CN=Users,DC=east,DC=contoso,DC=local"
+```
+
 Split-LDAP $p1
 Returns "CN-Users,DC=east,DC=contoso,DC=local"
-```
 
 ### EXAMPLE 2
 ```
 $p1 = "CN=JSmith,CN=Users,DC=east,DC=contoso,DC=local"
+```
+
 Split-LDAP $p1 -Part Domain
 Returns "DC=east,DC=contoso,DC=local"
-```
 
 ### EXAMPLE 3
 ```
 "CN=JSmith,CN=Users,DC=east,DC=contoso,DC=local" | Split-LDAP
+```
+
 Applies the split using pipeline input to return:
 "CN=Users,DC=east,DC=contoso,DC=local"
-```
 
 ## PARAMETERS
 
@@ -89,21 +91,6 @@ Aliases:
 Required: False
 Position: 3
 Default value: Parent
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ProgressAction
-{{ Fill ProgressAction Description }}
-
-```yaml
-Type: ActionPreference
-Parameter Sets: (All)
-Aliases: proga
-
-Required: False
-Position: Named
-Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

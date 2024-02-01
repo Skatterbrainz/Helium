@@ -13,7 +13,7 @@ Show formatted basic syntax for a function or cmdlet
 ## SYNTAX
 
 ```
-Get-CommandSyntax [-Command] <Object> [-Normalize] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+Get-CommandSyntax [-Command] <Object> [-Normalize] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -60,21 +60,6 @@ Aliases:
 Required: False
 Position: Named
 Default value: False
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ProgressAction
-{{ Fill ProgressAction Description }}
-
-```yaml
-Type: ActionPreference
-Parameter Sets: (All)
-Aliases: proga
-
-Required: False
-Position: Named
-Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
