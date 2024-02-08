@@ -1,62 +1,61 @@
 ---
 external help file: helium-help.xml
 Module Name: helium
-online version: https://github.com/Skatterbrainz/helium/blob/master/docs/Get-CleanText.md
+online version: https://github.com/Skatterbrainz/helium/blob/master/docs/Get-ReverseDistinguishedName.md
 schema: 2.0.0
 ---
 
-# Get-CleanText
+# Get-ReverseDistinguishedName
 
 ## SYNOPSIS
-Remove non-ASCII alphanumeric characters from text string
+Reverse an LDAP DistinguishedName into ADSI form
 
 ## SYNTAX
 
 ```
-Get-CleanText [[-String] <String>] [-NoSpaces] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+Get-ReverseDistinguishedName [-DistinguishedName] <String> [-PathOnly] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Remove non-ASCII alphanumeric characters from test string, such as diactritics and
-optionally remove spaces.
+Reverse an LDAP DistinguishedName value into ADSI form so that it 
+reads left-to-right Domain,Path,Name without the prefix keys (e.g.
+"OU=")
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 ```
-Get-CleanText "Entrepôt Jalapeño"
+Get-ReverseDistinguishedName "CN=TaylorS,OU=Users,OU=Sales,OU=CORP,DC=East,DC=Contoso,DC=local"
+Returns: "East.Contoso.local\CORP\Sales\UsersTaylorS"
 ```
-
-Returns "Entrepot Jalapeno"
 
 ### EXAMPLE 2
 ```
-Get-CleanText "Entrepôt Jalapeño" -NoSpaces
+Get-ReverseDistinguishedName -PathOnly "CN=TaylorS,OU=Users,OU=Sales,OU=CORP,DC=East,DC=Contoso,DC=local"
+Returns: "East.Contoso.local\CORP\Sales"
 ```
-
-Returns "EntrepotJalapeno"
 
 ## PARAMETERS
 
-### -String
-Required.
-Input string value
+### -DistinguishedName
+LDAP DistinguishedName value
 
 ```yaml
 Type: String
 Parameter Sets: (All)
 Aliases:
 
-Required: False
+Required: True
 Position: 1
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -NoSpaces
+### -PathOnly
 Optional.
-Remove spaces
+Returns domain root and path without the object name (CN= value)
 
 ```yaml
 Type: SwitchParameter
@@ -96,5 +95,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://github.com/Skatterbrainz/helium/blob/master/docs/Get-CleanText.md](https://github.com/Skatterbrainz/helium/blob/master/docs/Get-CleanText.md)
+[https://github.com/Skatterbrainz/helium/blob/master/docs/Get-ReverseDistinguishedName.md](https://github.com/Skatterbrainz/helium/blob/master/docs/Get-ReverseDistinguishedName.md)
 

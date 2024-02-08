@@ -13,7 +13,7 @@ Convert string from Base64 to ASCII
 ## SYNTAX
 
 ```
-ConvertFrom-Base64 [-String] <Object> [-Compressed] [<CommonParameters>]
+ConvertFrom-Base64 [-String] <Object> [-Compressed] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -24,9 +24,8 @@ Convert string to Base64 string to ASCII string
 ### EXAMPLE 1
 ```
 "H4sIAAAAAAAEACvJyCxWAKJEhZLU4hKF4pKizLx0ALXWhvwVAAAA" | ConvertFrom-Base64
-```
-
 returns: "this is a test string"
+```
 
 ## PARAMETERS
 
@@ -58,6 +57,21 @@ Aliases:
 Required: False
 Position: Named
 Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ProgressAction
+{{ Fill ProgressAction Description }}
+
+```yaml
+Type: ActionPreference
+Parameter Sets: (All)
+Aliases: proga
+
+Required: False
+Position: Named
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
