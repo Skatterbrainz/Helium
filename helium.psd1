@@ -4,7 +4,7 @@
 # Last updated: 02/07/2024
 @{
 RootModule = '.\helium.psm1'
-ModuleVersion = '1.1.9'
+ModuleVersion = '1.1.10'
 # CompatiblePSEditions = @()
 GUID = '00631599-1008-4991-a1cf-3e793e21cff1'
 Author = 'David Stein'
