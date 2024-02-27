@@ -32,8 +32,8 @@ function Publish-AiCommit {
 		[parameter()][switch]$Send
 	)
 	try {
-		if (!(Get-Module PowerShellAI -ListAvailable)) {
-			throw "Requires PowerShell module to be installed: PowerShellAI"
+		if (!(Get-Module PowerShellAIAssistant -ListAvailable)) {
+			throw "Requires PowerShell module to be installed: PowerShellAIAssistant"
 		}
 		if ([string]::IsNullOrWhiteSpace($env:OpenAIKey)) {
 			throw "Environment variable OpenAIKey is not defined"

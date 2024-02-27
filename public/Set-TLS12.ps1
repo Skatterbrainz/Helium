@@ -10,6 +10,11 @@ function Set-TLS12 {
 	.LINK
 		https://github.com/Skatterbrainz/helium/blob/master/docs/Set-TLS12.md
 	#>
-	[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-	[Net.ServicePointManager]::SecurityProtocol
+	try {
+		if ($PSVersionTable.Platform -eq 'Unix') { throw "This command only works on Windows" }
+		[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+		[Net.ServicePointManager]::SecurityProtocol
+	} catch {
+		Write-Error $_.Exception.Message
+	}
 }

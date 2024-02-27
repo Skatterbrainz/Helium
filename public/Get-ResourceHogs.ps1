@@ -27,10 +27,15 @@ function Get-ResourceHogs {
 		[parameter()][int][ValidateRange(0,100)]$Top = 10,
 		[parameter()][switch]$ShowPath
 	)
-	$outprops = @('ProcessName','Id',$Metric)
-	if ($ShowPath) { $outprops += 'Path' }
-	$outparams = @{ First = $Top; Property = $outprops }
-	Get-Process | Group-Object ProcessName |
-		ForEach-Object { $_.Group | Sort-Object $Metric -Descending | Select-Object -First 1 } |
-			Sort-Object $Metric -Descending | Select-Object @outparams
+	try {
+		if ($PSVersionTable.Platform -eq 'Unix') { throw "This command only works on Windows" }
+		$outprops = @('ProcessName','Id',$Metric)
+		if ($ShowPath) { $outprops += 'Path' }
+		$outparams = @{ First = $Top; Property = $outprops }
+		Get-Process | Group-Object ProcessName |
+			ForEach-Object { $_.Group | Sort-Object $Metric -Descending | Select-Object -First 1 } |
+				Sort-Object $Metric -Descending | Select-Object @outparams
+	} catch {
+		Write-Error $_.Exception.Message
+	}
 }

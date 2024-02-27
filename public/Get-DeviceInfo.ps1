@@ -13,6 +13,7 @@ function Get-DeviceInfo {
 	[CmdletBinding()]
 	param ()
 	try {
+		if ($PSVersionTable.Platform -eq 'Unix') { throw "This command only works on Windows" }
 		$cs = Get-CimInstance -ClassName Win32_ComputerSystem
 		$os = Get-CimInstance -ClassName Win32_OperatingSystem
 		$ut = (New-TimeSpan -Start $os.LastBootUpTime -End (Get-Date))

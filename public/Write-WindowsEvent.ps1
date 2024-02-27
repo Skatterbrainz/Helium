@@ -39,11 +39,16 @@ function Write-WindowsEvent {
 		[parameter(Mandatory)][string][ValidateNotNullOrEmpty()]$Source,
 		[parameter(Mandatory)][string][ValidateNotNullOrEmpty()]$Message
 	)
-	$sourceExists = (Get-WmiObject -Class Win32_NTEventLOgFile |
-		Select-Object FileName, Sources |
-			ForEach-Object -Begin { $hash = @{}} -Process { $hash[$_.FileName] = $_.Sources } -End { $Hash })["Application"] | findstr $Source
-	if (-not $SourceExists) {
-		$null = New-EventLog -LogName Application -Source $Source
+	try {
+		if ($PSVersionTable.Platform -eq 'Unix') { throw "This command only works on Windows" }
+		$sourceExists = (Get-WmiObject -Class Win32_NTEventLOgFile |
+			Select-Object FileName, Sources |
+				ForEach-Object -Begin { $hash = @{}} -Process { $hash[$_.FileName] = $_.Sources } -End { $Hash })["Application"] | findstr $Source
+		if (-not $SourceExists) {
+			$null = New-EventLog -LogName Application -Source $Source
+		}
+		Write-EventLog -LogName $LogName -Source $Source -EventID $EventID -Message $Message -Category $Category -EntryType $Severity
+	} catch {
+		Write-Error $_.Exception.Messsage
 	}
-	Write-EventLog -LogName $LogName -Source $Source -EventID $EventID -Message $Message -Category $Category -EntryType $Severity
 }

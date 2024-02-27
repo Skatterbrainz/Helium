@@ -24,6 +24,7 @@ function Invoke-InputBox {
 		[parameter()][string]$DefaultResponse = ""
 	)
 	try {
+		if ($PSVersionTable.Platform -eq 'Unix') { throw "This command only works on Windows" }
 		[void][Reflection.Assembly]::LoadWithPartialName('Microsoft.VisualBasic')
 		$text = [Microsoft.VisualBasic.Interaction]::InputBox($Message, $Title, $DefaultResponse)
 		return $text

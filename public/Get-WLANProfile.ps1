@@ -31,28 +31,33 @@ function Get-WLANProfile {
 		[parameter()][string]$Name,
 		[parameter()][switch]$ClearText
 	)
-	$names = @()
-	$profiles = (netsh.exe wlan show profiles) -match ':'
-	foreach ($item in $profiles[1..1000]) {
-		$names += $item.Substring(27)
-	}
-	if (![string]::IsNullOrWhiteSpace($Name)) {
-		$names = @($names | Where-Object {$_ -eq $Name})
-	}
-	foreach ($name in $names) {
-		$content = (netsh.exe wlan show profile name="$name" key=clear | findstr.exe Key)
-		if ($content -match "Key Content") {
-			if ($ClearText) {
-				$ppwd = $content.Substring(28).Trim()
+	try {
+		if ($PSVersionTable.Platform -eq 'Unix') { throw "This command only works on Windows" }
+		$names = @()
+		$profiles = (netsh.exe wlan show profiles) -match ':'
+		foreach ($item in $profiles[1..1000]) {
+			$names += $item.Substring(27)
+		}
+		if (![string]::IsNullOrWhiteSpace($Name)) {
+			$names = @($names | Where-Object {$_ -eq $Name})
+		}
+		foreach ($name in $names) {
+			$content = (netsh.exe wlan show profile name="$name" key=clear | findstr.exe Key)
+			if ($content -match "Key Content") {
+				if ($ClearText) {
+					$ppwd = $content.Substring(28).Trim()
+				} else {
+					$ppwd = $content.Substring(28).Trim() | ConvertTo-SecureString -AsPlainText -Force
+				}
 			} else {
-				$ppwd = $content.Substring(28).Trim() | ConvertTo-SecureString -AsPlainText -Force
+				$ppwd = ""
 			}
-		} else {
-			$ppwd = ""
+			[pscustomobject]@{
+				Name = $name
+				Password = $ppwd
+			}
 		}
-		[pscustomobject]@{
-			Name = $name
-			Password = $ppwd
-		}
+	} catch {
+		Write-Error $_.Exception.Message
 	}
 }

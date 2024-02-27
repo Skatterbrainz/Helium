@@ -54,6 +54,7 @@ function Get-WindowsEvent {
 		[parameter()][switch]$LevelVerbose
 	)
 	try {
+		if ($PSVersionTable.Platform -eq 'Unix') { throw "This command only works on Windows" }
 		$query = @"
 <QueryList>
 	<Query Id="0" Path="$LogName">
