@@ -1,44 +1,48 @@
 ---
 external help file: helium-help.xml
 Module Name: helium
-online version: https://github.com/Skatterbrainz/helium/blob/master/docs/Invoke-Grep.md
+online version: https://github.com/Skatterbrainz/helium/blob/master/docs/Out-GridSelect.md
 schema: 2.0.0
 ---
 
-# Invoke-Grep
+# Out-GridSelect
 
 ## SYNOPSIS
-Search text or file content for matching string pattern
+Use GridView or ConsoleGridView to provide a selection menu
 
 ## SYNTAX
 
 ```
-Invoke-Grep [-Pattern] <String> [[-InputString] <String>] [[-Path] <String>] [-Recurse]
+Out-GridSelect [-InputObject] <Object> [[-Title] <String>] [[-OutputMode] <String>] [-ForceConsole]
  [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Search text or file content for matching string pattern
+Use a GridView or ConsoleGridView to provide a selection menu interface for selecting either
+single or multiple items.
+On Linux this will only invoke a ConsoleGridView.
+For Windows, it 
+will default to a GridView unless -ForceConsole is used.
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 ```
-Invoke-Grep -Pattern "Contoso Corp" -InputString "The facility is owned by Contoso Corp, who recently leased it."
+Get-Process | Out-GridSelect
 ```
 
 ### EXAMPLE 2
 ```
-Invoke-Grep -Pattern "Contoso Corp" -Path "c:\mydocs" -Recurse
+Get-Process | Out-GridSelect -Title "Select Processes" -OutputMode Multiple
 ```
 
 ## PARAMETERS
 
-### -Pattern
-Text pattern to search for
+### -InputObject
+An array of objects.
 
 ```yaml
-Type: String
+Type: Object
 Parameter Sets: (All)
 Aliases:
 
@@ -49,8 +53,10 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -InputString
-String to search for matching Pattern value
+### -Title
+Title to display on the gridview heading (caption).
+If not provided will display "Select Item"
+or "Select Items"
 
 ```yaml
 Type: String
@@ -64,9 +70,9 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Path
-Path to search files for matching Pattern value.
-If Path is provided, InputString is ignored
+### -OutputMode
+Optional.
+Single (Default) or Multiple.
 
 ```yaml
 Type: String
@@ -75,18 +81,14 @@ Aliases:
 
 Required: False
 Position: 3
-Default value: None
+Default value: Single
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Recurse
+### -ForceConsole
 Optional.
-Only used with Path parameter.
-Default is to scan files
-in the Path location only, not sub-folders.
-If Recurse is used, scan
-will include sub-folders
+On Windows machines, forces ConsoleGridView
 
 ```yaml
 Type: SwitchParameter
@@ -123,8 +125,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
+The Microsoft.PowerShell.ConsoleGuiTools module is required on Linux, or when using -ForceConsole.
+I had some challenges with getting this function to accept pipeline input, mostly because I'm too
+stupid to figure it out and I need to cut down my coffee consumption.
+If you want to show me how to
+make that work please submit a pull request and I'll gladly plaster your name all over it for credit.
 
 ## RELATED LINKS
 
-[https://github.com/Skatterbrainz/helium/blob/master/docs/Invoke-Grep.md](https://github.com/Skatterbrainz/helium/blob/master/docs/Invoke-Grep.md)
+[https://github.com/Skatterbrainz/helium/blob/master/docs/Out-GridSelect.md](https://github.com/Skatterbrainz/helium/blob/master/docs/Out-GridSelect.md)
 

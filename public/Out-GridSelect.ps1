@@ -28,12 +28,16 @@ Get-Process | Out-GridSelect -Title "Select Processes" -OutputMode Multiple
 
 .NOTES
 The Microsoft.PowerShell.ConsoleGuiTools module is required on Linux, or when using -ForceConsole.
+I had some challenges with getting this function to accept pipeline input, mostly because I'm too
+stupid to figure it out and I need to cut down my coffee consumption. If you want to show me how to
+make that work please submit a pull request and I'll gladly plaster your name all over it for credit.
 
 .LINK
+https://github.com/Skatterbrainz/helium/blob/master/docs/Out-GridSelect.md
 #>
 function Out-GridSelect {
 	param (
-		[parameter(ValueFromPipeline=$True, Mandatory=$True)] $InputObject,
+		[parameter(Mandatory=$True)] $InputObject,
 		[parameter(Mandatory=$False)][string] $Title,
 		[parameter(Mandatory=$False)][string][ValidateSet('Single','Multiple')] $OutputMode = 'Single',
 		[parameter(Mandatory=$False)][switch] $ForceConsole

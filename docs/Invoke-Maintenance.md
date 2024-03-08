@@ -14,7 +14,7 @@ Run Windows system maintenance tasks
 
 ```
 Invoke-Maintenance [-WindowsUpdate] [-Chocolatey] [-Winget] [-Modules] [[-ModuleNames] <String>] [-Help]
- [-ShowConfirmation] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+ [-Linux] [-ShowConfirmation] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -117,6 +117,22 @@ Accept wildcard characters: False
 Update PowerShell help files.
 If invoked without administrator context, this will
 only update help content under the CurrentUser scope (PS 6.1 or later)
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Linux
+Optional.
+On Linux machines, invokes apt-get with update and full-upgrade options, as well as flatpak
 
 ```yaml
 Type: SwitchParameter
