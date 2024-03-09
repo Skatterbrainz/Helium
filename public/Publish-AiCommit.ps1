@@ -29,17 +29,24 @@ function Publish-AiCommit {
 	[CmdletBinding()]
 	param (
 		[parameter()][string]$Path = "",
+		[parameter()][string]$CustomComment,
 		[parameter()][switch]$Send
 	)
 	try {
 		if (!(Get-Module PowerShellAIAssistant -ListAvailable)) {
 			throw "Requires PowerShell module to be installed: PowerShellAIAssistant"
 		}
-		if ([string]::IsNullOrWhiteSpace($env:OpenAIKey)) {
+		if ([string]::IsNullOrWhiteSpace($env:OPENAIKEY)) {
 			throw "Environment variable OpenAIKey is not defined"
 		}
-		if (!(Test-Path 'HKLM:\SOFTWARE\GitForWindows')) {
-			throw "Missing required application: git"
+		if ($IsLinux) {
+			if (!(Test-Path '/lib/git-core/git')) {
+				throw "Missing required application: git"
+			}
+		} else {
+			if (!(Test-Path 'HKLM:\SOFTWARE\GitForWindows')) {
+				throw "Missing required application: git"
+			}
 		}
 		if (![string]::IsNullOrWhiteSpace($Path)) {
 			if (Test-Path $Path) {
@@ -55,8 +62,13 @@ function Publish-AiCommit {
 		if ($status -notlike "*Your branch is up to date*") {
 			Write-Verbose "-- staging git repo changes"
 			git stage --all
-			Write-Verbose "-- requesting commit message from OpenAI prompt"
-			$msg = git status | ai "write a commit message for the staged changes in this repo"
+			if ([string]::IsNullOrWhiteSpace($CustomComment)) {
+				Write-Verbose "-- requesting commit message from OpenAI prompt"
+				$msg = git status | ai "write a commit message for the staged changes in this repo"
+			} else {
+				Write-Host "Bypassing OpenAI prompt and using custom comment: $CustomComment" -ForegroundColor Cyan
+				$msg = $CustomComment
+			}
 			if ($Send) {
 				Write-Host "commit: $msg"
 				git commit -m "$($msg)"
