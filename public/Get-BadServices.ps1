@@ -12,6 +12,7 @@ function Get-BadServices {
 	#>
 	[CmdletBinding()]
 	param()
+	if ($PSVersionTable.Platform -eq 'Unix') { throw "Not supported on Linux systems" }
 	Write-Host "The following services are configured for Automatic start, but are not currently running:" -ForegroundColor Cyan
 	Get-Service -ErrorAction SilentlyContinue | Where-Object {$_.StartType -eq 'Automatic' -and $_.State -ne 'Running'}
 }

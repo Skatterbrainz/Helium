@@ -26,7 +26,7 @@ function Invoke-MsgBox {
 			[ValidateSet('Asterisk','Error','Exclamation','Hand','Information','Question','Stop','Warning','None')]$Icon = 'Information'
 	)
 	try {
-		if ($PSVersionTable.Platform -eq 'Unix') { throw "This command only works on Windows" }
+		if ($PSVersionTable.Platform -eq 'Unix') { throw "Not supported on Linux systems" }
 		Add-Type -AssemblyName PresentationCore, PresentationFramework
 		$result = [System.Windows.MessageBox]::Show($Message, $Title, $ButtonType, $Icon)
 		$result

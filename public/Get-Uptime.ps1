@@ -23,23 +23,32 @@ function Get-UpTime {
 		[parameter()][pscredential]$Credential
 	)
 	try {
-		if (![string]::IsNullOrWhiteSpace($ComputerName)) {
-			$params = @{
-				ComputerName = $ComputerName
-				ErrorAction = 'Stop'
+		if ($PSVersionTable.Platform -eq 'Unix') {
+			Write-Verbose "Running on Linux"
+			if (![string]::IsNullOrWhiteSpace($ComputerName)) {
+				Write-Warning "Remote computer queries not supported on Linux"
 			}
-			if ($null -ne $Credential) {
-				$params['Credential'] = $Credential
-				$params['Authentication'] = 'Negotiate'
-			}
-			$session = New-CimSession @params
-			Get-CimInstance -CimSession $session -ClassName Win32_OperatingSystem | Select-Object CSName,LastBootupTime
+			Invoke-Command -ScriptBlock { uptime --pretty } -ErrorAction Stop
 		} else {
-			Get-CimInstance -ClassName Win32_OperatingSystem | Select-Object CSName,LastBootupTime
+			Write-Verbose "Running on Windows"
+			if (![string]::IsNullOrWhiteSpace($ComputerName)) {
+				$params = @{
+					ComputerName = $ComputerName
+					ErrorAction = 'Stop'
+				}
+				if ($null -ne $Credential) {
+					$params['Credential'] = $Credential
+					$params['Authentication'] = 'Negotiate'
+				}
+				$session = New-CimSession @params
+				Get-CimInstance -CimSession $session -ClassName Win32_OperatingSystem -ErrorAction Stop | Select-Object CSName,LastBootupTime
+			} else {
+				Get-CimInstance -ClassName Win32_OperatingSystem -ErrorAction Stop | Select-Object CSName,LastBootupTime
+			}
 		}
 	} catch {
 		Write-Error $_.Exception.Message
 	} finally {
-		if (Get-CimSession $session) { $null = Remove-CimSession $session }
+		if ((!$IsLinux) -and (Get-CimSession $session)) { $null = Remove-CimSession $session }
 	}
 }

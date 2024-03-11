@@ -28,7 +28,7 @@ function Get-ResourceHogs {
 		[parameter()][switch]$ShowPath
 	)
 	try {
-		if ($PSVersionTable.Platform -eq 'Unix') { throw "This command only works on Windows" }
+		if ($PSVersionTable.Platform -eq 'Unix') { throw "No supported on Linux systems" }
 		$outprops = @('ProcessName','Id',$Metric)
 		if ($ShowPath) { $outprops += 'Path' }
 		$outparams = @{ First = $Top; Property = $outprops }

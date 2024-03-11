@@ -6,7 +6,7 @@ function Get-LocalGroupMembers {
 		Returns local group members
 	.PARAMETER ComputerName
 		Name of computer (if remote). Default = 'localhost'
-	.PARAMETER GroupName
+	.PARAMETER Identity
 		Name of local group. Default = 'Administrators'
 	.NOTES
 		Adapted from https://gallery.technet.microsoft.com/scriptcenter/List-local-group-members-c25dbcc4
@@ -17,7 +17,7 @@ function Get-LocalGroupMembers {
 	[OutputType()]
 	param (
 		[parameter(ValueFromPipeline=$true,ValueFromPipelineByPropertyName=$true)] [Alias("Name")] [string]$ComputerName = 'localhost',
-		[parameter()][Alias('Group')][string]$GroupName = "Administrators"
+		[parameter()][Alias('Group')][string]$Identity = "Administrators"
 	)
 	begin {}
 	process {
@@ -44,7 +44,7 @@ function Get-LocalGroupMembers {
 			$ComputerName = $ComputerName.Replace("`$", '')
 			$arr = @()
 			$hostname = (Get-WmiObject -ComputerName $ComputerName -Class Win32_ComputerSystem).Name
-			$wmi      = Get-WmiObject -ComputerName $ComputerName -Query "SELECT * FROM Win32_GroupUser WHERE GroupComponent=`"Win32_Group.Domain='$Hostname',Name='$GroupName'`""
+			$wmi      = Get-WmiObject -ComputerName $ComputerName -Query "SELECT * FROM Win32_GroupUser WHERE GroupComponent=`"Win32_Group.Domain='$Hostname',Name='$Identity'`""
 			if ($null -ne $wmi) {
 				foreach ($item in $wmi) {
 					$data   = $item.PartComponent -split "\,"

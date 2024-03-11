@@ -11,6 +11,7 @@ function Get-PublicIPv4Address {
 		https://github.com/Skatterbrainz/helium/blob/master/docs/Get-PublicIPv4Address.md
 	#>
 	try {
+		
 		$response = Invoke-WebRequest -Uri "http://ipconfig.me/ip" -UseBasicParsing
 		#$pattern = 'id="ip_address">'
 		#$beginstring = $response.Content.Substring($response.Content.IndexOf($pattern)+16)

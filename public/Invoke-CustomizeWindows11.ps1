@@ -27,7 +27,7 @@ function Invoke-CustomizeWindows11 {
 		[parameter()][switch]$Toggle
 	)
 	try {
-		if ($PSVersionTable.Platform -eq 'Unix') { throw "This command only works on Windows" }
+		if ($PSVersionTable.Platform -eq 'Unix') { throw "Not supported on Linux systems" }
 		$unset = '----'
 		if (!(Get-Module CustomizeWindows11 -ListAvailable)) {
 			throw "Required Module not installed: CustomizeWindows"

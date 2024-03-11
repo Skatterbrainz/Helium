@@ -13,6 +13,7 @@ function Get-PackageTools {
 	#>
 	[CmdletBinding()]
 	param()
+	if ($PSVersionTable.Platform -eq 'Unix') { throw "No supported on Linux systems" }
 	try { $winget = winget } catch {}
 	$choc = $env:ChocolateyInstall
 	[pscustomobject]@{

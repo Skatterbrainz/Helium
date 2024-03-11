@@ -20,9 +20,7 @@ function ConvertFrom-DecimalErrorCode {
 	)
 	begin {}
 	process {
-		$hex = '{0:x}' -f $DecimalErrorCode
-		$hex = "0x" + $hex
-		$hex
+		"0x" + $('{0:x}' -f $DecimalErrorCode)
 	}
 	end {}
 }

@@ -32,7 +32,7 @@ function Get-WLANProfile {
 		[parameter()][switch]$ClearText
 	)
 	try {
-		if ($PSVersionTable.Platform -eq 'Unix') { throw "This command only works on Windows" }
+		if ($PSVersionTable.Platform -eq 'Unix') { throw "Not supported on Linux systems" }
 		$names = @()
 		$profiles = (netsh.exe wlan show profiles) -match ':'
 		foreach ($item in $profiles[1..1000]) {

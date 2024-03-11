@@ -15,7 +15,7 @@ function Set-NetConnectionPrivate {
 		[parameter()][switch]$Show
 	)
 	try {
-		if ($PSVersionTable.Platform -eq 'Unix') { throw "This command only works on Windows" }
+		if ($PSVersionTable.Platform -eq 'Unix') { throw "Not supported on Linux systems" }
 		if (!$Show) {
 			$connections = @(Get-NetConnectionProfile | where {$_.IPv4Connectivity -ne "NoTraffic" -and $_.NetworkCategory -ne "Private"})
 			if ($connections.Count -gt 0) {

@@ -24,6 +24,7 @@ function Get-DefaultAppAssociations {
 		[parameter()][int32]$RefreshDays = 7,
 		[parameter()][switch]$Force
 	)
+	if ($PSVersionTable.Platform -eq 'Unix') { throw "No supported on Linux systems" }
 	if (!(Test-Path $FilePath)) {
 		Write-Verbose "creating new snapshot: $FilePath"
 		$null = $(dism /Online /Export-DefaultAppAssociations:$FilePath)

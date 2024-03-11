@@ -40,7 +40,7 @@ function Write-WindowsEvent {
 		[parameter(Mandatory)][string][ValidateNotNullOrEmpty()]$Message
 	)
 	try {
-		if ($PSVersionTable.Platform -eq 'Unix') { throw "This command only works on Windows" }
+		if ($PSVersionTable.Platform -eq 'Unix') { throw "Not supported on Linux systems" }
 		$sourceExists = (Get-WmiObject -Class Win32_NTEventLOgFile |
 			Select-Object FileName, Sources |
 				ForEach-Object -Begin { $hash = @{}} -Process { $hash[$_.FileName] = $_.Sources } -End { $Hash })["Application"] | findstr $Source

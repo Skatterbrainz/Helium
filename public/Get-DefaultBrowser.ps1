@@ -14,6 +14,7 @@ function Get-DefaultBrowser {
 	[CmdletBinding()]
 	param()
 	try {
+		if ($PSVersionTable.Platform -eq 'Unix') { throw "Not supported on Linux systems" }
 		$progid = Get-ItemProperty -Path 'HKCU:\SOFTWARE\Microsoft\Windows\Shell\Associations\UrlAssociations\http\UserChoice\' -ErrorAction Stop | Select-Object -ExpandProperty 'ProgId'
 		if ($progid -eq 'MSEdgeHTM') {
 			'Edge'
@@ -24,8 +25,7 @@ function Get-DefaultBrowser {
 		} elseif ($progid -like 'FirefoxURL*') {
 			'Firefox'
 		}
-	}
-	catch {
+	} catch {
 		Write-Error "$($_.Exception.Message)"
 	}
 }
