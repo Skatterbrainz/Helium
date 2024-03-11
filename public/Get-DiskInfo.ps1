@@ -16,7 +16,8 @@ function Get-DiskInfo {
 	https://github.com/Skatterbrainz/Helium/blob/master/docs/Get-DiskInfo.md
 	#>
 	if ($PSVersionTable.Platform -ne 'Unix') {
-		#
+		Get-CimInstance Win32_LogicalDisk -Filter "DriveType = 3" |
+			Select-Object DeviceID, VolumeName, @{l='Size'; e={[math]::Round($_.Size/1GB,2)}}, @{l='Free'; e={[math]::Round($_.FreeSpace/1GB,2)}}
 	} else {
 		$items = Invoke-Command -ScriptBlock { lsblk -o KNAME,UUID,MODEL,FSTYPE,SIZE,FSUSED,SERIAL,PTTYPE,MOUNTPOINT -P }
 		$items # more work to do here
