@@ -13,7 +13,7 @@ Returns local group members
 ## SYNTAX
 
 ```
-Get-LocalGroupMembers [[-ComputerName] <String>] [[-GroupName] <String>] [-ProgressAction <ActionPreference>]
+Get-LocalGroupMembers [[-ComputerName] <String>] [[-Identity] <String>] [-ProgressAction <ActionPreference>]
  [<CommonParameters>]
 ```
 
@@ -47,7 +47,7 @@ Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 
-### -GroupName
+### -Identity
 Name of local group.
 Default = 'Administrators'
 

@@ -11,7 +11,7 @@ function Test-IsAdmin {
 	#>
 	param()
 	if ($PSVersionTable.Platform -eq 'Unix') {
-		return ((id -u) -eq 0)
+		return $((id -u) -eq 0)
 	} else {
 		return $((New-Object Security.Principal.WindowsPrincipal ([Security.Principal.WindowsIdentity]::GetCurrent())).IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator))
 	}

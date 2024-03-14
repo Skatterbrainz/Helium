@@ -51,6 +51,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
+Tested on Windows 10, 11, Windows Server 2012 R2 to 2025
+Tested on Ubuntu Linux 22.04, Linux Mint 21.3
 
 ## RELATED LINKS
 
