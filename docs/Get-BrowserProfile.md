@@ -13,8 +13,7 @@ Query Browser Profiles
 ## SYNTAX
 
 ```
-Get-BrowserProfile [-Browser] <String> [[-ProfileName] <String>] [-PreferenceDetails]
- [-ProgressAction <ActionPreference>] [<CommonParameters>]
+Get-BrowserProfile [-Browser] <String> [[-ProfileName] <String>] [-PreferenceDetails] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -74,21 +73,6 @@ Aliases:
 Required: False
 Position: Named
 Default value: False
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ProgressAction
-{{ Fill ProgressAction Description }}
-
-```yaml
-Type: ActionPreference
-Parameter Sets: (All)
-Aliases: proga
-
-Required: False
-Position: Named
-Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

@@ -13,8 +13,7 @@ Reverse an LDAP DistinguishedName into ADSI form
 ## SYNTAX
 
 ```
-Get-ReverseDistinguishedName [-DistinguishedName] <String> [-PathOnly] [-ProgressAction <ActionPreference>]
- [<CommonParameters>]
+Get-ReverseDistinguishedName [-DistinguishedName] <String> [-PathOnly] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -27,14 +26,16 @@ reads left-to-right Domain,Path,Name without the prefix keys (e.g.
 ### EXAMPLE 1
 ```
 Get-ReverseDistinguishedName "CN=TaylorS,OU=Users,OU=Sales,OU=CORP,DC=East,DC=Contoso,DC=local"
-Returns: "East.Contoso.local\CORP\Sales\UsersTaylorS"
 ```
+
+Returns: "East.Contoso.local\CORP\Sales\UsersTaylorS"
 
 ### EXAMPLE 2
 ```
 Get-ReverseDistinguishedName -PathOnly "CN=TaylorS,OU=Users,OU=Sales,OU=CORP,DC=East,DC=Contoso,DC=local"
-Returns: "East.Contoso.local\CORP\Sales"
 ```
+
+Returns: "East.Contoso.local\CORP\Sales"
 
 ## PARAMETERS
 
@@ -65,21 +66,6 @@ Aliases:
 Required: False
 Position: Named
 Default value: False
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ProgressAction
-{{ Fill ProgressAction Description }}
-
-```yaml
-Type: ActionPreference
-Parameter Sets: (All)
-Aliases: proga
-
-Required: False
-Position: Named
-Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

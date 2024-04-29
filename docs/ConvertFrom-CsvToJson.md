@@ -13,8 +13,7 @@ Convert a CSV file to JSON format
 ## SYNTAX
 
 ```
-ConvertFrom-CsvToJson [-Path] <String> [-TranslateFileName] [[-OutputFile] <String>]
- [-ProgressAction <ActionPreference>] [<CommonParameters>]
+ConvertFrom-CsvToJson [-Path] <String> [-TranslateFileName] [[-OutputFile] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -94,21 +93,6 @@ Aliases:
 
 Required: False
 Position: 2
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ProgressAction
-{{ Fill ProgressAction Description }}
-
-```yaml
-Type: ActionPreference
-Parameter Sets: (All)
-Aliases: proga
-
-Required: False
-Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

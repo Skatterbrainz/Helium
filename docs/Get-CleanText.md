@@ -13,7 +13,7 @@ Remove non-ASCII alphanumeric characters from text string
 ## SYNTAX
 
 ```
-Get-CleanText [[-String] <String>] [-NoSpaces] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+Get-CleanText [[-String] <String>] [-NoSpaces] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -24,14 +24,14 @@ optionally remove spaces.
 
 ### EXAMPLE 1
 ```
-Get-CleanText "Entrepôt Jalapeño"
+Get-CleanText "Entrep ´t Jalape ±o"
 ```
 
 Returns "Entrepot Jalapeno"
 
 ### EXAMPLE 2
 ```
-Get-CleanText "Entrepôt Jalapeño" -NoSpaces
+Get-CleanText "Entrep ´t Jalape ±o" -NoSpaces
 ```
 
 Returns "EntrepotJalapeno"
@@ -66,21 +66,6 @@ Aliases:
 Required: False
 Position: Named
 Default value: False
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ProgressAction
-{{ Fill ProgressAction Description }}
-
-```yaml
-Type: ActionPreference
-Parameter Sets: (All)
-Aliases: proga
-
-Required: False
-Position: Named
-Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

@@ -13,8 +13,7 @@ Search text or file content for matching string pattern
 ## SYNTAX
 
 ```
-Invoke-Grep [-Pattern] <String> [[-InputString] <String>] [[-Path] <String>] [-Recurse]
- [-ProgressAction <ActionPreference>] [<CommonParameters>]
+Invoke-Grep [-Pattern] <String> [[-InputString] <String>] [[-Path] <String>] [-Recurse] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -96,21 +95,6 @@ Aliases:
 Required: False
 Position: Named
 Default value: False
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ProgressAction
-{{ Fill ProgressAction Description }}
-
-```yaml
-Type: ActionPreference
-Parameter Sets: (All)
-Aliases: proga
-
-Required: False
-Position: Named
-Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

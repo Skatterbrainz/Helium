@@ -13,8 +13,7 @@ Check if installed modules are up to date
 ## SYNTAX
 
 ```
-Confirm-Modules [-Update] [[-Exclude] <String[]>] [[-ExcludePattern] <String[]>]
- [-ProgressAction <ActionPreference>] [<CommonParameters>]
+Confirm-Modules [-Update] [[-Exclude] <String[]>] [[-ExcludePattern] <String[]>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -107,21 +106,6 @@ Aliases:
 
 Required: False
 Position: 2
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ProgressAction
-{{ Fill ProgressAction Description }}
-
-```yaml
-Type: ActionPreference
-Parameter Sets: (All)
-Aliases: proga
-
-Required: False
-Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

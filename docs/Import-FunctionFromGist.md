@@ -13,7 +13,7 @@ Define a function by importing script from GitHub Gist URL
 ## SYNTAX
 
 ```
-Import-FunctionFromGist [-URL] <String> [-ProgressAction <ActionPreference>] [<CommonParameters>]
+Import-FunctionFromGist [-URL] <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -24,9 +24,10 @@ Import Gist raw content, wrap in function block, and invoke-expression to conver
 ### EXAMPLE 1
 ```
 $url = 'https://gist.githubusercontent.com/Skatterbrainz/c222038b4a9a178d09428e144d86a953/raw/a3ba51e55115d5c0ab31e8fa609edf2328f3a3ec/get-pcinfo.ps1'
+```
+
 Import-FunctionFromGist -URL $url
 Defines function get-pcinfo using filename "get-pcinfo.ps1" from the end of the URL
-```
 
 ## PARAMETERS
 
@@ -41,21 +42,6 @@ Aliases:
 
 Required: True
 Position: 1
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ProgressAction
-{{ Fill ProgressAction Description }}
-
-```yaml
-Type: ActionPreference
-Parameter Sets: (All)
-Aliases: proga
-
-Required: False
-Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

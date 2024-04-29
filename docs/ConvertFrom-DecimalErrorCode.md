@@ -13,8 +13,7 @@ Convert Decimal error code
 ## SYNTAX
 
 ```
-ConvertFrom-DecimalErrorCode [-DecimalErrorCode] <Int64> [-ProgressAction <ActionPreference>]
- [<CommonParameters>]
+ConvertFrom-DecimalErrorCode [-DecimalErrorCode] <Int64> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -25,8 +24,9 @@ Convert Decimal error code
 ### EXAMPLE 1
 ```
 -2147206582 | ConvertFrom-DecimalErrorCode
-Returns: 0xffffffff80043a4a
 ```
+
+Returns: 0xffffffff80043a4a
 
 ## PARAMETERS
 
@@ -42,21 +42,6 @@ Required: True
 Position: 1
 Default value: 0
 Accept pipeline input: True (ByValue)
-Accept wildcard characters: False
-```
-
-### -ProgressAction
-{{ Fill ProgressAction Description }}
-
-```yaml
-Type: ActionPreference
-Parameter Sets: (All)
-Aliases: proga
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
