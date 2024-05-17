@@ -24,7 +24,13 @@ Get-Command -Module helium
 Get-Help Invoke-Maintenance -Full
 ```
 
-
 Documentation is also [Online Here](https://github.com/Skatterbrainz/Helium/tree/main/docs)
 
 Bugs? Feature requests? Please [Submit them Here](https://github.com/Skatterbrainz/Helium/issues)
+
+# Version History
+
+* 1.1.12
+  * Added Get-ScriptFunctionComments
+* 1.1.11
+  * tbd
