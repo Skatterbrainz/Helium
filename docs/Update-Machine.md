@@ -1,11 +1,11 @@
 ---
 external help file: helium-help.xml
 Module Name: helium
-online version: https://github.com/Skatterbrainz/helium/blob/master/docs/Invoke-Maintenance.md
+online version: https://github.com/Skatterbrainz/helium/blob/master/docs/Update-Machine.md
 schema: 2.0.0
 ---
 
-# Invoke-Maintenance
+# Update-Machine
 
 ## SYNOPSIS
 Run Windows system maintenance tasks
@@ -13,7 +13,7 @@ Run Windows system maintenance tasks
 ## SYNTAX
 
 ```
-Invoke-Maintenance [-WindowsUpdate] [-Chocolatey] [-Winget] [-Modules] [[-ModuleNames] <String>] [-Help]
+Update-Machine [-WindowsUpdate] [-Chocolatey] [-Winget] [-Modules] [[-ModuleNames] <String>] [-Help]
  [-Linux] [-ShowConfirmation] [<CommonParameters>]
 ```
 
@@ -26,12 +26,12 @@ and optionally display a confirmation toast popup.
 
 ### EXAMPLE 1
 ```
-Invoke-Maintenance -WindowsUpdate
+Update-Machine -WindowsUpdate
 ```
 
 ### EXAMPLE 2
 ```
-Invoke-Maintenance -WindowsUpdate -Chocolatey -Winget -Modules -Help -ShowConfirmation
+Update-Machine -WindowsUpdate -Chocolatey -Winget -Modules -Help -ShowConfirmation
 ```
 
 ## PARAMETERS
@@ -172,5 +172,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://github.com/Skatterbrainz/helium/blob/master/docs/Invoke-Maintenance.md](https://github.com/Skatterbrainz/helium/blob/master/docs/Invoke-Maintenance.md)
+[https://github.com/Skatterbrainz/helium/blob/master/docs/Update-Machine.md](https://github.com/Skatterbrainz/helium/blob/master/docs/Update-Machine.md)
 
