@@ -30,6 +30,8 @@ Bugs? Feature requests? Please [Submit them Here](https://github.com/Skatterbrai
 
 # Version History
 
+* 1.1.13
+  * Renamed Invoke-Maintenance to Update-Machine
 * 1.1.12
   * Added Get-ScriptFunctionComments
 * 1.1.11

@@ -1,4 +1,4 @@
-function Invoke-Maintenance {
+function Update-Machine {
 	<#
 	.SYNOPSIS
 		Run Windows system maintenance tasks
@@ -22,11 +22,11 @@ function Invoke-Maintenance {
 	.PARAMETER Linux
 		Optional. On Linux machines, invokes apt-get with update and full-upgrade options, as well as flatpak
 	.EXAMPLE
-		Invoke-Maintenance -WindowsUpdate
+		Update-Machine -WindowsUpdate
 	.EXAMPLE
-		Invoke-Maintenance -WindowsUpdate -Chocolatey -Winget -Modules -Help -ShowConfirmation
+		Update-Machine -WindowsUpdate -Chocolatey -Winget -Modules -Help -ShowConfirmation
 	.LINK
-		https://github.com/Skatterbrainz/helium/blob/master/docs/Invoke-Maintenance.md
+		https://github.com/Skatterbrainz/helium/blob/master/docs/Update-Machine.md
 	#>
 	[CmdletBinding()]
 	param (
@@ -127,7 +127,7 @@ function Invoke-Maintenance {
 		}
 	} else {
 		sudo apt-get update
-		sudo apt-get safe-upgrade -y
+		sudo apt-get full-upgrade -y # or safe-upgrade -y
 		flatpak update
 		if ($Modules) {
 			#Set-PSRepository -Name PGallery -InstallationPolicy Trusted
