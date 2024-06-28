@@ -21,12 +21,10 @@ function Get-AsciiString {
 		https://github.com/Skatterbrainz/helium/blob/master/docs/Get-CleanString.md
 	#>
 	param (
-		[parameter()][string]$String,
+		[parameter(Position=0)][string]$String,
 		[parameter()][switch]$Cleanup
 	)
-	if ([string]::IsNullOrWhiteSpace($String)) {
-		""
-	} else {
+	if (![string]::IsNullOrWhiteSpace($String)) {
 		$result = $($String).Trim()
 		if ($Cleanup) {
 			$result = [Text.Encoding]::ASCII.GetString([Text.Encoding]::GetEncoding("Cyrillic").GetBytes($result))
@@ -35,5 +33,7 @@ function Get-AsciiString {
 		} else {
 			$result
 		}
+	} else {
+		""
 	}
 }

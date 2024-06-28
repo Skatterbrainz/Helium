@@ -35,9 +35,7 @@ Function Get-LoggedOnUser {
 				Position=0
 			)]
 			[string[]] $ComputerName = $env:COMPUTERNAME,
-			[Parameter(Mandatory = $false)]
-			[Alias("SamAccountName")]
-			[string]$UserName
+			[Parameter(Mandatory = $false)][Alias("SamAccountName")][string]$UserName
 		)
 
 	BEGIN {

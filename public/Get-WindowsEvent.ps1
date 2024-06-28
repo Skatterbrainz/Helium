@@ -66,18 +66,18 @@ function Get-WindowsEvent {
 		$filter = @()
 		$levels = @()
 		$levs   = @()
-		if (![string]::IsNullOrWhiteSpace($Id)) {
+		if ($PSBoundParameters.ContainsKey('Id') -and (![string]::IsNullOrWhiteSpace($Id))) {
 			$events = $events | Where-Object {$_.Id -in $($Id -split ',')}
 		}
-		if (![string]::IsNullOrWhiteSpace($Source)) {
+		if ($PSBoundParameters.ContainsKey('Source') -and (![string]::IsNullOrWhiteSpace($Source))) {
 			$events = $events | Where-Object {$_.ProviderName -eq $Source}
 			$filter += "[ProviderName -eq $Source]"
 		}
-		if (![string]::IsNullOrWhiteSpace($StartTime)) {
+		if ($PSBoundParameters.ContainsKey('StartTime')) {
 			$events = $events | Where-Object {$_.TimeCreated -ge $StartTime}
 			$filter += "[StartTime -ge $StartTime]"
 		}
-		if (![string]::IsNullOrWhiteSpace($EndTime)) {
+		if ($PSBoundParameters.ContainsKey($EndTime)) {
 			$events = $events | Where-Object {$_.TimeCreated -le $EndTime}
 			$filter += "[EndTime -le $EndTime]"
 		}

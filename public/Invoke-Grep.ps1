@@ -14,17 +14,17 @@
 	in the Path location only, not sub-folders. If Recurse is used, scan
 	will include sub-folders
 .EXAMPLE
-	Invoke-Grep -Pattern "Contoso Corp" -InputString "The facility is owned by Contoso Corp, who recently leased it."
+	Invoke-Grep -Path "C:\temp" -Pattern "Contoso Corp" -InputString "The facility is owned by Contoso Corp, who recently leased it."
 .EXAMPLE
-	Invoke-Grep -Pattern "Contoso Corp" -Path "c:\mydocs" -Recurse
+	Invoke-Grep -Path "C:\temp" -Pattern "Contoso Corp" -Path "c:\mydocs" -Recurse
 .LINK
 	https://github.com/Skatterbrainz/helium/blob/master/docs/Invoke-Grep.md
 #>
 function Invoke-Grep {
 	param (
+		[parameter(Mandatory)][string]$Path,
 		[parameter(Mandatory)][string]$Pattern,
 		[parameter()][string]$InputString = "",
-		[parameter()][string]$Path,
 		[parameter()][switch]$Recurse
 	)
 	if (![string]::IsNullOrWhiteSpace($Path)) {

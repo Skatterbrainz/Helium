@@ -31,7 +31,7 @@ function Get-UpTime {
 			Invoke-Command -ScriptBlock { uptime --pretty } -ErrorAction Stop
 		} else {
 			Write-Verbose "Running on Windows"
-			if (![string]::IsNullOrWhiteSpace($ComputerName)) {
+			if ($PSBoundParameters.ContainsKey($ComputerName)) {
 				$params = @{
 					ComputerName = $ComputerName
 					ErrorAction = 'Stop'

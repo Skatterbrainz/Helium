@@ -29,10 +29,10 @@ function Get-ScriptFunctionComments {
 		$opath = $PWD
 		$ErrorActionPreference = 'SilentlyContinue'
 		Write-Warning "Script files should NOT contain self-executing code."
-		if ([string]::IsNullOrEmpty($FilePath) -and [string]::IsNullOrEmpty($FolderPath)) {
+		if (-not($PSBoundParameters.ContainsKey($FilePath)) -and (-not$PSBoundParameters.ContainsKey($FolderPath))) {
 			throw "You must specify either a file path or a folder path"
 		}
-		if ([string]::IsNullOrEmpty($FilePath)) {
+		if ($PSBoundParameters.ContainsKey($FilePath)) {
 			$files = Get-ChildItem -Path $FolderPath -Filter "*.ps1" | Out-GridView -Title "Select Script Files to Process" -OutputMode Multiple
 			if ($files.Count -gt 0) { Set-Location $files[0].DirectoryName }
 		} else {

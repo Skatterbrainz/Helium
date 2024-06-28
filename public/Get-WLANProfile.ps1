@@ -38,7 +38,7 @@ function Get-WLANProfile {
 		foreach ($item in $profiles[1..1000]) {
 			$names += $item.Substring(27)
 		}
-		if (![string]::IsNullOrWhiteSpace($Name)) {
+		if ($PSBoundParameters.ContainsKey('Name') -and (![string]::IsNullOrWhiteSpace($Name))) {
 			$names = @($names | Where-Object {$_ -eq $Name})
 		}
 		foreach ($name in $names) {

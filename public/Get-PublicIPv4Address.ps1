@@ -1,10 +1,14 @@
 function Get-PublicIPv4Address {
+	param (
+		[parameter()][string]$Uri = "http://ipconfig.me/ip"
+	)
 	<#
 	.SYNOPSIS
 		Get current public IPv4 address
 	.DESCRIPTION
 		Geez. Do I really need to elaborate on this one?
-	.PARAMETER (none)
+	.PARAMETER Uri
+		URI to use for requesting reverse ping. Default is http://ipconfig.me/ip
 	.EXAMPLE
 		Get-PublicIPv4Address
 	.LINK
@@ -12,7 +16,7 @@ function Get-PublicIPv4Address {
 	#>
 	try {
 		
-		$response = Invoke-WebRequest -Uri "http://ipconfig.me/ip" -UseBasicParsing
+		$response = Invoke-WebRequest -Uri $Uri -UseBasicParsing
 		#$pattern = 'id="ip_address">'
 		#$beginstring = $response.Content.Substring($response.Content.IndexOf($pattern)+16)
 		#$result = $beginstring.Substring(0, $beginstring.IndexOf("</"))

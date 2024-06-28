@@ -42,7 +42,7 @@ function Out-GridSelect {
 		[parameter(Mandatory=$False)][string][ValidateSet('Single','Multiple')] $OutputMode = 'Single',
 		[parameter(Mandatory=$False)][switch] $ForceConsole
 	)
-	if ([string]::IsNullOrWhiteSpace($Title)) {
+	if (-not($PSBoundParameters.ContainsKey($Title))) {
 		if ($OutputMode -eq 'Single') {
 			$Title = "Select Item"
 		} else {

@@ -67,8 +67,12 @@ function Split-File {
 				throw "Only CSV and XLSX files are supported"
 			}
 		}
-		if ([string]::IsNullOrWhiteSpace($OutputFolder)) {
-			$outputfolder = $file.Parent
+		if ($PSBoundParameters.ContainsKey('OutputFolder')) {
+			if (-not(Test-Path $OutputFolder)) {
+				throw "Output folder not found: $OutputFolder"
+			}
+		} else {
+			$OutputFolder = $file.Parent
 		}
 		if ($filetype -eq '.csv') {
 			$rows = Import-Csv -Path $Path -Encoding Utf8 -ErrorAction Stop
@@ -77,8 +81,12 @@ function Split-File {
 		}
 		Write-Host "$($rows.Count) rows imported from: $Path"
 		$trows = 0
-		if (($KeyValues.Count -eq 0) -or ([string]::IsNullOrWhiteSpace($KeyValues))) {
-			$values = $rows."$KeyColumn" | Select-Object -Unique
+		if ($PSBoundParameters.ContainsKey('KeyValues')) {
+			if (($KeyValues.Count -eq 0) -or ([string]::IsNullOrWhiteSpace($KeyValues))) {
+				$values = $rows."$KeyColumn" | Select-Object -Unique
+			} else {
+				$values = $KeyValues
+			}
 		} else {
 			$values = $KeyValues
 		}
