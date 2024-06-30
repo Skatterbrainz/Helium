@@ -8,7 +8,7 @@ schema: 2.0.0
 # Test-SmtpAddress
 
 ## SYNOPSIS
-Validate SMTP address
+Validate SMTP address format
 
 ## SYNTAX
 
@@ -17,7 +17,7 @@ Test-SmtpAddress
 ```
 
 ## DESCRIPTION
-Test a string to confirm it is a valid SMTP address
+Test a string to confirm it is a valid SMTP address format.
 
 ## EXAMPLES
 

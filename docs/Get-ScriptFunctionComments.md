@@ -13,7 +13,8 @@ Extracts function comments from a script file.
 ## SYNTAX
 
 ```
-Get-ScriptFunctionComments [[-FilePath] <String>] [[-FolderPath] <String>] [<CommonParameters>]
+Get-ScriptFunctionComments [[-FilePath] <String>] [[-FolderPath] <String>] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -24,16 +25,14 @@ Extracts function comments from a script file.
 ### EXAMPLE 1
 ```
 Get-ScriptFunctionComments -FilePath "C:\GitHub\project42\runbooks\ula-support.ps1"
-```
-
 Extracts function comments from the specified script file.
+```
 
 ### EXAMPLE 2
 ```
 Get-ScriptFunctionComments -FolderPath "C:\GitHub\project42\runbooks"
-```
-
 Extracts function comments from all .ps1 script files in the specified folder.
+```
 
 ## PARAMETERS
 
@@ -62,6 +61,21 @@ Aliases:
 
 Required: False
 Position: 2
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ProgressAction
+{{ Fill ProgressAction Description }}
+
+```yaml
+Type: ActionPreference
+Parameter Sets: (All)
+Aliases: proga
+
+Required: False
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

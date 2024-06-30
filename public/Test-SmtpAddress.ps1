@@ -1,8 +1,8 @@
 <#
 .SYNOPSIS
-	Validate SMTP address
+	Validate SMTP address format
 .DESCRIPTION
-	Test a string to confirm it is a valid SMTP address
+	Test a string to confirm it is a valid SMTP address format.
 .PARAMETER Address
 	Required. String to be validated as an SMTP e-mail address.
 .EXAMPLE

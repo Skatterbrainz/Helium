@@ -13,7 +13,8 @@ Tests if all elements in an array are equal to a reference value
 ## SYNTAX
 
 ```
-Test-ArrayUnified [-Array] <Array> [-ReferenceValue] <Object> [<CommonParameters>]
+Test-ArrayUnified [-Array] <Array> [-ReferenceValue] <Object> [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -24,16 +25,14 @@ Tests if all elements in an array are equal to a reference value
 ### EXAMPLE 1
 ```
 Test-ArrayUnified -Array @('a','a','a') -ReferenceValue 'a'
-```
-
 returns True
+```
 
 ### EXAMPLE 2
 ```
 Test-ArrayUnified -Array @('a','b','a') -ReferenceValue 'a'
-```
-
 returns False
+```
 
 ## PARAMETERS
 
@@ -62,6 +61,21 @@ Aliases:
 
 Required: True
 Position: 2
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ProgressAction
+{{ Fill ProgressAction Description }}
+
+```yaml
+Type: ActionPreference
+Parameter Sets: (All)
+Aliases: proga
+
+Required: False
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

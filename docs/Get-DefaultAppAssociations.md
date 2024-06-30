@@ -13,11 +13,12 @@ Get Windows default app associations table
 ## SYNTAX
 
 ```
-Get-DefaultAppAssociations [[-FilePath] <String>] [[-RefreshDays] <Int32>] [-Force] [<CommonParameters>]
+Get-DefaultAppAssociations [[-FilePath] <String>] [[-RefreshDays] <Int32>] [-Force]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Returns default app associations for the current user
+Returns default app associations for the current user, saves to a file, and reuses the file for a specified number of days.
 
 ## EXAMPLES
 
@@ -46,7 +47,7 @@ Aliases:
 
 Required: False
 Position: 1
-Default value: "$($env:USERPROFILE)\documents\defaultapps.xml"
+Default value: "$($env:HOME)\documents\defaultapps.xml"
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -78,6 +79,21 @@ Aliases:
 Required: False
 Position: Named
 Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ProgressAction
+{{ Fill ProgressAction Description }}
+
+```yaml
+Type: ActionPreference
+Parameter Sets: (All)
+Aliases: proga
+
+Required: False
+Position: Named
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

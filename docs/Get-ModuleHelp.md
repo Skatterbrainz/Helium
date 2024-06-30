@@ -13,7 +13,8 @@ Return Get-Help summary for all commands in a given module
 ## SYNTAX
 
 ```
-Get-ModuleHelp [-ModuleName] <String> [-Export] [[-OutputPath] <String>] [<CommonParameters>]
+Get-ModuleHelp [-ModuleName] <String> [-Export] [[-OutputPath] <String>] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -75,6 +76,21 @@ Aliases:
 Required: False
 Position: 2
 Default value: "$env:TEMP"
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ProgressAction
+{{ Fill ProgressAction Description }}
+
+```yaml
+Type: ActionPreference
+Parameter Sets: (All)
+Aliases: proga
+
+Required: False
+Position: Named
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

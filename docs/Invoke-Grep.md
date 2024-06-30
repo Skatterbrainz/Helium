@@ -13,7 +13,8 @@ Search text or file content for matching string pattern
 ## SYNTAX
 
 ```
-Invoke-Grep [-Pattern] <String> [[-InputString] <String>] [[-Path] <String>] [-Recurse] [<CommonParameters>]
+Invoke-Grep [-Path] <String> [-Pattern] <String> [[-InputString] <String>] [-Recurse]
+ [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -23,18 +24,19 @@ Search text or file content for matching string pattern
 
 ### EXAMPLE 1
 ```
-Invoke-Grep -Pattern "Contoso Corp" -InputString "The facility is owned by Contoso Corp, who recently leased it."
+Invoke-Grep -Path "C:\temp" -Pattern "Contoso Corp" -InputString "The facility is owned by Contoso Corp, who recently leased it."
 ```
 
 ### EXAMPLE 2
 ```
-Invoke-Grep -Pattern "Contoso Corp" -Path "c:\mydocs" -Recurse
+Invoke-Grep -Path "C:\temp" -Pattern "Contoso Corp" -Path "c:\mydocs" -Recurse
 ```
 
 ## PARAMETERS
 
-### -Pattern
-Text pattern to search for
+### -Path
+Path to search files for matching Pattern value.
+If Path is provided, InputString is ignored
 
 ```yaml
 Type: String
@@ -48,24 +50,23 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -InputString
-String to search for matching Pattern value
+### -Pattern
+Text pattern to search for
 
 ```yaml
 Type: String
 Parameter Sets: (All)
 Aliases:
 
-Required: False
+Required: True
 Position: 2
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Path
-Path to search files for matching Pattern value.
-If Path is provided, InputString is ignored
+### -InputString
+String to search for matching Pattern value
 
 ```yaml
 Type: String
@@ -95,6 +96,21 @@ Aliases:
 Required: False
 Position: Named
 Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ProgressAction
+{{ Fill ProgressAction Description }}
+
+```yaml
+Type: ActionPreference
+Parameter Sets: (All)
+Aliases: proga
+
+Required: False
+Position: Named
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

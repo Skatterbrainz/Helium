@@ -8,7 +8,7 @@ schema: 2.0.0
 # Set-TLS12
 
 ## SYNOPSIS
-Sets TLS channel to v1.2 for the active/current session only
+Set TLS channel to v1.2
 
 ## SYNTAX
 
@@ -17,7 +17,7 @@ Set-TLS12
 ```
 
 ## DESCRIPTION
-Sets TLS channel to v1.2 for the active/current session only
+Set TLS channel to v1.2 for the active/current session only
 
 ## EXAMPLES
 

@@ -10,6 +10,10 @@ function Get-Abbreviation {
 		Get-Abbreviation "Eastern Standard Time"
 		
 		Returns "EST"
+	.EXAMPLE
+		Get-Abbreviation "Farkwadded up beyond all recognition"
+		
+		Returns "FUBAR"
 	.LINK
 		https://github.com/Skatterbrainz/helium/blob/master/docs/Get-Abbreviation.md
 	#>

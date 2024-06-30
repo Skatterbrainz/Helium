@@ -13,7 +13,7 @@ Get abbreviation from string of words
 ## SYNTAX
 
 ```
-Get-Abbreviation [-String] <String> [<CommonParameters>]
+Get-Abbreviation [-String] <String> [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -28,6 +28,13 @@ Get-Abbreviation "Eastern Standard Time"
 
 Returns "EST"
 
+### EXAMPLE 2
+```
+Get-Abbreviation "Farkwadded up beyond all recognition"
+```
+
+Returns "FUBAR"
+
 ## PARAMETERS
 
 ### -String
@@ -41,6 +48,21 @@ Aliases:
 
 Required: True
 Position: 1
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ProgressAction
+{{ Fill ProgressAction Description }}
+
+```yaml
+Type: ActionPreference
+Parameter Sets: (All)
+Aliases: proga
+
+Required: False
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

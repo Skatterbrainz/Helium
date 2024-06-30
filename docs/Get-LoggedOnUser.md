@@ -13,7 +13,8 @@ Get currently logged-on users
 ## SYNTAX
 
 ```
-Get-LoggedOnUser [[-ComputerName] <String[]>] [-UserName <String>] [<CommonParameters>]
+Get-LoggedOnUser [[-ComputerName] <String[]>] [-UserName <String>] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -26,16 +27,14 @@ This function was added to DS-UTILS but I did not write it (see below)
 ### EXAMPLE 1
 ```
 Get-LoggedOnUser -ComputerName Server01
-```
-
 Display all the users that are logged in server01
+```
 
 ### EXAMPLE 2
 ```
 Get-LoggedOnUser -ComputerName Server01, Server02 -UserName jsmith
-```
-
 Display if the user, jsmith, is logged into server01 and/or server02
+```
 
 ## PARAMETERS
 
@@ -62,6 +61,21 @@ If the specified username is found logged into a machine, it will display it in 
 Type: String
 Parameter Sets: (All)
 Aliases: SamAccountName
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ProgressAction
+{{ Fill ProgressAction Description }}
+
+```yaml
+Type: ActionPreference
+Parameter Sets: (All)
+Aliases: proga
 
 Required: False
 Position: Named

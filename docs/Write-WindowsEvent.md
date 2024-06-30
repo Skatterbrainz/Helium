@@ -14,7 +14,7 @@ Workaround for Write-EventLog where -Source often pisses me off
 
 ```
 Write-WindowsEvent [[-LogName] <String>] [[-EventID] <Int32>] [[-Category] <Int32>] [[-Severity] <String>]
- [-Source] <String> [-Message] <String> [<CommonParameters>]
+ [-Source] <String> [-Message] <String> [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -132,6 +132,21 @@ Aliases:
 
 Required: True
 Position: 6
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ProgressAction
+{{ Fill ProgressAction Description }}
+
+```yaml
+Type: ActionPreference
+Parameter Sets: (All)
+Aliases: proga
+
+Required: False
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

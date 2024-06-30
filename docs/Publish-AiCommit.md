@@ -13,7 +13,8 @@ Use PowerShellAI to handle your Git commits
 ## SYNTAX
 
 ```
-Publish-AiCommit [[-Path] <String>] [[-CustomComment] <String>] [-Send] [<CommonParameters>]
+Publish-AiCommit [[-Path] <String>] [[-CustomComment] <String>] [-Send] [-ProgressAction <ActionPreference>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -86,6 +87,21 @@ Aliases:
 Required: False
 Position: Named
 Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ProgressAction
+{{ Fill ProgressAction Description }}
+
+```yaml
+Type: ActionPreference
+Parameter Sets: (All)
+Aliases: proga
+
+Required: False
+Position: Named
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

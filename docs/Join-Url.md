@@ -13,7 +13,7 @@ Join-Path for WEB URL strings
 ## SYNTAX
 
 ```
-Join-Url [-Path] <String> [-ChildPath] <String> [<CommonParameters>]
+Join-Url [-Path] <String> [-ChildPath] <String> [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -24,16 +24,14 @@ Join-Path for WEB URL strings
 ### EXAMPLE 1
 ```
 Join-Url -Path "https://www.contoso.com" -ChildPath "sales"
-```
-
 returns "https://www.contoso.com/sales"
+```
 
 ### EXAMPLE 2
 ```
 Join-Url -Path "https://www.contoso.com/sales/" -ChildPath "accounts"
-```
-
 returns "https://www.contoso.com/sales/accounts"
+```
 
 ## PARAMETERS
 
@@ -62,6 +60,21 @@ Aliases:
 
 Required: True
 Position: 2
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ProgressAction
+{{ Fill ProgressAction Description }}
+
+```yaml
+Type: ActionPreference
+Parameter Sets: (All)
+Aliases: proga
+
+Required: False
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

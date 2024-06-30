@@ -13,7 +13,7 @@ Convert ASCII or Unicode string to Base64
 ## SYNTAX
 
 ```
-ConvertTo-Base64 [-String] <Object> [-Compressed] [<CommonParameters>]
+ConvertTo-Base64 [-String] <Object> [-Compressed] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -24,17 +24,15 @@ Convert ASCII or Unicode string to Base64 string
 ### EXAMPLE 1
 ```
 $x = "this is a test string"
-```
-
 $x | ConvertTo-Base64
 Returns: "H4sIAAAAAAAEACvJyCxWAKJEhZLU4hKF4pKizLx0ALXWhvwVAAAA"
+```
 
 ### EXAMPLE 2
 ```
 "this is a compressed test string" | ConvertTo-Base64 -Compressed
-```
-
 returns: "H4sIAAAAAAAACivJyCxWAKJEheT83IKi1OLi1BSFktTiEoXikqLMvHQAhzKd/iAAAAA="
+```
 
 ## PARAMETERS
 
@@ -66,6 +64,21 @@ Aliases:
 Required: False
 Position: Named
 Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ProgressAction
+{{ Fill ProgressAction Description }}
+
+```yaml
+Type: ActionPreference
+Parameter Sets: (All)
+Aliases: proga
+
+Required: False
+Position: Named
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
