@@ -1,7 +1,7 @@
 ---
 external help file: helium-help.xml
 Module Name: helium
-online version: https://github.com/Skatterbrainz/helium/blob/master/docs/ConvertTo-Base64.md
+online version: https://github.com/Skatterbrainz/helium/blob/master/docs/ConvertTo-Excel.md
 schema: 2.0.0
 ---
 
