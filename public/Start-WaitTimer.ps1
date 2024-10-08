@@ -26,6 +26,7 @@ function Start-WaitTimer {
 		Start-WaitTimer -TotalTime 300 -Increment 5 -Message "Downloading"
 		Displays a progress bar with a custom message for 5 minutes.
 	.LINK
+		https://github.com/Skatterbrainz/helium/blob/master/docs/Start-WaitTimer.md
 	#>
 	param (
 		[parameter()][int]$TotalTime = 300,

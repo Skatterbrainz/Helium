@@ -8,6 +8,7 @@
 .EXAMPLE
 	Test-SmtpAddress "jsmith@contoso.com"
 .LINK
+	https://github.com/Skatterbrainz/helium/blob/master/docs/Test-SmtpAddress.md
 #>
 function Test-SmtpAddress {
 	[parameter(Mandatory=$True)][string]$Address
