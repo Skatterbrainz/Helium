@@ -1,7 +1,7 @@
 ---
 external help file: helium-help.xml
 Module Name: helium
-online version:
+online version: https://github.com/Skatterbrainz/helium/blob/master/docs/Start-WaitTimer.md
 schema: 2.0.0
 ---
 
@@ -138,3 +138,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Skatterbrainz/helium/blob/master/docs/Start-WaitTimer.md](https://github.com/Skatterbrainz/helium/blob/master/docs/Start-WaitTimer.md)
+

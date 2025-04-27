@@ -1,7 +1,7 @@
 ---
 external help file: helium-help.xml
 Module Name: helium
-online version:
+online version: https://github.com/Skatterbrainz/helium/blob/master/docs/Test-SmtpAddress.md
 schema: 2.0.0
 ---
 
@@ -35,3 +35,6 @@ Test-SmtpAddress "jsmith@contoso.com"
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/Skatterbrainz/helium/blob/master/docs/Test-SmtpAddress.md](https://github.com/Skatterbrainz/helium/blob/master/docs/Test-SmtpAddress.md)
+
