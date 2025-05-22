@@ -30,6 +30,12 @@ Bugs? Feature requests? Please [Submit them Here](https://github.com/Skatterbrai
 
 # Version History
 
+* 1.2.2
+  * Get-BrowserProfile
+	* Added Firefox and Brave and support 
+	* Added Flatpak detection on Linux
+	* Added Edge reporting for Windows 11
+* I have no idea what happened from 1.1.17 to 1.2 or 1.2.1. It must have been interesting.
 * 1.1.16
   * Added Get-Calendar, Clear-IISLogs, and Get-HoHoHo
   * Renamed Replace-ExcelWorkbookText to Edit-ExcelWorkbookText
