@@ -10,18 +10,20 @@ function Get-BrowserProfile {
 		* Edge
 		* Brave
 		* Firefox
-	.PARAMETER ProfileName
-		Return information on one specific profile only
 	.EXAMPLE
 		Get-BrowserProfile -Browser Edge
+
+		Returns all profiles for the Edge browser
+	.EXAMPLE
+		Get-BrowserProfile -Browser Chrome
+
+		Returns all profiles for the Chrome browser
 	.LINK
 		https://github.com/Skatterbrainz/helium/blob/master/docs/Get-BrowserProfile.md
 	#>
 	[CmdletBinding()]
 	param (
-		[parameter(Mandatory=$True)][string][ValidateSet('Chrome','Edge','Brave','Firefox')]$Browser,
-		[parameter(Mandatory=$False)][string]$ProfileName,
-		[parameter(Mandatory=$False)][switch]$PreferenceDetails
+		[parameter(Mandatory=$True)][string][ValidateSet('Chrome','Edge','Brave','Firefox')]$Browser
 	)
 	switch ($Browser) {
 		'Chrome' {
@@ -42,16 +44,14 @@ function Get-BrowserProfile {
 				$profiles    = $profileData.profile.info_cache.psobject.Properties.Name
 				foreach ($profile in $profiles) {
 					$pname = $profileData.profile.info_cache."$profile".name
-					if (([string]::IsNullOrWhiteSpace($ProfileName)) -or ((![string]::IsNullOrWhiteSpace($ProfileName)) -and $ProfileName -eq $pname)) {
-						[pscustomobject]@{
-							ProfileID    = $profile
-							Path         = Join-Path $rootpath $profile
-							Name         = $pname
-							Browser      = $Browser
-							Version      = $buildinfo
-							ComputerName = $(hostname)
-							UserName     = $($env:USER)
-						}
+					[pscustomobject]@{
+						ProfileID    = $profile
+						Path         = Join-Path $rootpath $profile
+						Name         = $pname
+						Browser      = $Browser
+						Version      = $buildinfo
+						ComputerName = $(hostname)
+						UserName     = $($env:USER)
 					}
 				}
 			} else {
@@ -77,17 +77,15 @@ function Get-BrowserProfile {
 				$profiles    = $profileData.profile.info_cache.psobject.Properties.Name
 				foreach ($profile in $profiles) {
 					$pname = $profileData.profile.info_cache."$profile".name
-					if (([string]::IsNullOrWhiteSpace($ProfileName)) -or ((![string]::IsNullOrWhiteSpace($ProfileName)) -and $ProfileName -eq $pname)) {
-						[pscustomobject]@{
-							ProfileID    = $profile
-							Path         = Join-Path $rootpath $profile
-							Name         = $pname
-							Browser      = $Browser
-							Version      = $buildinfo
-							InstallType  = $installType
-							ComputerName = $(hostname)
-							UserName     = $($env:USER)
-						}
+					[pscustomobject]@{
+						ProfileID    = $profile
+						Path         = Join-Path $rootpath $profile
+						Name         = $pname
+						Browser      = $Browser
+						Version      = $buildinfo
+						InstallType  = $installType
+						ComputerName = $(hostname)
+						UserName     = $($env:USER)
 					}
 				}
 			} else {
@@ -101,16 +99,14 @@ function Get-BrowserProfile {
 				foreach ($profile in $profiles) {
 					$profileName = $profile.PSChildName
 					$profilePath = Join-Path $rootpath $profile.PSChildName
-					if (([string]::IsNullOrWhiteSpace($ProfileName)) -or ((![string]::IsNullOrWhiteSpace($ProfileName)) -and $ProfileName -eq $profileName)) {
-						[pscustomobject]@{
-							ProfileID    = $profile.PSChildName
-							Path         = $profilePath
-							Name         = $profileName
-							Browser      = $Browser
-							Version      = $buildinfo
-							ComputerName = $($env:COMPUTERNAME)
-							UserName     = $($env:USERNAME)
-						}
+					[pscustomobject]@{
+						ProfileID    = $profile.PSChildName
+						Path         = $profilePath
+						Name         = $profileName
+						Browser      = $Browser
+						Version      = $buildinfo
+						ComputerName = $($env:COMPUTERNAME)
+						UserName     = $($env:USERNAME)
 					}
 				}
 			}
@@ -134,17 +130,15 @@ function Get-BrowserProfile {
 				$profiles    = $profileData.profile.info_cache.psobject.Properties.Name
 				foreach ($profile in $profiles) {
 					$pname = $profileData.profile.info_cache."$profile".name
-					if (([string]::IsNullOrWhiteSpace($ProfileName)) -or ((![string]::IsNullOrWhiteSpace($ProfileName)) -and $ProfileName -eq $pname)) {
-						[pscustomobject]@{
-							ProfileID    = $profile
-							Path         = Join-Path $rootpath $profile
-							Name         = $pname
-							Browser      = $Browser
-							Version      = $buildinfo
-							InstallType  = $installType
-							ComputerName = $(hostname)
-							UserName     = $($env:USER)
-						}
+					[pscustomobject]@{
+						ProfileID    = $profile
+						Path         = Join-Path $rootpath $profile
+						Name         = $pname
+						Browser      = $Browser
+						Version      = $buildinfo
+						InstallType  = $installType
+						ComputerName = $(hostname)
+						UserName     = $($env:USER)
 					}
 				}
 			} else {
@@ -163,7 +157,7 @@ function Get-BrowserProfile {
 				} else {
 					throw "Firefox Browser not installed"
 				}
-				$profpath = "$rootpath/profiles.ini"
+				$profpath = Join-Path $rootpath "profiles.ini"
 				if (!(Test-Path $profpath)) { throw "File not found: $profpath" }
 				$profileData    = Get-IniContent -FilePath $profpath -IgnoreComments
 				$profiles       = $profileData.Keys | Where-Object { $_ -match 'Profile\d' }
@@ -187,7 +181,30 @@ function Get-BrowserProfile {
 				}
 			} else {
 				$rootpath = "$env:APPDATA\Mozilla\Firefox"
-				# NEED TO REDO THIS SECTION
+				if (Test-Path -Path $rootpath) {
+					$installType = 'System'
+				} else {
+					throw "Firefox Browser not installed"
+				}
+				$profpath   = Join-Path $rootpath "profiles.ini"
+				$buildinfo  = Get-ItemPropertyValue -Path "HKLM:\SOFTWARE\Mozilla\Mozilla Firefox" -Name CurrentVersion
+				$profileIDs = $(Import-Ini -Path $profpath -IgnoreComments).Keys | Where-Object { $_ -match 'Profile\d' }
+				$profiles = Import-Ini -Path $profpath -IgnoreComments
+				foreach ($profile in $profileIDs) {
+					$pdata = $profiles.Item($profile)
+					$pname = $pdata['Name']
+					$ppath = $pdata['Path']
+					[pscustomobject]@{
+						ProfileID    = $profile
+						Path         = Join-Path $rootpath "Profiles\$ppath"
+						Name         = $pname
+						Browser      = $Browser
+						Version      = $buildinfo
+						InstallType  = $installType
+						ComputerName = $($env:COMPUTERNAME)
+						UserName     = $($env:USERNAME)
+					}
+				}
 			}
 		}
 	}
