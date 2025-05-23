@@ -13,8 +13,7 @@ Query Browser Profiles
 ## SYNTAX
 
 ```
-Get-BrowserProfile [-Browser] <String> [[-ProfileName] <String>] [-PreferenceDetails]
- [-ProgressAction <ActionPreference>] [<CommonParameters>]
+Get-BrowserProfile [-Browser] <String> [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -28,6 +27,15 @@ For current user or all users
 Get-BrowserProfile -Browser Edge
 ```
 
+Returns all profiles for the Edge browser
+
+### EXAMPLE 2
+```
+Get-BrowserProfile -Browser Chrome
+```
+
+Returns all profiles for the Chrome browser
+
 ## PARAMETERS
 
 ### -Browser
@@ -35,6 +43,8 @@ Optional.
 Browser app to target for query (if installed)
 * Chrome
 * Edge
+* Brave
+* Firefox
 
 ```yaml
 Type: String
@@ -44,36 +54,6 @@ Aliases:
 Required: True
 Position: 1
 Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ProfileName
-Return information on one specific profile only
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 2
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -PreferenceDetails
-{{ Fill PreferenceDetails Description }}
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
