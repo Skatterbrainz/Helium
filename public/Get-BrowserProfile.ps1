@@ -50,13 +50,33 @@ function Get-BrowserProfile {
 						Name         = $pname
 						Browser      = $Browser
 						Version      = $buildinfo
+						InstallType  = $installType
 						ComputerName = $(hostname)
 						UserName     = $($env:USER)
 					}
 				}
 			} else {
 				$rootpath = "$env:LOCALAPPDATA\Google\Chrome\User Data"
-				# NEED TO REDO THIS SECTION
+				$profiles = Get-ChildItem -Path "HKCU:\Software\Google\Chrome\PreferenceMACs"
+				if (Test-Path "$env:PROGRAMFILES\Google\Chrome\Application\chrome.exe") {
+					$buildinfo = (Get-Item "$env:PROGRAMFILES\Google\Chrome\Application\chrome.exe").VersionInfo.ProductVersion
+				} else {
+					$buildinfo = "notfound"
+				}
+				foreach ($profile in $profiles) {
+					$profileName = $profile.PSChildName
+					$profilePath = Join-Path $rootpath $profile.PSChildName
+					[pscustomobject]@{
+						ProfileID    = $profile.PSChildName
+						Path         = $profilePath
+						Name         = $profileName
+						Browser      = $Browser
+						Version      = $buildinfo
+						InstallType  = 'System'
+						ComputerName = $($env:COMPUTERNAME)
+						UserName     = $($env:USERNAME)
+					}
+				}
 			}
 		}
 		'Edge' {
