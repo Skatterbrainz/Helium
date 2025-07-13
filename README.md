@@ -30,6 +30,8 @@ Bugs? Feature requests? Please [Submit them Here](https://github.com/Skatterbrai
 
 # Version History
 
+* 1.2.5
+  * Added Invoke-PsResourceMaintenance
 * 1.2.4
   * Added Get-CMLog (forked from Rich Preston just for convenience)
 * 1.2.3
