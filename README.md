@@ -30,6 +30,11 @@ Bugs? Feature requests? Please [Submit them Here](https://github.com/Skatterbrai
 
 # Version History
 
+* 1.2.4
+  * Added Get-CMLog (forked from Rich Preston just for convenience)
+* 1.2.3
+  * Updated Get-BrowserProfile to include InstallType (mainly for Linux)
+  * Added Get-Browsers
 * 1.2.2
   * Get-BrowserProfile
 	* Added Firefox and Brave and support on Linux and Windows 11
