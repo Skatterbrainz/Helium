@@ -1,6 +1,8 @@
 # Helium
 
 Assorted Utilities to make your day happier than inhaling a party balloon.
+Seriously, this is kind of a bug-out toolkit for a variety of sysadmin tasks.
+You may need to Google "bug-out".
 
 ```powershell
 Install-Module helium
@@ -8,11 +10,13 @@ Install-Module helium
 
 ## List all Functions and Descriptions
 
+Using the Get-ModuleHelp function from this module...
+
 ```powershell
 Get-ModuleHelp helium
 ```
 
-or 
+Using the built-in PowerShell Get-Command cmdlet...
 
 ```powershell
 Get-Command -Module helium
@@ -30,6 +34,8 @@ Bugs? Feature requests? Please [Submit them Here](https://github.com/Skatterbrai
 
 # Version History
 
+* 1.2.7
+  * Added Rename-FilePrefix and Rename-FileParse
 * 1.2.6
   * Added Export-SecretStore, and Import-SecretStore
   * Retired Invoke-Grep
