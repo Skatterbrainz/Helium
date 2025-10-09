@@ -6,17 +6,12 @@ You may need to Google "bug-out".
 
 ```powershell
 Install-Module helium
+Install-PSResource helium
 ```
 
 ## List all Functions and Descriptions
 
-Using the Get-ModuleHelp function from this module...
-
-```powershell
-Get-ModuleHelp helium
-```
-
-Using the built-in PowerShell Get-Command cmdlet...
+Using the built-in PowerShell Get-Command cmdlet to list all the goodies in this module:
 
 ```powershell
 Get-Command -Module helium
@@ -25,7 +20,7 @@ Get-Command -Module helium
 ## Get Detailed help on specific commands
 
 ```powershell
-Get-Help Invoke-Maintenance -Full
+Get-Help Import-CsvCompact -Full
 ```
 
 Documentation is also [Online Here](https://github.com/Skatterbrainz/Helium/tree/main/docs)
@@ -34,6 +29,8 @@ Bugs? Feature requests? Please [Submit them Here](https://github.com/Skatterbrai
 
 # Version History
 
+* 1.2.8
+  * Added Import-CsvCompact
 * 1.2.7
   * Added Rename-FilePrefix and Rename-FileParse
 * 1.2.6
@@ -65,3 +62,5 @@ Bugs? Feature requests? Please [Submit them Here](https://github.com/Skatterbrai
   * Added Get-ScriptFunctionComments
 * 1.1.11
   * tbd
+* Earlier
+  * Who knows. I can't remember my kids names sometimes
