@@ -1,27 +1,27 @@
 ---
 document type: cmdlet
 external help file: helium-Help.xml
-HelpUri: https://github.com/Skatterbrainz/helium/blob/master/docs/Find-ExcelWorkbookText.md
+HelpUri: https://github.com/Skatterbrainz/helium/blob/master/docs/Rename-FileParse.md
 Locale: en-US
 Module Name: helium
 ms.date: 10/09/2025
 PlatyPS schema version: 2024-05-01
-title: Find-ExcelWorkbookText
+title: Rename-FileParse
 ---
 
-# Find-ExcelWorkbookText
+# Rename-FileParse
 
 ## SYNOPSIS
 
-Find text string pattern within XLSX files in a given location
+Renames files by parsing their names based on a specified delimiter and optionally adding spaces around the delimiter
 
 ## SYNTAX
 
 ### __AllParameterSets
 
 ```
-Find-ExcelWorkbookText [[-Path] <string>] [[-SearchPattern] <string>] [[-OutputFile] <string>]
- [-SaveFile] [-NoRecurse] [<CommonParameters>]
+Rename-FileParse [-Path] <string> [-Filter] <string> [[-Delimiter] <string>] [-PadSpaces] [-WhatIf]
+ [-Confirm] [<CommonParameters>]
 ```
 
 ## ALIASES
@@ -31,43 +31,33 @@ This cmdlet has the following aliases,
 
 ## DESCRIPTION
 
-Search all XLSX workbook files for matching text string and return
-information about the workbook, worksheet, matching value, and location
+This function renames files in a specified directory by splitting their names into parts based on a given
+delimiter.
+It can also add spaces around the delimiter if specified.
+The function supports -WhatIf and -Confirm parameters 
+for safe execution.
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 
-.\Find-ExcelWorkbookText.ps1 -Path "\\server123\docs" -SearchPattern "Server543" -SaveFile
+Rename-FileParse -Path "C:\Files" -Filter "*.txt" -Delimiter "-" -PadSpaces
 
-Searches for instances of "Server543" within any cells on any sheets of workbooks in 
-the path \\server123\docs, and save to CSV file.
-
-### EXAMPLE 2
-
-Find-ExcelWorkbookText -Path "\\server123\docs" -SearchPattern "Server543" -SaveFile -NoRecurse
-
-Searches for instances of "Server543" within any cells on any sheets of workbooks in 
-the path \\server123\docs, but no subfolders, and save to CSV file.
-
-### EXAMPLE 3
-
-$results = Find-ExcelWorkbookText -Path "\\server123\docs" -SearchPattern "Server543"
-$results | Group-Object Workbook | Select-Object Count,Name
-
-Returns counts of matching instances by workbook filename
+Renames all .txt files in C:\Files by splitting their names at '-' and adding spaces around the delimiter.
+Example filename change: "Report-2023.txt" to "2023 - Report.txt".
 
 ## PARAMETERS
 
-### -NoRecurse
+### -Confirm
 
-Scan xlsx files in Path location only, do not scan into subfolders
+Prompts you for confirmation before running the cmdlet.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
-DefaultValue: False
+DefaultValue: ''
 SupportsWildcards: false
-Aliases: []
+Aliases:
+- cf
 ParameterSets:
 - Name: (All)
   Position: Named
@@ -80,13 +70,13 @@ AcceptedValues: []
 HelpMessage: ''
 ```
 
-### -OutputFile
+### -Delimiter
 
-CSV output path+filename
+The delimiter used to split the file names (default is '-').
 
 ```yaml
 Type: System.String
-DefaultValue: "\"$($env:HOME)\\Documents\\excel_search_$(Get-Date -f 'yyyyMMddhhmm').csv\""
+DefaultValue: '-'
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -101,9 +91,9 @@ AcceptedValues: []
 HelpMessage: ''
 ```
 
-### -Path
+### -Filter
 
-Path (folder) where .XLSX files reside
+The filter to select specific files (e.g., *.txt).
 
 ```yaml
 Type: System.String
@@ -112,8 +102,8 @@ SupportsWildcards: false
 Aliases: []
 ParameterSets:
 - Name: (All)
-  Position: 0
-  IsRequired: false
+  Position: 1
+  IsRequired: true
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
   ValueFromRemainingArguments: false
@@ -122,9 +112,9 @@ AcceptedValues: []
 HelpMessage: ''
 ```
 
-### -SaveFile
+### -PadSpaces
 
-Save output to CSV file
+Switch to add spaces around the delimiter in the new file names.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -143,9 +133,9 @@ AcceptedValues: []
 HelpMessage: ''
 ```
 
-### -SearchPattern
+### -Path
 
-Text string to search for
+The directory path where the files are located.
 
 ```yaml
 Type: System.String
@@ -154,7 +144,29 @@ SupportsWildcards: false
 Aliases: []
 ParameterSets:
 - Name: (All)
-  Position: 1
+  Position: 0
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -WhatIf
+
+Runs the command in a mode that only reports what would happen without performing the actions.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: ''
+SupportsWildcards: false
+Aliases:
+- wi
+ParameterSets:
+- Name: (All)
+  Position: Named
   IsRequired: false
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
@@ -179,4 +191,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-- [](https://github.com/Skatterbrainz/helium/blob/master/docs/Find-ExcelWorkbookText.md)
+- [](https://github.com/Skatterbrainz/helium/blob/master/docs/Rename-FileParse.md)

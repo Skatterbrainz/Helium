@@ -1,87 +1,99 @@
 ---
-external help file: helium-help.xml
+document type: cmdlet
+external help file: helium-Help.xml
+HelpUri: https://github.com/Skatterbrainz/helium/blob/master/docs/Join-Url.md
+Locale: en-US
 Module Name: helium
-online version: https://github.com/Skatterbrainz/helium/blob/master/docs/Join-Url.md
-schema: 2.0.0
+ms.date: 10/09/2025
+PlatyPS schema version: 2024-05-01
+title: Join-Url
 ---
 
 # Join-Url
 
 ## SYNOPSIS
+
 Join-Path for WEB URL strings
 
 ## SYNTAX
 
+### __AllParameterSets
+
 ```
-Join-Url [-Path] <String> [-ChildPath] <String> [-ProgressAction <ActionPreference>] [<CommonParameters>]
+Join-Url [-Path] <string> [-ChildPath] <string> [<CommonParameters>]
 ```
 
+## ALIASES
+
+This cmdlet has the following aliases,
+  {{Insert list of aliases}}
+
 ## DESCRIPTION
+
 Join-Path for WEB URL strings
 
 ## EXAMPLES
 
 ### EXAMPLE 1
-```
+
 Join-Url -Path "https://www.contoso.com" -ChildPath "sales"
 returns "https://www.contoso.com/sales"
-```
 
 ### EXAMPLE 2
-```
+
 Join-Url -Path "https://www.contoso.com/sales/" -ChildPath "accounts"
 returns "https://www.contoso.com/sales/accounts"
-```
 
 ## PARAMETERS
 
-### -Path
-Base path string
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -ChildPath
+
 Child path string to append to Path
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 2
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: ''
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 1
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-### -ProgressAction
-{{ Fill ProgressAction Description }}
+### -Path
+
+Base path string
 
 ```yaml
-Type: ActionPreference
-Parameter Sets: (All)
-Aliases: proga
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: ''
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
@@ -91,5 +103,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://github.com/Skatterbrainz/helium/blob/master/docs/Join-Url.md](https://github.com/Skatterbrainz/helium/blob/master/docs/Join-Url.md)
-
+- [](https://github.com/Skatterbrainz/helium/blob/master/docs/Join-Url.md)

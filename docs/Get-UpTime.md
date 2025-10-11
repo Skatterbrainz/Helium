@@ -1,106 +1,103 @@
 ---
-external help file: helium-help.xml
+document type: cmdlet
+external help file: helium-Help.xml
+HelpUri: https://github.com/Skatterbrainz/helium/blob/master/docs/Get-UpTime.md
+Locale: en-US
 Module Name: helium
-online version: https://github.com/Skatterbrainz/helium/blob/master/docs/Get-UpTime.md
-schema: 2.0.0
+ms.date: 10/09/2025
+PlatyPS schema version: 2024-05-01
+title: Get-UpTime
 ---
 
 # Get-UpTime
 
 ## SYNOPSIS
-Get system uptime
+
+{{ Fill in the Synopsis }}
 
 ## SYNTAX
 
+### __AllParameterSets
+
 ```
-Get-UpTime [[-ComputerName] <String>] [[-Credential] <PSCredential>] [-ProgressAction <ActionPreference>]
- [<CommonParameters>]
+Get-UpTime [[-ComputerName] <string>] [[-Credential] <pscredential>] [<CommonParameters>]
 ```
 
+## ALIASES
+
+This cmdlet has the following aliases,
+  {{Insert list of aliases}}
+
 ## DESCRIPTION
-Get system uptime (time since last restart)
+
+{{ Fill in the Description }}
 
 ## EXAMPLES
 
-### EXAMPLE 1
-```
-Get-UpTime
-```
+### Example 1
 
-### EXAMPLE 2
-```
-Get-UpTime -ComputerName Server123
-```
-
-### EXAMPLE 3
-```
-Get-UpTime -ComputerName Server123 -Credential $myCred
-```
+{{ Add example description here }}
 
 ## PARAMETERS
 
 ### -ComputerName
-Optional.
-Name of remote computer to query
+
+{{ Fill ComputerName Description }}
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 1
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: ''
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -Credential
-Optional.
-Credential to use for remote connection when using -ComputerName
+
+{{ Fill Credential Description }}
 
 ```yaml
-Type: PSCredential
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 2
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ProgressAction
-{{ Fill ProgressAction Description }}
-
-```yaml
-Type: ActionPreference
-Parameter Sets: (All)
-Aliases: proga
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.Management.Automation.PSCredential
+DefaultValue: ''
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 1
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
-### None
 ## OUTPUTS
 
-### System.TimeSpan
-### System.DateTime
 ## NOTES
+
+{{ Fill in the Notes }}
 
 ## RELATED LINKS
 
-[https://github.com/Skatterbrainz/helium/blob/master/docs/Get-UpTime.md](https://github.com/Skatterbrainz/helium/blob/master/docs/Get-UpTime.md)
-
-[https://go.microsoft.com/fwlink/?linkid=834862](https://go.microsoft.com/fwlink/?linkid=834862)
+{{ Fill in the related links here }}
 

@@ -80,6 +80,18 @@ function Export-SecretStore {
 		}
 	}
 	if (![string]::IsNullOrWhiteSpace($OutputFile)) {
+		Write-Verbose "Validating output file path: $OutputFile"
+		$filepath = Resolve-Path -Path $OutputFile -ErrorAction SilentlyContinue
+		if ($null -eq $filepath) {
+			Write-Verbose "Output file path does not exist. Creating directory if needed."
+			$directory = Split-Path -Path $OutputFile -Parent
+			if (!(Test-Path -Path $directory)) {
+				New-Item -Path $directory -ItemType Directory -Force | Out-Null
+			}
+		} else {
+			Write-Verbose "Output file path exists."
+		}
+		Write-Verbose "Exporting secrets to file: $OutputFile"
 		$results | ConvertTo-Json | Out-File -FilePath $OutputFile -Encoding utf8
 	} else {
 		$results | ConvertTo-Json

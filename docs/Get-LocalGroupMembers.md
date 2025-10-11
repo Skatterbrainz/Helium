@@ -1,94 +1,107 @@
 ---
-external help file: helium-help.xml
+document type: cmdlet
+external help file: helium-Help.xml
+HelpUri: https://github.com/Skatterbrainz/helium/blob/master/docs/Get-LocalGroupMembers.md
+Locale: en-US
 Module Name: helium
-online version: https://github.com/Skatterbrainz/helium/blob/master/docs/Get-LocalGroupMembers.md
-schema: 2.0.0
+ms.date: 10/09/2025
+PlatyPS schema version: 2024-05-01
+title: Get-LocalGroupMembers
 ---
 
 # Get-LocalGroupMembers
 
 ## SYNOPSIS
+
 Returns local group members
 
 ## SYNTAX
 
+### __AllParameterSets
+
 ```
-Get-LocalGroupMembers [[-ComputerName] <String>] [[-Identity] <String>] [-ProgressAction <ActionPreference>]
- [<CommonParameters>]
+Get-LocalGroupMembers [[-ComputerName] <string>] [[-Identity] <string>] [<CommonParameters>]
 ```
 
+## ALIASES
+
+This cmdlet has the following aliases,
+  {{Insert list of aliases}}
+
 ## DESCRIPTION
+
 Returns local group members
 
 ## EXAMPLES
 
-### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
-```
-
-{{ Add example description here }}
-
 ## PARAMETERS
 
 ### -ComputerName
+
 Name of computer (if remote).
 Default = 'localhost'
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases: Name
-
-Required: False
-Position: 1
-Default value: Localhost
-Accept pipeline input: True (ByPropertyName, ByValue)
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: localhost
+SupportsWildcards: false
+Aliases:
+- Name
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: false
+  ValueFromPipeline: true
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -Identity
+
 Name of local group.
 Default = 'Administrators'
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases: Group
-
-Required: False
-Position: 2
-Default value: Administrators
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ProgressAction
-{{ Fill ProgressAction Description }}
-
-```yaml
-Type: ActionPreference
-Parameter Sets: (All)
-Aliases: proga
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: Administrators
+SupportsWildcards: false
+Aliases:
+- Group
+ParameterSets:
+- Name: (All)
+  Position: 1
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
+
+### System.String
+
+{{ Fill in the Description }}
 
 ## OUTPUTS
 
 ## NOTES
+
 Adapted from https://gallery.technet.microsoft.com/scriptcenter/List-local-group-members-c25dbcc4
+
 
 ## RELATED LINKS
 
-[https://github.com/Skatterbrainz/helium/blob/master/docs/Get-LocalGroupMembers.md](https://github.com/Skatterbrainz/helium/blob/master/docs/Get-LocalGroupMembers.md)
-
+- [](https://github.com/Skatterbrainz/helium/blob/master/docs/Get-LocalGroupMembers.md)

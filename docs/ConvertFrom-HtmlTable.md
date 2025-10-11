@@ -1,67 +1,78 @@
 ---
-external help file: helium-help.xml
+document type: cmdlet
+external help file: helium-Help.xml
+HelpUri: https://github.com/Skatterbrainz/helium/blob/master/docs/ConvertFrom-HtmlTable.md
+Locale: en-US
 Module Name: helium
-online version: https://github.com/Skatterbrainz/helium/blob/master/docs/ConvertFrom-HtmlTable.md
-schema: 2.0.0
+ms.date: 10/09/2025
+PlatyPS schema version: 2024-05-01
+title: ConvertFrom-HtmlTable
 ---
 
 # ConvertFrom-HtmlTable
 
 ## SYNOPSIS
+
 Convert HTML Table rows into objects
 
 ## SYNTAX
 
+### __AllParameterSets
+
 ```
-ConvertFrom-HtmlTable [-Path] <String> [-ProgressAction <ActionPreference>] [<CommonParameters>]
+ConvertFrom-HtmlTable [-Path] <string> [<CommonParameters>]
 ```
 
+## ALIASES
+
+This cmdlet has the following aliases,
+  {{Insert list of aliases}}
+
 ## DESCRIPTION
+
 Convert HTML table rows into objects
 
 ## EXAMPLES
 
 ### EXAMPLE 1
-```
+
 ConvertFrom-HtmlTable -Path "c:\temp\myfile.htm"
-```
 
 ## PARAMETERS
 
 ### -Path
+
 HTML file path
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: 1
-Default value: None
-Accept pipeline input: True (ByValue)
-Accept wildcard characters: False
-```
-
-### -ProgressAction
-{{ Fill ProgressAction Description }}
-
-```yaml
-Type: ActionPreference
-Parameter Sets: (All)
-Aliases: proga
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: ''
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: true
+  ValueFromPipeline: true
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
+
+### System.String
+
+{{ Fill in the Description }}
 
 ## OUTPUTS
 
@@ -69,5 +80,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[https://github.com/Skatterbrainz/helium/blob/master/docs/ConvertFrom-HtmlTable.md](https://github.com/Skatterbrainz/helium/blob/master/docs/ConvertFrom-HtmlTable.md)
-
+- [](https://github.com/Skatterbrainz/helium/blob/master/docs/ConvertFrom-HtmlTable.md)

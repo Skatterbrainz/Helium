@@ -1,30 +1,42 @@
 ---
-external help file: helium-help.xml
+document type: cmdlet
+external help file: helium-Help.xml
+HelpUri: https://github.com/Skatterbrainz/helium/blob/master/docs/Test-IsAdmin.md
+Locale: en-US
 Module Name: helium
-online version: https://github.com/Skatterbrainz/helium/blob/master/docs/Test-IsAdmin.md
-schema: 2.0.0
+ms.date: 10/09/2025
+PlatyPS schema version: 2024-05-01
+title: Test-IsAdmin
 ---
 
 # Test-IsAdmin
 
 ## SYNOPSIS
+
 Returns True if session running in elevated context
 
 ## SYNTAX
+
+### __AllParameterSets
 
 ```
 Test-IsAdmin
 ```
 
+## ALIASES
+
+This cmdlet has the following aliases,
+  {{Insert list of aliases}}
+
 ## DESCRIPTION
+
 Returns True if session running in elevated context, such as Administrator (Windows) or root (Linux)
 
 ## EXAMPLES
 
 ### EXAMPLE 1
-```
+
 if (Test-IsAdmin) { ... }
-```
 
 ## PARAMETERS
 
@@ -36,5 +48,4 @@ if (Test-IsAdmin) { ... }
 
 ## RELATED LINKS
 
-[https://github.com/Skatterbrainz/helium/blob/master/docs/Test-IsAdmin.md](https://github.com/Skatterbrainz/helium/blob/master/docs/Test-IsAdmin.md)
-
+- [](https://github.com/Skatterbrainz/helium/blob/master/docs/Test-IsAdmin.md)

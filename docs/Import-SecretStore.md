@@ -1,26 +1,26 @@
 ---
 document type: cmdlet
 external help file: helium-Help.xml
-HelpUri: https://github.com/Skatterbrainz/helium/blob/master/docs/Start-UrlDownloadFile.md
+HelpUri: https://github.com/Skatterbrainz/helium/blob/master/docs/Import-SecretStore.md
 Locale: en-US
 Module Name: helium
 ms.date: 10/09/2025
 PlatyPS schema version: 2024-05-01
-title: Start-UrlDownloadFile
+title: Import-SecretStore
 ---
 
-# Start-UrlDownloadFile
+# Import-SecretStore
 
 ## SYNOPSIS
 
-Download URI file to local file
+Imports secrets from a JSON file into a specified secret vault.
 
 ## SYNTAX
 
 ### __AllParameterSets
 
 ```
-Start-UrlDownloadFile [-URI] <string> [[-LocalPath] <string>] [-Force] [<CommonParameters>]
+Import-SecretStore [-Path] <string> [-VaultName] <string> [-Force] [<CommonParameters>]
 ```
 
 ## ALIASES
@@ -30,21 +30,30 @@ This cmdlet has the following aliases,
 
 ## DESCRIPTION
 
-Download URI file to local file
+This function reads a JSON file containing secrets and imports them into a specified secret vault.
+If the vault does not exist, it will be created.
+Existing secrets can be overwritten if the -Force
+parameter is specified.
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 
-Start-UrlDownloadFile "https://www.contoso.com/files/myfilename.cer" -LocalPath "c:\temp"
+Import-SecretStore -Path "C:\secrets.json" -VaultName "MyVault"
 
-Downloads the content from the URL to c:\temp\myfilename.cer
+Imports secrets from the specified JSON file into the "MyVault" secret vault.
+
+### EXAMPLE 2
+
+Import-SecretStore -Path "C:\secrets.json" -VaultName "MyVault" -Force
+
+Forces the overwriting of existing secrets in the "MyVault" secret vault.
 
 ## PARAMETERS
 
 ### -Force
 
-{{ Fill Force Description }}
+Forces the overwriting of existing secrets in the vault.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -63,35 +72,9 @@ AcceptedValues: []
 HelpMessage: ''
 ```
 
-### -LocalPath
+### -Path
 
-Optional.
-Local folder path.
-Default is $env:TEMP
-
-```yaml
-Type: System.String
-DefaultValue: $($env:TEMP)
-SupportsWildcards: false
-Aliases: []
-ParameterSets:
-- Name: (All)
-  Position: 1
-  IsRequired: false
-  ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: false
-  ValueFromRemainingArguments: false
-DontShow: false
-AcceptedValues: []
-HelpMessage: ''
-```
-
-### -URI
-
-Required.
-URI of remote file to download.
-The tail end of the URI will be used for the local file name
-https://www.contoso.com/files/myfilename.cer will be downloaded to myfilename.cer in the -LocalPath folder
+The path to the JSON file containing the secrets.
 
 ```yaml
 Type: System.String
@@ -101,6 +84,27 @@ Aliases: []
 ParameterSets:
 - Name: (All)
   Position: 0
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -VaultName
+
+The name of the secret vault to import the secrets into.
+
+```yaml
+Type: System.String
+DefaultValue: ''
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 1
   IsRequired: true
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
@@ -123,6 +127,9 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## NOTES
 
+Requires the Microsoft.PowerShell.SecretManagement and Microsoft.PowerShell.SecretStore modules.
+
+
 ## RELATED LINKS
 
-- [](https://github.com/Skatterbrainz/helium/blob/master/docs/Start-UrlDownloadFile.md)
+- [](https://github.com/Skatterbrainz/helium/blob/master/docs/Import-SecretStore.md)

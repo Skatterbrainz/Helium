@@ -46,9 +46,15 @@ function Import-SecretStore {
 	if (!(Test-Path -Path $Path)) {
 		Write-Error "File not found: $Path"
 		return
+	} else {
+		$Path = Resolve-Path -Path $Path -ErrorAction Stop
 	}
-
-	$json = Get-Content -Path $Path -Raw | ConvertFrom-Json
+	if (!(Test-Path -Path $Path)) {
+		Write-Error "File not found after resolving path: $Path"
+		return
+	}
+	Write-Host "Importing secrets from file: $Path"
+	$json = Get-Content -Path $Path | ConvertFrom-Json
 	if (!(Get-SecretVault -Name $VaultName -ErrorAction SilentlyContinue)) {
 		Write-Host "Creating new secret vault: $VaultName"
 		New-SecretVault -Name $VaultName -ErrorAction Stop

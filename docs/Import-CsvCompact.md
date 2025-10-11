@@ -1,27 +1,28 @@
 ---
 document type: cmdlet
 external help file: helium-Help.xml
-HelpUri: https://github.com/Skatterbrainz/helium/blob/master/docs/Update-Machine.md
+HelpUri: ''
 Locale: en-US
 Module Name: helium
 ms.date: 10/09/2025
 PlatyPS schema version: 2024-05-01
-title: Update-Machine
+title: Import-CsvCompact
 ---
 
-# Update-Machine
+# Import-CsvCompact
 
 ## SYNOPSIS
 
-Run Windows system maintenance tasks
+Imports a CSV file and converts headers to camel case, optionally substituting spaces with a specified string.
 
 ## SYNTAX
 
 ### __AllParameterSets
 
 ```
-Update-Machine [[-ModuleNames] <string>] [-WindowsUpdate] [-Chocolatey] [-Winget] [-Modules] [-Help]
- [-Linux] [-ShowConfirmation] [<CommonParameters>]
+Import-CsvCompact [-Path] <string> [-LiteralPath <string>] [-Delimiter <string>]
+ [-SubstituteForSpace <string>] [-Header <string>] [-Encoding <string>] [-UseCulture]
+ [<CommonParameters>]
 ```
 
 ## ALIASES
@@ -31,102 +32,131 @@ This cmdlet has the following aliases,
 
 ## DESCRIPTION
 
-Run Windows system maintenance tasks suchas Windows Updates, updating
-Chocolatey and Winget packages, PowerShell modules, PowerShell help files
-and optionally display a confirmation toast popup.
+This function imports a CSV file using the Import-Csv cmdlet and processes the headers to convert them to camel case.
+It also allows for an optional substitution string to replace spaces in the headers.
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 
-Update-Machine -WindowsUpdate
+Import-CsvCompact -Path "data.csv" -SubstituteForSpace "_"
+
+Imports the CSV file "data.csv" and converts headers to camel case, replacing spaces with underscores.
 
 ### EXAMPLE 2
 
-Update-Machine -WindowsUpdate -Chocolatey -Winget -Modules -Help -ShowConfirmation
+Import-CsvCompact -Path "data.csv" -Delimiter ";"
+
+Imports the CSV file "data.csv" using a semicolon as the delimiter and converts headers to camel case.
+
+### EXAMPLE 3
+
+Import-CsvCompact -LiteralPath "C:\data files\data.csv" -UseCulture
+
+Imports the CSV file located at "C:\data files\data.csv" using the current culture settings and converts headers to camel case.
 
 ## PARAMETERS
 
-### -Chocolatey
+### -Delimiter
 
-Update Chocolatey packages.
-If Chocolatey is installed.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-DefaultValue: False
-SupportsWildcards: false
-Aliases: []
-ParameterSets:
-- Name: (All)
-  Position: Named
-  IsRequired: false
-  ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: false
-  ValueFromRemainingArguments: false
-DontShow: false
-AcceptedValues: []
-HelpMessage: ''
-```
-
-### -Help
-
-Update PowerShell help files.
-If invoked without administrator context, this will
-only update help content under the CurrentUser scope (PS 6.1 or later)
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-DefaultValue: False
-SupportsWildcards: false
-Aliases: []
-ParameterSets:
-- Name: (All)
-  Position: Named
-  IsRequired: false
-  ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: false
-  ValueFromRemainingArguments: false
-DontShow: false
-AcceptedValues: []
-HelpMessage: ''
-```
-
-### -Linux
-
-Optional.
-On Linux machines, invokes apt-get with update and full-upgrade options, as well as flatpak
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-DefaultValue: False
-SupportsWildcards: false
-Aliases: []
-ParameterSets:
-- Name: (All)
-  Position: Named
-  IsRequired: false
-  ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: false
-  ValueFromRemainingArguments: false
-DontShow: false
-AcceptedValues: []
-HelpMessage: ''
-```
-
-### -ModuleNames
-
-{{ Fill ModuleNames Description }}
+The character that separates the values in the CSV file.
+Default is a comma (,).
 
 ```yaml
 Type: System.String
-DefaultValue: PowerShellAI,importexcel,carbon,dbatools,helium
+DefaultValue: ','
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -Encoding
+
+The encoding for the CSV file.
+Default is 'utf8'.
+
+```yaml
+Type: System.String
+DefaultValue: utf8
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -Header
+
+An array of strings that specifies the column headers for the CSV file.
+
+```yaml
+Type: System.String
+DefaultValue: ''
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -LiteralPath
+
+Specifies a path to the CSV file that is used exactly as it is typed.
+Notation characters are interpreted.
+
+```yaml
+Type: System.String
+DefaultValue: ''
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -Path
+
+The path to the CSV file to import.
+
+```yaml
+Type: System.String
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
 - Name: (All)
   Position: 0
-  IsRequired: false
+  IsRequired: true
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
   ValueFromRemainingArguments: false
@@ -135,13 +165,14 @@ AcceptedValues: []
 HelpMessage: ''
 ```
 
-### -Modules
+### -SubstituteForSpace
 
-Update PowerShell modules.
+A string to substitute for spaces in the headers.
+Default is an empty string.
 
 ```yaml
-Type: System.Management.Automation.SwitchParameter
-DefaultValue: False
+Type: System.String
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -156,52 +187,9 @@ AcceptedValues: []
 HelpMessage: ''
 ```
 
-### -ShowConfirmation
+### -UseCulture
 
-{{ Fill ShowConfirmation Description }}
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-DefaultValue: False
-SupportsWildcards: false
-Aliases: []
-ParameterSets:
-- Name: (All)
-  Position: Named
-  IsRequired: false
-  ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: false
-  ValueFromRemainingArguments: false
-DontShow: false
-AcceptedValues: []
-HelpMessage: ''
-```
-
-### -WindowsUpdate
-
-Check for and install Windows updates
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-DefaultValue: False
-SupportsWildcards: false
-Aliases: []
-ParameterSets:
-- Name: (All)
-  Position: Named
-  IsRequired: false
-  ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: false
-  ValueFromRemainingArguments: false
-DontShow: false
-AcceptedValues: []
-HelpMessage: ''
-```
-
-### -Winget
-
-Update Winget packages.
-If Winget is installed.
+Indicates that the cmdlet uses the current culture settings to interpret the CSV file.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -231,8 +219,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
+### System.Management.Automation.PSObject
+
+{{ Fill in the Description }}
+
 ## NOTES
 
 ## RELATED LINKS
 
-- [](https://github.com/Skatterbrainz/helium/blob/master/docs/Update-Machine.md)
+{{ Fill in the related links here }}
+

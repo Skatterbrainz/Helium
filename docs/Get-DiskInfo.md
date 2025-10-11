@@ -1,30 +1,40 @@
 ---
-external help file: helium-help.xml
+document type: cmdlet
+external help file: helium-Help.xml
+HelpUri: ''
+Locale: en-US
 Module Name: helium
-online version: https://github.com/Skatterbrainz/helium/blob/master/docs/Get-DfsShareFileSizes.md
-schema: 2.0.0
+ms.date: 10/09/2025
+PlatyPS schema version: 2024-05-01
+title: Get-DiskInfo
 ---
 
 # Get-DiskInfo
 
 ## SYNOPSIS
+
 {{ Fill in the Synopsis }}
 
 ## SYNTAX
+
+### __AllParameterSets
 
 ```
 Get-DiskInfo
 ```
 
+## ALIASES
+
+This cmdlet has the following aliases,
+  {{Insert list of aliases}}
+
 ## DESCRIPTION
+
 {{ Fill in the Description }}
 
 ## EXAMPLES
 
 ### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
-```
 
 {{ Add example description here }}
 
@@ -32,10 +42,17 @@ PS C:\> {{ Add example code here }}
 
 ## INPUTS
 
-### None
 ## OUTPUTS
 
 ### System.Object
+
+{{ Fill in the Description }}
+
 ## NOTES
 
+{{ Fill in the Notes }}
+
 ## RELATED LINKS
+
+{{ Fill in the related links here }}
+

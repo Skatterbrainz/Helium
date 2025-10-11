@@ -1,26 +1,26 @@
 ---
 document type: cmdlet
 external help file: helium-Help.xml
-HelpUri: https://github.com/Skatterbrainz/helium/blob/master/docs/Start-UrlDownloadFile.md
+HelpUri: https://github.com/Skatterbrainz/helium/blob/master/docs/Export-SecretStore.md
 Locale: en-US
 Module Name: helium
 ms.date: 10/09/2025
 PlatyPS schema version: 2024-05-01
-title: Start-UrlDownloadFile
+title: Export-SecretStore
 ---
 
-# Start-UrlDownloadFile
+# Export-SecretStore
 
 ## SYNOPSIS
 
-Download URI file to local file
+Exports secrets from a specified secret vault.
 
 ## SYNTAX
 
 ### __AllParameterSets
 
 ```
-Start-UrlDownloadFile [-URI] <string> [[-LocalPath] <string>] [-Force] [<CommonParameters>]
+Export-SecretStore [-VaultName] <string> [[-OutputFile] <string>] [<CommonParameters>]
 ```
 
 ## ALIASES
@@ -30,48 +30,31 @@ This cmdlet has the following aliases,
 
 ## DESCRIPTION
 
-Download URI file to local file
+This function retrieves secrets from a specified secret vault and exports them in a clear text format.
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 
-Start-UrlDownloadFile "https://www.contoso.com/files/myfilename.cer" -LocalPath "c:\temp"
+Export-SecretStore -VaultName "MyVault" -OutputFile "C:\secrets.json"
 
-Downloads the content from the URL to c:\temp\myfilename.cer
+Exports secrets from the "MyVault" secret vault to the specified JSON file.
+
+### EXAMPLE 2
+
+Export-SecretStore -VaultName "MyVault"
+
+Exports secrets from the "MyVault" secret vault to the default output (console).
 
 ## PARAMETERS
 
-### -Force
+### -OutputFile
 
-{{ Fill Force Description }}
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-DefaultValue: False
-SupportsWildcards: false
-Aliases: []
-ParameterSets:
-- Name: (All)
-  Position: Named
-  IsRequired: false
-  ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: false
-  ValueFromRemainingArguments: false
-DontShow: false
-AcceptedValues: []
-HelpMessage: ''
-```
-
-### -LocalPath
-
-Optional.
-Local folder path.
-Default is $env:TEMP
+The path to the output file where the exported secrets will be saved.
 
 ```yaml
 Type: System.String
-DefaultValue: $($env:TEMP)
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
@@ -86,12 +69,9 @@ AcceptedValues: []
 HelpMessage: ''
 ```
 
-### -URI
+### -VaultName
 
-Required.
-URI of remote file to download.
-The tail end of the URI will be used for the local file name
-https://www.contoso.com/files/myfilename.cer will be downloaded to myfilename.cer in the -LocalPath folder
+The name of the secret vault to export secrets from.
 
 ```yaml
 Type: System.String
@@ -123,6 +103,9 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## NOTES
 
+Requires Microsoft.PowerShell.SecretManagement module.
+
+
 ## RELATED LINKS
 
-- [](https://github.com/Skatterbrainz/helium/blob/master/docs/Start-UrlDownloadFile.md)
+- [](https://github.com/Skatterbrainz/helium/blob/master/docs/Export-SecretStore.md)
