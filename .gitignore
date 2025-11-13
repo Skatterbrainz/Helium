@@ -3,7 +3,8 @@
 /retired
 /retired/*
 .history/
-
+/test
+/test/*
 .vscode
 .vscode/*
 /.vscode/*
