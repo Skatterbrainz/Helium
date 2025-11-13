@@ -29,6 +29,12 @@ Bugs? Feature requests? Please [Submit them Here](https://github.com/Skatterbrai
 
 # Version History
 
+* 1.2.10
+  * Removed psIni as a module prerequisite during import
+* 1.2.9
+  * Added Export-SecretStore
+  * Added Import-SecretStore
+  * Updated all Help document files to latest markdown format
 * 1.2.8
   * Added Import-CsvCompact
 * 1.2.7

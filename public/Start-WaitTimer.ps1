@@ -34,9 +34,20 @@ function Start-WaitTimer {
 		[parameter()][string]$Message = "Waiting",
 		[parameter()][switch]$NoProgress
 	)
+	function getNearestSeconds {
+		param (
+			[parameter()][int]$TotalSeconds,
+			[parameter()]$Portion
+		)
+		if ($Portion -eq 0) {
+			return 0
+		} else {
+			return [math]::Ceiling($TotalSeconds / $Portion)
+		}
+	}
 	for ($i = 0; $i -lt $totalTime; $i+= $increment) {
 		if (-not $NoProgress.IsPresent -and (-not $IsLinux)) {
-			Write-Progress -Activity "$($Message)" -Status "$( [math]::Round(($totalTime - $i)/60,2) ) minutes remaining..." -PercentComplete ($i/$totalTime*100)
+			Write-Progress -Activity "$($Message)" -Status "$( getNearestSeconds $totalTime ($totalTime - $i) ) minutes remaining..." -PercentComplete ($i/$totalTime*100)
 		} else {
 			Write-Host "$($Message): $([math]::Round(($totalTime - $i)/60,2)) minutes remaining... (press Ctrl+C to cancel)..."
 		}
