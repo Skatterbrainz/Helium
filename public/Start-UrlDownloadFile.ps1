@@ -35,7 +35,7 @@ function Start-UrlDownloadFile {
 			}
 		}
 		Write-Verbose "downloading from: $URI"
-		$null = Invoke-WebRequest -Uri $URI -OutFile $filepath -ErrorAction Stop
+		$null = Invoke-WebRequest -Uri $URI -UseBasicParsing -OutFile $filepath -ErrorAction Stop
 		Write-Host "Downloaded to: $filepath" -ForegroundColor Cyan
 	} catch {
 		Write-Warning "error: $($_.Exception.Message)"

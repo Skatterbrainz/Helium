@@ -11,8 +11,8 @@ function Get-PublicIPv4Address {
 		https://github.com/Skatterbrainz/helium/blob/master/docs/Get-PublicIPv4Address.md
 	#>
 	try {
-		$response1 = (Invoke-WebRequest -Uri ('http://ipinfo.io/'+(Invoke-WebRequest -uri "http://ifconfig.me/ip").Content)).Content
-		$response2 = (Invoke-WebRequest -Uri "api.ipify.org").Content
+		$response1 = (Invoke-WebRequest -Uri ('http://ipinfo.io/'+(Invoke-WebRequest -Uri "http://ifconfig.me/ip" -UseBasicParsing).Content) -UseBasicParsing).Content
+		$response2 = (Invoke-WebRequest -Uri "api.ipify.org" -UseBasicParsing).Content
 		if ($response1 -and $response2) {
 			$result = $response1 | ConvertFrom-Json
 			$result | select-object -Property @{n='ipv4';e={$response2}},@{n='ipv6';e={$_.ip}},@{n='city';e={$_.city}},@{n='region';e={$_.region}},@{n='country';e={$_.country}},@{n='loc';e={$_.loc}},@{n='org';e={$_.org}},@{n='postal';e={$_.postal}},@{n='timezone';e={$_.timezone}}

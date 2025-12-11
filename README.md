@@ -9,6 +9,10 @@ Install-Module helium
 Install-PSResource helium
 ```
 
+## Please Read
+
+Version 1.2.11 incorporates the change for Invoke-WebRequest to address vulnerabilities as reported by [CVE-2025-54100](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-54100)
+
 ## List all Functions and Descriptions
 
 Using the built-in PowerShell Get-Command cmdlet to list all the goodies in this module:
@@ -29,6 +33,9 @@ Bugs? Feature requests? Please [Submit them Here](https://github.com/Skatterbrai
 
 # Version History
 
+* 1.2.11
+  * Updated Get-PublicIPv4Address to address [CVE-2025-54100](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-54100)
+  * Updated Start-UrlDownloadFile to address [CVE-2025-54100](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-54100)
 * 1.2.10
   * Removed psIni as a module prerequisite during import
 * 1.2.9
