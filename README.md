@@ -11,10 +11,33 @@ Install-PSResource helium
 
 ## Revision History
 
-1.3.0
-- Added: Export-Bookmarks
-1.2.11
-- Updated: Functions that rely on Invoke-WebRequest updated to add -UseBasicParsing
+- 1.3.0
+  - Added: Export-Bookmarks
+- 1.2.11
+  - Updated: Functions that rely on Invoke-WebRequest updated to add -UseBasicParsing
+- 1.2.10
+  - Updated: Start-WaitTimer
+- 1.2.9
+  - Updated: Export-SecretStore, Import-SecretStore
+- 1.2.8
+  - Added: Import-CsvCompact
+- 1.2.7
+  - Added: Rename-FileParse, Rename-FilePrefix
+- 1.2.6
+  - Added: Export-SecretStore
+- 1.2.5
+  - Added: Invoke-PsResourceMaintenance
+- 1.2.4
+  - Added: Get-CMLog
+- 1.2.3
+  - Added: Get-Browsers
+  - Updated: Get-BrowserProfile
+- 1.2.2
+  - Updated: Get-BrowserProfile
+- 1.2.1
+  - Updated: Get-PublicIPv4Address
+- 1.2.0
+  - Omg: I don't know what happened here
 
 ## Please Read
 
