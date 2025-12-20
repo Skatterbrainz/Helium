@@ -9,6 +9,13 @@ Install-Module helium
 Install-PSResource helium
 ```
 
+## Revision History
+
+1.3.0
+- Added: Export-Bookmarks
+1.2.11
+- Updated: Functions that rely on Invoke-WebRequest updated to add -UseBasicParsing
+
 ## Please Read
 
 Version 1.2.11 incorporates the change for Invoke-WebRequest to address vulnerabilities as reported by [CVE-2025-54100](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-54100)
