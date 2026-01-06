@@ -25,6 +25,7 @@ This module provides a comprehensive collection of PowerShell cmdlets designed t
 - 🔧 **Browser Tools** - Get browser profiles, check default browsers, and export bookmarks
 - 📦 **Module Management** - Maintain PS resources, import functions from Gists, and get module help
 - 🎨 **UI Tools** - Display message boxes, input boxes, and grid selection dialogs
+- 🐙 **GitHub Tools** - Search Repositories and Gists for items containing matching strings
 
 ## 🚨 Security Notice
 
