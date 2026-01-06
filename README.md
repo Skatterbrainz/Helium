@@ -4,6 +4,7 @@ PowerShell Utilities for Windows System Administration
 
 ![PowerShell](https://img.shields.io/badge/PowerShell-5.1%2B-blue)
 ![Platform](https://img.shields.io/badge/platform-Windows-blue)
+![Platform](https://img.shields.io/badge/platform-Linux-orange)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 Assorted Utilities to make your day happier than inhaling a party balloon. Seriously, this is kind of a bug-out toolkit for a variety of sysadmin tasks. You may need to Google "bug-out".
