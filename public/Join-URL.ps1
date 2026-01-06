@@ -18,8 +18,8 @@ function Join-Url {
 		https://github.com/Skatterbrainz/helium/blob/master/docs/Join-Url.md
 	#>
 	param (
-		[parameter(Mandatory,Position=0)][ValidateNotNullOrEmpty()][string] $Path, 
-		[parameter(Mandatory,Position=1)][ValidateNotNullOrEmpty()][string] $ChildPath
+		[parameter(Mandatory=$true,Position=0)][ValidateNotNullOrEmpty()][string] $Path, 
+		[parameter(Mandatory=$true,Position=1)][ValidateNotNullOrEmpty()][string] $ChildPath
 	)
 	if ($Path.EndsWith('/')) {
 		Write-Output "$Path$ChildPath"

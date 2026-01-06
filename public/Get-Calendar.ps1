@@ -16,7 +16,7 @@ function Get-Calendar {
 		https://github.com/Skatterbrainz/helium/blob/master/docs/Get-Calendar.md
 	#>
 	param (
-		[parameter()][datetime]$Date
+		[parameter(Mandatory=$False)][datetime]$Date
 	)
 	# Get the current date
 	if ($Date) {

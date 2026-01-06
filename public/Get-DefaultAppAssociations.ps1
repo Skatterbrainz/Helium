@@ -20,9 +20,9 @@ function Get-DefaultAppAssociations {
 	#>
 	[CmdletBinding()]
 	param (
-		[parameter()][string]$FilePath = "$($env:HOME)\documents\defaultapps.xml",
-		[parameter()][int32]$RefreshDays = 7,
-		[parameter()][switch]$Force
+		[parameter(Mandatory=$False)][string]$FilePath = "$($env:HOME)\documents\defaultapps.xml",
+		[parameter(Mandatory=$False)][int32]$RefreshDays = 7,
+		[parameter(Mandatory=$False)][switch]$Force
 	)
 	if ($PSVersionTable.Platform -eq 'Unix') {
 		Get-Content -Path "~/.config/mimeapps.list" | Select-String -Pattern '=' | ForEach-Object {

@@ -12,7 +12,7 @@ function Set-NetConnectionPrivate {
 	#>
 	[CmdletBinding()]
 	param (
-		[parameter()][switch]$Show
+		[parameter(Mandatory=$false)][switch]$Show
 	)
 	try {
 		if ($PSVersionTable.Platform -eq 'Unix') { throw "Not supported on Linux systems" }

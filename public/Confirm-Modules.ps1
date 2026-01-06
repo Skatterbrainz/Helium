@@ -41,9 +41,9 @@ https://github.com/Skatterbrainz/helium/blob/master/docs/Confirm-Modules.md
 function Confirm-Modules {
 	[CmdletBinding()]
 	param (
-		[parameter()][switch]$Update,
-		[parameter()][string[]]$Exclude,
-		[parameter()][string[]]$ExcludePattern
+		[parameter(Mandatory=$False)][switch]$Update,
+		[parameter(Mandatory=$False)][string[]]$Exclude,
+		[parameter(Mandatory=$False)][string[]]$ExcludePattern
 	)
 	try {
 		$count1  = 0

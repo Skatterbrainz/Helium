@@ -20,9 +20,9 @@ function Get-ModuleHelp {
 		https://github.com/Skatterbrainz/helium/blob/master/docs/Get-ModuleHelp.md
 	#>
 	param (
-		[parameter(Mandatory)][string]$ModuleName,
-		[parameter()][switch]$Export,
-		[parameter()][string]$OutputPath = "$env:TEMP"
+		[parameter(Mandatory=$true)][string]$ModuleName,
+		[parameter(Mandatory=$False)][switch]$Export,
+		[parameter(Mandatory=$False)][string]$OutputPath = "$env:TEMP"
 	)
 	try {
 		if (!(Get-Module $ModuleName -ListAvailable)) {

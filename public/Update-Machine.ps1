@@ -30,14 +30,14 @@ function Update-Machine {
 	#>
 	[CmdletBinding()]
 	param (
-		[parameter()][switch]$WindowsUpdate,
-		[parameter()][switch]$Chocolatey,
-		[parameter()][switch]$Winget,
-		[parameter()][switch]$Modules,
-		[parameter()][string]$ModuleNames = 'PowerShellAI,importexcel,carbon,dbatools,helium',
-		[parameter()][switch]$Help,
-		[parameter()][switch]$Linux,
-		[parameter()][switch]$ShowConfirmation
+		[parameter(Mandatory=$False)][switch]$WindowsUpdate,
+		[parameter(Mandatory=$False)][switch]$Chocolatey,
+		[parameter(Mandatory=$False)][switch]$Winget,
+		[parameter(Mandatory=$False)][switch]$Modules,
+		[parameter(Mandatory=$False)][string]$ModuleNames = 'PowerShellAI,importexcel,carbon,dbatools,helium',
+		[parameter(Mandatory=$False)][switch]$Help,
+		[parameter(Mandatory=$False)][switch]$Linux,
+		[parameter(Mandatory=$False)][switch]$ShowConfirmation
 	)
 	if ($PSVersionTable.Platform -ne 'Unix') {
 		[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12

@@ -30,8 +30,8 @@ function Split-LDAP {
 	[CmdletBinding()]
 	param (
 		[parameter(Mandatory=$True,ValueFromPipeline=$True)][string]$Path,
-		[parameter()][string]$Delimiter = ",",
-		[parameter()][string][ValidateSet('Parent','Domain')]$Part = 'Parent'
+		[parameter(Mandatory=$false)][string]$Delimiter = ",",
+		[parameter(Mandatory=$false)][string][ValidateSet('Parent','Domain')]$Part = 'Parent'
 	)
 	$items = $Path -split $Delimiter
 	if ($Part -eq 'Parent') {

@@ -15,7 +15,7 @@ function Get-WordCase {
 		https://github.com/Skatterbrainz/helium/blob/master/docs/Get-WordCase.md
 	#>
 	param (
-		[parameter(Mandatory)][ValidateNotNullOrEmpty()][string]$String
+		[parameter(Mandatory=$False)][ValidateNotNullOrEmpty()][string]$String
 	)
 	$words = $String -split " " | Foreach-Object {
 		if ($_.Length -gt 1) {

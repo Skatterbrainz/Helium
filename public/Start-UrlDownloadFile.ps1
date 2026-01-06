@@ -18,9 +18,9 @@ function Start-UrlDownloadFile {
 	#>
 	[CmdletBinding()]
 	param (
-		[parameter(Mandatory)][string]$URI,
-		[parameter()][string]$LocalPath = $($env:TEMP),
-		[parameter()][switch]$Force
+		[parameter(Mandatory=$true)][string]$URI,
+		[parameter(Mandatory=$false)][string]$LocalPath = $($env:TEMP),
+		[parameter(Mandatory=$false)][switch]$Force
 	)
 	try {
 		$filename = Split-Path $URI -Leaf

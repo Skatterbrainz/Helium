@@ -21,7 +21,7 @@ function Get-ReverseDistinguishedName {
 	param (
 		[parameter(Mandatory=$True,HelpMessage="LDAP DistinguishedName")]
 		[string][ValidateNotNullOrEmpty()]$DistinguishedName,
-		[parameter()][switch]$PathOnly
+		[parameter(Mandatory=$False)][switch]$PathOnly
 	)
 	$parts = $DistinguishedName -split ','
 	$base = $parts | Where-Object {$_.StartsWith('DC=')} | Foreach-Object {$_ -replace 'DC=',''}

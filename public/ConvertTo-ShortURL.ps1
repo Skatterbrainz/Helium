@@ -1,6 +1,6 @@
 function ConvertTo-ShortURL {
 	param (
-		[parameter(Mandatory, ValueFromPipeline=$True)]
+		[parameter(Mandatory=$true, ValueFromPipeline=$True)]
 		[ValidateNotNullOrEmpty()]
 		[string] $Url
 	)

@@ -18,8 +18,8 @@ function Test-ArrayUnified {
 		https://github.com/Skatterbrainz/helium/blob/master/docs/Test-ArrayUnified.md
 	#>
 	param (
-		[parameter(Mandatory)][array]$Array,
-		[parameter(Mandatory)]$ReferenceValue
+		[parameter(Mandatory=$false)][array]$Array,
+		[parameter(Mandatory=$false)]$ReferenceValue
 	)
 	(($Array | Foreach-Object {$_ -eq $ReferenceValue}) -eq $True).Count -eq $Array.Count
 }

@@ -19,10 +19,10 @@ function Invoke-Sed {
 	#>
 	[CmdletBinding()]
 	param (
-		[parameter(Mandatory)][string]$FilePath,
-		[parameter(Mandatory)][string]$Find,
-		[parameter()][string]$Filter = "*.*",
-		[parameter()][string]$ReplaceWith = ""
+		[parameter(Mandatory=$true)][string]$FilePath,
+		[parameter(Mandatory=$true)][string]$Find,
+		[parameter(Mandatory=$false)][string]$Filter = "*.*",
+		[parameter(Mandatory=$false)][string]$ReplaceWith = ""
 	)
 	if (Test-Path $FilePath) {
 		(Get-Content -Path $FilePath).Replace($Find, $ReplaceWith) | Set-Content -Path $FilePath

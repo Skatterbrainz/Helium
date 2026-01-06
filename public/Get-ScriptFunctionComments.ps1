@@ -21,8 +21,8 @@ function Get-ScriptFunctionComments {
 	#>
 	[CmdletBinding()]
 	param (
-		[parameter()][string]$FilePath,
-		[parameter()][string]$FolderPath
+		[parameter(Mandatory=$False)][string]$FilePath,
+		[parameter(Mandatory=$False)][string]$FolderPath
 	)
 	try {
 		$oep = $ErrorActionPreference

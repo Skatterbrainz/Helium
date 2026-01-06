@@ -42,16 +42,16 @@ function Get-WindowsEvent {
 	#>
 	[CmdletBinding()]
 	param (
-		[parameter()][string]$LogName = 'System',
-		[parameter()][string]$Id,
-		[parameter()][string]$Source,
-		[parameter()][datetime]$StartTime,
-		[parameter()][datetime]$EndTime,
-		[parameter()][switch]$LevelCritical,
-		[parameter()][switch]$LevelError,
-		[parameter()][switch]$LevelWarning,
-		[parameter()][switch]$LevelInfo,
-		[parameter()][switch]$LevelVerbose
+		[parameter(Mandatory=$False)][string]$LogName = 'System',
+		[parameter(Mandatory=$False)][string]$Id,
+		[parameter(Mandatory=$False)][string]$Source,
+		[parameter(Mandatory=$False)][datetime]$StartTime,
+		[parameter(Mandatory=$False)][datetime]$EndTime,
+		[parameter(Mandatory=$False)][switch]$LevelCritical,
+		[parameter(Mandatory=$False)][switch]$LevelError,
+		[parameter(Mandatory=$False)][switch]$LevelWarning,
+		[parameter(Mandatory=$False)][switch]$LevelInfo,
+		[parameter(Mandatory=$False)][switch]$LevelVerbose
 	)
 	try {
 		if ($PSVersionTable.Platform -eq 'Unix') { throw "Not supported on Linux systems" }

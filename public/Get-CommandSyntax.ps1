@@ -19,8 +19,8 @@ function Get-CommandSyntax {
 	#>
 	[CmdletBinding()]
 	param (
-		[parameter(Mandatory)] $Command,
-		[parameter()][switch] $Normalize
+		[parameter(Mandatory=$true)] $Command,
+		[parameter(Mandatory=$False)][switch] $Normalize
 	)
 	$check = Get-Command -Name $Command
 	$params = @{

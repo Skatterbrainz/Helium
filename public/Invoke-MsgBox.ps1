@@ -19,10 +19,10 @@ function Invoke-MsgBox {
 	#>
 	[CmdletBinding()]
 	param (
-		[parameter(Mandatory)][string]$Message,
-		[parameter(Mandatory)][string]$Title,
-		[parameter()][string][ValidateSet('Ok','OkCancel','YesNo','YesNoCancel')]$ButtonType = 'Ok',
-		[parameter()][string]
+		[parameter(Mandatory=$true)][string]$Message,
+		[parameter(Mandatory=$true)][string]$Title,
+		[parameter(Mandatory=$False)][string][ValidateSet('Ok','OkCancel','YesNo','YesNoCancel')]$ButtonType = 'Ok',
+		[parameter(Mandatory=$False)][string]
 			[ValidateSet('Asterisk','Error','Exclamation','Hand','Information','Question','Stop','Warning','None')]$Icon = 'Information'
 	)
 	try {

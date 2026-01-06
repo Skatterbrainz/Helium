@@ -23,8 +23,8 @@ function Get-RoundedInteger {
 		https://github.com/Skatterbrainz/helium/blob/master/docs/Get-RoundedInteger.md
 	#>
 	param (
-		[parameter(Mandatory)][int]$Integer,
-		[parameter()][int]$Nearest = 100
+		[parameter(Mandatory=$true)][int]$Integer,
+		[parameter(Mandatory=$False)][int]$Nearest = 100
 	)
 	[math]::Truncate($Integer / $Nearest) * $Nearest
 }

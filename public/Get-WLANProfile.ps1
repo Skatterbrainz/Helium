@@ -28,8 +28,8 @@ function Get-WLANProfile {
 	#>
 	[CmdletBinding()]
 	param (
-		[parameter()][string]$Name,
-		[parameter()][switch]$ClearText
+		[parameter(Mandatory=$False)][string]$Name,
+		[parameter(Mandatory=$False)][switch]$ClearText
 	)
 	try {
 		if ($PSVersionTable.Platform -eq 'Unix') { throw "Not supported on Linux systems" }

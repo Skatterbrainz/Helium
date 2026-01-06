@@ -29,10 +29,10 @@ function Start-WaitTimer {
 		https://github.com/Skatterbrainz/helium/blob/master/docs/Start-WaitTimer.md
 	#>
 	param (
-		[parameter()][int]$TotalTime = 300,
-		[parameter()][int]$Increment = 5,
-		[parameter()][string]$Message = "Waiting",
-		[parameter()][switch]$NoProgress
+		[parameter(Mandatory=$false)][int]$TotalTime = 300,
+		[parameter(Mandatory=$false)][int]$Increment = 5,
+		[parameter(Mandatory=$false)][string]$Message = "Waiting",
+		[parameter(Mandatory=$false)][switch]$NoProgress
 	)
 	function getNearestSeconds {
 		param (

@@ -18,7 +18,7 @@ function Get-Abbreviation {
 		https://github.com/Skatterbrainz/helium/blob/master/docs/Get-Abbreviation.md
 	#>
 	param (
-		[parameter(Mandatory)][ValidateNotNullOrEmpty()][string]$String
+		[parameter(Mandatory=$true)][ValidateNotNullOrEmpty()][string]$String
 	)
 	$($String -split " " | Foreach-Object {$_.Substring(0,1).ToUpper()}) -join ""
 }

@@ -19,8 +19,8 @@ function Get-UpTime {
 	#>
 	[CmdletBinding()]
 	param (
-		[parameter()][string]$ComputerName,
-		[parameter()][pscredential]$Credential
+		[parameter(Mandatory=$False)][string]$ComputerName,
+		[parameter(Mandatory=$False)][pscredential]$Credential
 	)
 	try {
 		if ($PSVersionTable.Platform -eq 'Unix') {

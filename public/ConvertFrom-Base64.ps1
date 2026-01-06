@@ -17,7 +17,7 @@ function ConvertFrom-Base64 {
 	[CmdletBinding()]
 	param (
 		[parameter(Mandatory=$true,ValueFromPipeline=$true,HelpMessage="Base64 Encoded String")][ValidateNotNullOrEmpty()]$String,
-		[parameter(HelpMessage="Convert using compressed stream")][switch]$Compressed
+		[parameter(Mandatory=$False,HelpMessage="Convert using compressed stream")][switch]$Compressed
 	)
 	begin {}
 	process {

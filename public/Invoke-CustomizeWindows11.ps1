@@ -24,7 +24,7 @@ function Invoke-CustomizeWindows11 {
 	#>
 	[CmdletBinding()]
 	param(
-		[parameter()][switch]$Toggle
+		[parameter(Mandatory=$False)][switch]$Toggle
 	)
 	try {
 		if ($PSVersionTable.Platform -eq 'Unix') { throw "Not supported on Linux systems" }

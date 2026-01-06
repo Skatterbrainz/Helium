@@ -16,8 +16,8 @@ function Get-LocalGroupMembers {
 	[CmdletBinding()]
 	[OutputType()]
 	param (
-		[parameter(ValueFromPipeline=$true,ValueFromPipelineByPropertyName=$true)] [Alias("Name")] [string]$ComputerName = 'localhost',
-		[parameter()][Alias('Group')][string]$Identity = "Administrators"
+		[parameter(Mandatory=$False,ValueFromPipeline=$true,ValueFromPipelineByPropertyName=$true)] [Alias("Name")] [string]$ComputerName = 'localhost',
+		[parameter(Mandatory=$False)][Alias('Group')][string]$Identity = "Administrators"
 	)
 	begin {}
 	process {

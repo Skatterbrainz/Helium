@@ -21,8 +21,8 @@ function Get-AsciiString {
 		https://github.com/Skatterbrainz/helium/blob/master/docs/Get-CleanString.md
 	#>
 	param (
-		[parameter(Position=0)][string]$String,
-		[parameter()][switch]$Cleanup
+		[parameter(Mandatory=$False, Position=0)][string]$String,
+		[parameter(Mandatory=$False)][switch]$Cleanup
 	)
 	if (![string]::IsNullOrWhiteSpace($String)) {
 		$result = $($String).Trim()

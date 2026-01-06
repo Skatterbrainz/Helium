@@ -19,9 +19,9 @@ function Invoke-InputBox {
 	#>
 	[CmdletBinding()]
 	param (
-		[parameter(Mandatory)][string]$Title,
-		[parameter(Mandatory)][string]$Message,
-		[parameter()][string]$DefaultResponse = ""
+		[parameter(Mandatory=$False)][string]$Title,
+		[parameter(Mandatory=$False)][string]$Message,
+		[parameter(Mandatory=$False)][string]$DefaultResponse = ""
 	)
 	try {
 		if ($PSVersionTable.Platform -eq 'Unix') { throw "This command only works on Windows" }

@@ -19,7 +19,7 @@ function Import-FunctionFromGist {
 	#>
 	[CmdletBinding()]
 	param (
-		[parameter(Mandatory)][ValidateNotNullOrEmpty()][string]$URL
+		[parameter(Mandatory=$False)][ValidateNotNullOrEmpty()][string]$URL
 	)
 	try {
 		$scriptCode = $(New-Object System.Net.WebClient).DownloadString($URL)

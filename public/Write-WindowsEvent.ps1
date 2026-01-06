@@ -32,12 +32,12 @@ function Write-WindowsEvent {
 		https://github.com/Skatterbrainz/helium/blob/master/docs/Write-WindowsEvent.md
 	#>
 	param (
-		[parameter()][string][ValidateSet('System','Application')]$LogName = "Application",
-		[parameter()][int][ValidateRange(1,16384)]$EventID = 1,
-		[parameter()][int]$Category = 1,
-		[parameter()][string][ValidateSet('Information','Warning','Error')]$Severity = 'Information',
-		[parameter(Mandatory)][string][ValidateNotNullOrEmpty()]$Source,
-		[parameter(Mandatory)][string][ValidateNotNullOrEmpty()]$Message
+		[parameter(Mandatory=$true)][string][ValidateNotNullOrEmpty()]$Source,
+		[parameter(Mandatory=$true)][string][ValidateNotNullOrEmpty()]$Message,
+		[parameter(Mandatory=$false)][string][ValidateSet('System','Application')]$LogName = "Application",
+		[parameter(Mandatory=$false)][int][ValidateRange(1,16384)]$EventID = 1,
+		[parameter(Mandatory=$false)][int]$Category = 1,
+		[parameter(Mandatory=$false)][string][ValidateSet('Information','Warning','Error')]$Severity = 'Information'
 	)
 	try {
 		if ($PSVersionTable.Platform -eq 'Unix') { throw "Not supported on Linux systems" }

@@ -20,12 +20,12 @@ function Get-ResourceHogs {
 		https://github.com/Skatterbrainz/helium/blob/master/docs/Get-ResourceHogs.md
 	#>
 	param (
-		[parameter()]
+		[parameter(Mandatory=$False)]
 			[string]
 			[ValidateSet('CPU','WorkingSet','MaxWorkingSet','HandleCount','VirtualMemorySize','PagedMemorySize64','PagedSystemMemorySize','PeakVirtualMemorySize')]
 			$Metric = 'CPU',
-		[parameter()][int][ValidateRange(0,100)]$Top = 10,
-		[parameter()][switch]$ShowPath
+		[parameter(Mandatory=$False)][int][ValidateRange(0,100)]$Top = 10,
+		[parameter(Mandatory=$False)][switch]$ShowPath
 	)
 	try {
 		if ($PSVersionTable.Platform -eq 'Unix') { throw "No supported on Linux systems" }

@@ -32,8 +32,8 @@ function ConvertFrom-CsvToJson {
 	[CmdletBinding()]
 	param (
 		[parameter(Mandatory=$True,ValueFromPipeline=$True)][string]$Path,
-		[parameter()][switch]$TranslateFileName,
-		[parameter()][string]$OutputFile = ""
+		[parameter(Mandatory=$False)][switch]$TranslateFileName,
+		[parameter(Mandatory=$False)][string]$OutputFile = ""
 	)
 	BEGIN {}
 	PROCESS {

@@ -28,9 +28,9 @@ function Publish-AiCommit {
 	#>
 	[CmdletBinding()]
 	param (
-		[parameter()][string]$Path = "",
-		[parameter()][string]$CustomComment,
-		[parameter()][switch]$Send
+		[parameter(Mandatory=$false)][string]$Path = "",
+		[parameter(Mandatory=$false)][string]$CustomComment,
+		[parameter(Mandatory=$false)][switch]$Send
 	)
 	try {
 		if (!(Get-Module PowerShellAIAssistant -ListAvailable)) {
