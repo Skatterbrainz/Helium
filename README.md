@@ -34,7 +34,8 @@ Version 1.2.11 incorporates changes for Invoke-WebRequest to address vulnerabili
 ## Requirements
 
 - PowerShell 5.1 or higher (PowerShell 7+ recommended)
-- Windows operating system
+- Windows operating system for all commands
+- Linux or MacOS operating system for some commands
 - Appropriate system permissions for certain operations
 
 ## Installation
