@@ -10,7 +10,7 @@ function Test-IsAdmin {
 		https://github.com/Skatterbrainz/helium/blob/master/docs/Test-IsAdmin.md
 	#>
 	param()
-	if ($PSVersionTable.Platform -eq 'Unix') {
+	if ($IsLinux -or $IsMacOS) {
 		return $((id -u) -eq 0)
 	} else {
 		return $((New-Object Security.Principal.WindowsPrincipal ([Security.Principal.WindowsIdentity]::GetCurrent())).IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator))

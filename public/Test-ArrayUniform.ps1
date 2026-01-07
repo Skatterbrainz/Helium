@@ -1,4 +1,4 @@
-function Test-ArrayUnified {
+function Test-ArrayUniform {
 	<#
 	.SYNOPSIS
 		Tests if all elements in an array are equal to a reference value
@@ -9,13 +9,13 @@ function Test-ArrayUnified {
 	.PARAMETER ReferenceValue
 		Reference value to test against
 	.EXAMPLE
-		Test-ArrayUnified -Array @('a','a','a') -ReferenceValue 'a'
+		Test-ArrayUniform -Array @('a','a','a') -ReferenceValue 'a'
 		returns True
 	.EXAMPLE
-		Test-ArrayUnified -Array @('a','b','a') -ReferenceValue 'a'
+		Test-ArrayUniform -Array @('a','b','a') -ReferenceValue 'a'
 		returns False
 	.LINK
-		https://github.com/Skatterbrainz/helium/blob/master/docs/Test-ArrayUnified.md
+		https://github.com/Skatterbrainz/helium/blob/master/docs/Test-ArrayUniform.md
 	#>
 	param (
 		[parameter(Mandatory=$false)][array]$Array,

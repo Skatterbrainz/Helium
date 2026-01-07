@@ -12,6 +12,10 @@ function Test-Guid {
 	.EXAMPLE
 		Test-Guid -Guid '1234abcd-4321-6789-defg-abcdef1234567'
 		Returns False
+	.NOTES
+		I was going to use a typical regex for this, but then I found this:
+		https://learn.microsoft.com/en-us/dotnet/api/system.guid.tryparse?view=net-7.0
+		and GitHub Copilot suggested this approach. So I went with it.
 	.LINK
 		https://github.com/Skatterbrainz/helium/blob/master/docs/Test-Guid.md
 	#>

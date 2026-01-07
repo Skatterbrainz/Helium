@@ -129,7 +129,15 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📋 Version History
 
 ### 1.3.1
-- Added: Search-GitHubRepostory, Search-GitHubGist
+- Added: Search-GitHubRepostory
+- Added: Search-GitHubGist
+- Removed: Get-Uptime (redundant with built-in cmdlet in PowerShell 7+)
+- Removed: Convert-JsonToCsv (simple wrapper around native cmdlets)
+- Removed: Get-BadServices (simple filter of Get-Service)
+- Removed: Start-WaitTimer (wrapper around Start-Sleep)
+- Removed: Import-CsvCompact (wrapper around Import-Csv)
+- Removed: ConvertFrom-DecimalErrorCode (simple hex conversion)
+- Renamed: Test-ArrayUnified to Test-ArrayUniform
 
 ### 1.3.0
 - Added: Export-Bookmarks
