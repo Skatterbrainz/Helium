@@ -128,6 +128,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📋 Version History
 
+### 1.3.2
+- Added: Export-BrowserProfile
+
 ### 1.3.1
 - Added: Search-GitHubRepostory
 - Added: Search-GitHubGist
