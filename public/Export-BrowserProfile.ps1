@@ -3,6 +3,9 @@ function Export-BrowserProfile {
 	.SYNOPSIS
 		Exports browser profiles to a destination path.
 	
+	.DESCRIPTION
+		This function exports user profiles from supported browsers (Chrome, Edge, Firefox, Brave) to a specified destination path. 
+		It supports exporting from multiple browsers in parallel and can utilize rsync on non-Windows platforms for efficient copying.
 	.PARAMETER Browser
 		The browser to export profiles from. Valid values: Chrome, Edge, Firefox, Brave
 	
@@ -112,7 +115,7 @@ function Export-BrowserProfile {
 				}
 			} catch {
 				if (-not $Quiet) {
-					Write-Warning "Failed to get profiles for $browserName: $($_.Exception.Message)"
+					Write-Warning "Failed to get profiles for $($browserName): $($_.Exception.Message)"
 				}
 			}
 		}

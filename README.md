@@ -130,6 +130,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ### 1.3.2
 - Added: Export-BrowserProfile
+- Removed: ConvertTo-CamelCase
 
 ### 1.3.1
 - Added: Search-GitHubRepostory
