@@ -132,6 +132,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Added: Search-GitHubRepostory
 - Added: Search-GitHubGist
 - Added: ConvertTo-CamelCase
+- Fixed: Export-SecretStore bug with exporting SecureString secrets
+- Fixed: Import-SecretStore bug with importing SecureString secrets
 - Removed: Get-Uptime (redundant with built-in cmdlet in PowerShell 7+)
 - Removed: Convert-JsonToCsv (simple wrapper around native cmdlets)
 - Removed: Get-BadServices (simple filter of Get-Service)

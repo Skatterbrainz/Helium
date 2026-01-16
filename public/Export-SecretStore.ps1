@@ -40,7 +40,8 @@ function Export-SecretStore {
 	}
 
 	Write-Warning "This will export secrets in clear text from the vault: $vaultname - Do you wish to continue?"
-	if (-not (Read-Host "Type 'yes' to continue") -eq 'yes') {
+	$answer = Read-Host "Type 'yes' to continue"
+	if ($answer -ne 'yes') {
 		Write-Host "Export cancelled."
 		return
 	}
@@ -49,7 +50,7 @@ function Export-SecretStore {
 		Write-Verbose "Vault found: $VaultName"
 	} else {
 		Write-Error "Vault not found: $VaultName"
-		break
+		return
 	}
 	Unlock-SecretVault -Name $VaultName
 
@@ -58,7 +59,15 @@ function Export-SecretStore {
 	$results = @()
 
 	foreach ($secret in $secrets) {
+		Write-Verbose "Processing secret: $($secret.Name) of type $($secret.Type)"
 		if ($secret.Type -eq 'String') {
+			$value = Get-Secret -Name $secret.Name -Vault $VaultName -AsPlainText
+			$results += ([pscustomobject]@{
+				Name  = $secret.Name
+				Type  = $secret.Type
+				Value = $value
+			})
+		} elseif ($secret.Type -eq 'SecureString') {
 			$value = Get-Secret -Name $secret.Name -Vault $VaultName -AsPlainText
 			$results += ([pscustomobject]@{
 				Name  = $secret.Name

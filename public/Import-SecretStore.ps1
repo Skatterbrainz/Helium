@@ -77,6 +77,20 @@ function Import-SecretStore {
 				Write-Host "Creating new secret: $($secret.Name)"
 				Set-Secret -Name $secret.Name -Vault $VaultName -SecureStringSecret ($secret.Value | ConvertTo-SecureString -AsPlainText -Force)
 			}
+		} elseif ($secret.Type -eq 3 -or $secret.Type -eq 'SecureString') {
+			if (Get-Secret -name $secret.Name -Vault $VaultName -ErrorAction SilentlyContinue) {
+				if ($Force.IsPresent) {
+					Write-Warning "Overwriting existing secret: $($secret.Name)"
+					Remove-Secret -Name $secret.Name -Vault $VaultName -Force
+					Set-Secret -Name $secret.Name -Vault $VaultName -SecureStringSecret ($secret.Value | ConvertTo-SecureString -AsPlainText -Force)
+				} else {
+					Write-Warning "Secret already exists and will not be overwritten: $($secret.Name)"
+					continue
+				}
+			} else {
+				Write-Host "Creating new secret: $($secret.Name)"
+				Set-Secret -Name $secret.Name -Vault $VaultName -SecureStringSecret ($secret.Value | ConvertTo-SecureString -AsPlainText -Force)
+			}
 		} else {
 			# pscredential object > convert to username and password
 			if (Get-Secret -Name $secret.Name -Vault $VaultName -ErrorAction SilentlyContinue) {
