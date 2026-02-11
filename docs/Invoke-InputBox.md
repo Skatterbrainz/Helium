@@ -4,7 +4,7 @@ external help file: helium-Help.xml
 HelpUri: https://github.com/Skatterbrainz/helium/blob/master/docs/Invoke-InputBox.md
 Locale: en-US
 Module Name: helium
-ms.date: 10/09/2025
+ms.date: 02/11/2026
 PlatyPS schema version: 2024-05-01
 title: Invoke-InputBox
 ---
@@ -20,7 +20,7 @@ Provide InputBox() clone for PowerShell
 ### __AllParameterSets
 
 ```
-Invoke-InputBox [-Title] <string> [-Message] <string> [[-DefaultResponse] <string>]
+Invoke-InputBox [[-Title] <string>] [[-Message] <string>] [[-DefaultResponse] <string>]
  [<CommonParameters>]
 ```
 
@@ -78,7 +78,7 @@ Aliases: []
 ParameterSets:
 - Name: (All)
   Position: 1
-  IsRequired: true
+  IsRequired: false
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
   ValueFromRemainingArguments: false
@@ -99,7 +99,7 @@ Aliases: []
 ParameterSets:
 - Name: (All)
   Position: 0
-  IsRequired: true
+  IsRequired: false
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
   ValueFromRemainingArguments: false

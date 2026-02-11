@@ -4,7 +4,7 @@ external help file: helium-Help.xml
 HelpUri: https://github.com/Skatterbrainz/helium/blob/master/docs/Get-WordCase.md
 Locale: en-US
 Module Name: helium
-ms.date: 10/09/2025
+ms.date: 02/11/2026
 PlatyPS schema version: 2024-05-01
 title: Get-WordCase
 ---
@@ -20,7 +20,7 @@ Convert a string of words to word case
 ### __AllParameterSets
 
 ```
-Get-WordCase [-String] <string> [<CommonParameters>]
+Get-WordCase [[-String] <string>] [<CommonParameters>]
 ```
 
 ## ALIASES
@@ -56,7 +56,7 @@ Aliases: []
 ParameterSets:
 - Name: (All)
   Position: 0
-  IsRequired: true
+  IsRequired: false
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
   ValueFromRemainingArguments: false

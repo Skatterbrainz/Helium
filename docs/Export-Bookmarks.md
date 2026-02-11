@@ -4,7 +4,7 @@ external help file: helium-Help.xml
 HelpUri: https://github.com/Skatterbrainz/helium/blob/master/docs/Export-Bookmarks.md
 Locale: en-US
 Module Name: helium
-ms.date: 01/16/2026
+ms.date: 02/11/2026
 PlatyPS schema version: 2024-05-01
 title: Export-Bookmarks
 ---

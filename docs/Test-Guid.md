@@ -4,7 +4,7 @@ external help file: helium-Help.xml
 HelpUri: https://github.com/Skatterbrainz/helium/blob/master/docs/Test-Guid.md
 Locale: en-US
 Module Name: helium
-ms.date: 10/09/2025
+ms.date: 02/11/2026
 PlatyPS schema version: 2024-05-01
 title: Test-Guid
 ---
@@ -80,6 +80,12 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
+
+I was going to use a typical regex for this, but then I found this:
+https://learn.microsoft.com/en-us/dotnet/api/system.guid.tryparse?view=net-7.0
+and GitHub Copilot suggested this approach.
+So I went with it.
+
 
 ## RELATED LINKS
 

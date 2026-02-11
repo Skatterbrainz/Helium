@@ -4,7 +4,7 @@ external help file: helium-Help.xml
 HelpUri: ''
 Locale: en-US
 Module Name: helium
-ms.date: 10/09/2025
+ms.date: 02/11/2026
 PlatyPS schema version: 2024-05-01
 title: Format-USPhoneNumber
 ---

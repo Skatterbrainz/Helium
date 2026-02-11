@@ -1,5 +1,8 @@
 # Revision History
 
+## 1.4.0
+- Added: ConvertTo-MarkdownTable
+
 ## 1.3.2
 - Added: Export-BrowserProfile
 - Removed: ConvertTo-CamelCase

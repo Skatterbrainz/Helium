@@ -4,7 +4,7 @@ external help file: helium-Help.xml
 HelpUri: https://github.com/Skatterbrainz/helium/blob/master/docs/Write-WindowsEvent.md
 Locale: en-US
 Module Name: helium
-ms.date: 10/09/2025
+ms.date: 02/11/2026
 PlatyPS schema version: 2024-05-01
 title: Write-WindowsEvent
 ---
@@ -20,8 +20,8 @@ Workaround for Write-EventLog where -Source often pisses me off
 ### __AllParameterSets
 
 ```
-Write-WindowsEvent [[-LogName] <string>] [[-EventID] <int>] [[-Category] <int>]
- [[-Severity] <string>] [-Source] <string> [-Message] <string> [<CommonParameters>]
+Write-WindowsEvent [-Source] <string> [-Message] <string> [[-LogName] <string>] [[-EventID] <int>]
+ [[-Category] <int>] [[-Severity] <string>] [<CommonParameters>]
 ```
 
 ## ALIASES
@@ -52,7 +52,7 @@ SupportsWildcards: false
 Aliases: []
 ParameterSets:
 - Name: (All)
-  Position: 2
+  Position: 4
   IsRequired: false
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
@@ -76,7 +76,7 @@ SupportsWildcards: false
 Aliases: []
 ParameterSets:
 - Name: (All)
-  Position: 1
+  Position: 3
   IsRequired: false
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
@@ -99,7 +99,7 @@ SupportsWildcards: false
 Aliases: []
 ParameterSets:
 - Name: (All)
-  Position: 0
+  Position: 2
   IsRequired: false
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
@@ -122,7 +122,7 @@ SupportsWildcards: false
 Aliases: []
 ParameterSets:
 - Name: (All)
-  Position: 5
+  Position: 1
   IsRequired: true
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
@@ -144,7 +144,7 @@ SupportsWildcards: false
 Aliases: []
 ParameterSets:
 - Name: (All)
-  Position: 3
+  Position: 5
   IsRequired: false
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
@@ -175,7 +175,7 @@ SupportsWildcards: false
 Aliases: []
 ParameterSets:
 - Name: (All)
-  Position: 4
+  Position: 0
   IsRequired: true
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false

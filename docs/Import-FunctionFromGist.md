@@ -4,7 +4,7 @@ external help file: helium-Help.xml
 HelpUri: https://github.com/Skatterbrainz/helium/blob/master/docs/Import-FunctionFromGist.md
 Locale: en-US
 Module Name: helium
-ms.date: 10/09/2025
+ms.date: 02/11/2026
 PlatyPS schema version: 2024-05-01
 title: Import-FunctionFromGist
 ---
@@ -20,7 +20,7 @@ Define a function by importing script from GitHub Gist URL
 ### __AllParameterSets
 
 ```
-Import-FunctionFromGist [-URL] <string> [<CommonParameters>]
+Import-FunctionFromGist [[-URL] <string>] [<CommonParameters>]
 ```
 
 ## ALIASES
@@ -55,7 +55,7 @@ Aliases: []
 ParameterSets:
 - Name: (All)
   Position: 0
-  IsRequired: true
+  IsRequired: false
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
   ValueFromRemainingArguments: false
