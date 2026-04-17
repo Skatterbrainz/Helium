@@ -1,5 +1,8 @@
 # Revision History
 
+## 1.5.0
+- Added: Publish-GalleryUpdate
+
 ## 1.4.0
 - Added: ConvertTo-MarkdownTable
 
