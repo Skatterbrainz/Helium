@@ -1,5 +1,11 @@
 # Revision History
 
+## 1.5.2
+- Fixed: Bug fix in Publish-GalleryUpdate. No, seriously. I really mean it this time.
+
+## 1.5.1
+- Fixed: Bug in Publish-GalleryUpdate
+
 ## 1.5.0
 - Added: Publish-GalleryUpdate
 
