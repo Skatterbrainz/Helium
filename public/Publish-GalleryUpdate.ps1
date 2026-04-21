@@ -67,10 +67,11 @@ function Publish-GalleryUpdate {
 	Write-Output "Copied '$Path' to '$destination' - excluding the specified directories: $($ExcludeDirs -join ', ')"
 	if ($Commit.IsPresent) {
 		Write-Host "Committing changes to $Repository repository..." -ForegroundColor Green
-		Publish-PSResource -Path $destination -Repository $Repository -ApiKey $env:$ApiKeyEnvVar -Verbose
+		$apiKey = [Environment]::GetEnvironmentVariable($ApiKeyEnvVar)
+		Publish-PSResource -Path $destination -Repository $Repository -ApiKey $apiKey -Verbose
 	} else {
 		Write-Host "Skipping commit to $Repository repository. Use -Commit switch to publish." -ForegroundColor Yellow
-		#Write-Host "Command: Publish-PSResource -Path $destination -Repository `$Repository` -ApiKey $env:$ApiKeyEnvVar -Verbose"
+		#Write-Host "Command: Publish-PSResource -Path $destination -Repository `$Repository` -ApiKey ([Environment]::GetEnvironmentVariable($ApiKeyEnvVar)) -Verbose"
 	}
 	if ($Cleanup.IsPresent) {
 		Write-Host "Cleaning up temporary path '$destination'..." -ForegroundColor Green
