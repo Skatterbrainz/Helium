@@ -42,12 +42,13 @@ function Get-BrowserProfile {
 				$profileData = Get-Content $profpath| ConvertFrom-Json
 				$buildinfo   = Get-Content '~/.var/app/com.google.Chrome/config/google-chrome/Last Version'
 				$profiles    = $profileData.profile.info_cache.psobject.Properties.Name
-				foreach ($profile in $profiles) {
-					$pname = $profileData.profile.info_cache."$profile".name
+				foreach ($profileItem in $profiles) {
+					$profileName = $profileData.profile.info_cache."$profileItem".name
 					[pscustomobject]@{
-						ProfileID    = $profile
-						Path         = Join-Path $rootpath $profile
-						Name         = $pname
+						ProfileID    = $profileItem
+						Path         = Join-Path $rootpath $profileItem
+						CommandLine  = "google-chrome --profile-directory=`"$profileName`""
+						Name         = $profileName
 						Browser      = $Browser
 						Version      = $buildinfo
 						InstallType  = $installType
@@ -63,12 +64,12 @@ function Get-BrowserProfile {
 				} else {
 					$buildinfo = "notfound"
 				}
-				foreach ($profile in $profiles) {
-					$profileName = $profile.PSChildName
-					$profilePath = Join-Path $rootpath $profile.PSChildName
-					[pscustomobject]@{
-						ProfileID    = $profile.PSChildName
+				foreach ($profileItem in $profiles) {
+					$profileName = $profileItem.PSChildName
+					$profilePath = Join-Path $rootpath $profileItem.PSChildName
+						ProfileID    = $profileItem.PSChildName
 						Path         = $profilePath
+						CommandLine  = "google-chrome --profile-directory=`"$profileName`""
 						Name         = $profileName
 						Browser      = $Browser
 						Version      = $buildinfo
@@ -95,12 +96,13 @@ function Get-BrowserProfile {
 				$profileData = Get-Content $profpath | ConvertFrom-Json
 				$buildinfo   = Get-Content '~/.var/app/com.microsoft.Edge/config/microsoft-edge/Last Version'
 				$profiles    = $profileData.profile.info_cache.psobject.Properties.Name
-				foreach ($profile in $profiles) {
-					$pname = $profileData.profile.info_cache."$profile".name
+				foreach ($profileItem in $profiles) {
+					$profileName = $profileData.profile.info_cache."$profileItem".name
 					[pscustomobject]@{
-						ProfileID    = $profile
-						Path         = Join-Path $rootpath $profile
-						Name         = $pname
+						ProfileID    = $profileItem
+						Path         = Join-Path $rootpath $profileItem
+						CommandLine  = "microsoft-edge --profile-directory=`"$profileName`""
+						Name         = $profileName
 						Browser      = $Browser
 						Version      = $buildinfo
 						InstallType  = $installType
@@ -116,12 +118,14 @@ function Get-BrowserProfile {
 				} else {
 					$buildinfo = "notfound"
 				}
-				foreach ($profile in $profiles) {
-					$profileName = $profile.PSChildName
-					$profilePath = Join-Path $rootpath $profile.PSChildName
+				foreach ($profileItem in $profiles) {
+					$profileName = $profileItem.PSChildName
+					$profilePath = Join-Path $rootpath $profileItem.PSChildName
 					[pscustomobject]@{
-						ProfileID    = $profile.PSChildName
+						ProfileID    = $profileItem.PSChildName
 						Path         = $profilePath
+						CommandLine  = "microsoft-edge --profile-directory=`"$profileName`""
+						InstallType  = 'System'
 						Name         = $profileName
 						Browser      = $Browser
 						Version      = $buildinfo
@@ -148,12 +152,13 @@ function Get-BrowserProfile {
 				$profileData = Get-Content $profpath| ConvertFrom-Json
 				$buildinfo   = Get-Content (Join-Path $rootpath 'Last Version')
 				$profiles    = $profileData.profile.info_cache.psobject.Properties.Name
-				foreach ($profile in $profiles) {
-					$pname = $profileData.profile.info_cache."$profile".name
+				foreach ($profileItem in $profiles) {
+					$profileName = $profileData.profile.info_cache."$profileItem".name
 					[pscustomobject]@{
-						ProfileID    = $profile
-						Path         = Join-Path $rootpath $profile
-						Name         = $pname
+						ProfileID    = $profileItem
+						Path         = Join-Path $rootpath $profileItem
+						CommandLine  = "brave-browser --profile-directory=`"$profileName`""
+						Name         = $profileName
 						Browser      = $Browser
 						Version      = $buildinfo
 						InstallType  = $installType
@@ -185,13 +190,14 @@ function Get-BrowserProfile {
 				$defPath        = Join-Path $rootpath $defaultProfile
 				$compFile       = Join-Path $defPath 'compatibility.ini'
 				$buildinfo      = $((Get-IniContent -FilePath $compFile -IgnoreComments)['Compatibility']['LastVersion'] -Split "_")[0]
-				foreach ($profile in $profiles) {
-					$pname = $profileData.Item($profile)['Name']
-					$ppath = $profileData.Item($profile)['Path']
+				foreach ($profileItem in $profiles) {
+					$profileName = $profileData.Item($profileItem)['Name']
+					$profilePath = $profileData.Item($profileItem)['Path']
 					[pscustomobject]@{
-						ProfileID    = $profile
-						Path         = Join-Path $rootpath $ppath
-						Name         = $pname
+						ProfileID    = $profileItem
+						Path         = Join-Path $rootpath $profilePath
+						CommandLine  = "firefox -P `"$profileName`""
+						Name         = $profileName
 						Browser      = $Browser
 						Version      = $buildinfo
 						InstallType  = $installType
@@ -210,14 +216,15 @@ function Get-BrowserProfile {
 				$buildinfo  = Get-ItemPropertyValue -Path "HKLM:\SOFTWARE\Mozilla\Mozilla Firefox" -Name CurrentVersion
 				$profileIDs = $(Import-Ini -Path $profpath -IgnoreComments).Keys | Where-Object { $_ -match 'Profile\d' }
 				$profiles = Import-Ini -Path $profpath -IgnoreComments
-				foreach ($profile in $profileIDs) {
-					$pdata = $profiles.Item($profile)
-					$pname = $pdata['Name']
-					$ppath = $pdata['Path']
+				foreach ($profileItem in $profileIDs) {
+					$pdata = $profiles.Item($profileItem)
+					$profileName = $pdata['Name']
+					$profilePath = $pdata['Path']
 					[pscustomobject]@{
-						ProfileID    = $profile
-						Path         = Join-Path $rootpath "Profiles\$ppath"
-						Name         = $pname
+						ProfileID    = $profileItem
+						Path         = Join-Path $rootpath "Profiles\$profilePath"
+						CommandLine  = "firefox -P `"$profileName`""
+						Name         = $profileName
 						Browser      = $Browser
 						Version      = $buildinfo
 						InstallType  = $installType
