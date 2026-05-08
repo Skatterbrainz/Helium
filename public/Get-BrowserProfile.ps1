@@ -47,7 +47,7 @@ function Get-BrowserProfile {
 					[pscustomobject]@{
 						ProfileID    = $profileItem
 						Path         = Join-Path $rootpath $profileItem
-						CommandLine  = "google-chrome --profile-directory=`"$profileName`""
+						CommandLine  = "google-chrome --profile-directory=`"$($profileItem.PSChildName)`""
 						Name         = $profileName
 						Browser      = $Browser
 						Version      = $buildinfo
@@ -67,9 +67,10 @@ function Get-BrowserProfile {
 				foreach ($profileItem in $profiles) {
 					$profileName = $profileItem.PSChildName
 					$profilePath = Join-Path $rootpath $profileItem.PSChildName
+					[pscustomobject]@{
 						ProfileID    = $profileItem.PSChildName
 						Path         = $profilePath
-						CommandLine  = "google-chrome --profile-directory=`"$profileName`""
+						CommandLine  = "google-chrome --profile-directory=`"$($profileItem.PSChildName)`""
 						Name         = $profileName
 						Browser      = $Browser
 						Version      = $buildinfo
@@ -101,7 +102,7 @@ function Get-BrowserProfile {
 					[pscustomobject]@{
 						ProfileID    = $profileItem
 						Path         = Join-Path $rootpath $profileItem
-						CommandLine  = "microsoft-edge --profile-directory=`"$profileName`""
+						CommandLine  = "microsoft-edge --profile-directory=`"$profileItem`""
 						Name         = $profileName
 						Browser      = $Browser
 						Version      = $buildinfo
@@ -124,7 +125,7 @@ function Get-BrowserProfile {
 					[pscustomobject]@{
 						ProfileID    = $profileItem.PSChildName
 						Path         = $profilePath
-						CommandLine  = "microsoft-edge --profile-directory=`"$profileName`""
+						CommandLine  = "microsoft-edge --profile-directory=`"$($profileItem.PSChildName)`""
 						InstallType  = 'System'
 						Name         = $profileName
 						Browser      = $Browser
@@ -157,7 +158,7 @@ function Get-BrowserProfile {
 					[pscustomobject]@{
 						ProfileID    = $profileItem
 						Path         = Join-Path $rootpath $profileItem
-						CommandLine  = "brave-browser --profile-directory=`"$profileName`""
+						CommandLine  = "brave-browser --profile-directory=`"$profileItem`""
 						Name         = $profileName
 						Browser      = $Browser
 						Version      = $buildinfo
@@ -179,6 +180,9 @@ function Get-BrowserProfile {
 				} elseif (Test-Path -Path '~/.var/app/org.mozilla.firefox/config') {
 					$installType = 'Flatpak'
 					$rootpath    = '~/.var/app/org.mozilla.firefox/config'
+				} elseif (Test-Path -Path '/usr/bin/firefox') {
+					$installType = 'System'
+					$rootpath    = '/usr/lib/firefox'
 				} else {
 					throw "Firefox Browser not installed"
 				}
@@ -196,7 +200,7 @@ function Get-BrowserProfile {
 					[pscustomobject]@{
 						ProfileID    = $profileItem
 						Path         = Join-Path $rootpath $profilePath
-						CommandLine  = "firefox -P `"$profileName`""
+						CommandLine  = "firefox -P `"$profileItem`""
 						Name         = $profileName
 						Browser      = $Browser
 						Version      = $buildinfo
@@ -223,7 +227,7 @@ function Get-BrowserProfile {
 					[pscustomobject]@{
 						ProfileID    = $profileItem
 						Path         = Join-Path $rootpath "Profiles\$profilePath"
-						CommandLine  = "firefox -P `"$profileName`""
+						CommandLine  = "firefox -P `"$profileItem`""
 						Name         = $profileName
 						Browser      = $Browser
 						Version      = $buildinfo
