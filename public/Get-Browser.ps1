@@ -11,10 +11,12 @@ function Get-Browser {
 		https://github.com/Skatterbrainz/helium/blob/master/docs/Get-Browsers.md
 	#>
 	[CmdletBinding()]
+	[Alias('Get-Browsers')]
 	param(
 		[parameter(Mandatory=$False)][switch]$IncludeProfiles
 	)
 	if ($IsLinux) {
+		Write-Verbose "Searching for Edge at: ~/.var/app/com.microsoft.Edge/config/microsoft-edge"
 		if (Test-Path -Path '~/.var/app/com.microsoft.Edge/config/microsoft-edge') {
 			if ($IncludeProfiles.IsPresent) {
 				$profiles = Get-BrowserProfile -Browser 'Edge'
@@ -28,6 +30,7 @@ function Get-Browser {
 			}
 		}
 		if (Get-Command "microsoft-edge" -ErrorAction SilentlyContinue) {
+			Write-Verbose "Searching for Edge via command: microsoft-edge"
 			if ($IncludeProfiles.IsPresent) {
 				$profiles = Get-BrowserProfile -Browser 'Edge'
 			}
@@ -40,6 +43,7 @@ function Get-Browser {
 			}
 		}
 		if (Test-Path -Path '~/.var/app/com.google.Chrome/config/google-chrome') {
+			Write-Verbose "Searching for Chrome at: ~/.var/app/com.google.Chrome/config/google-chrome"
 			if ($IncludeProfiles.IsPresent) {
 				$profiles = Get-BrowserProfile -Browser 'Chrome'
 			}
@@ -52,6 +56,7 @@ function Get-Browser {
 			}
 		}
 		if (Get-Command "google-chrome" -ErrorAction SilentlyContinue) {
+			Write-Verbose "Searching for Chrome via command: google-chrome"
 			if ($IncludeProfiles.IsPresent) {
 				$profiles = Get-BrowserProfile -Browser 'Chrome'
 			}
@@ -64,6 +69,7 @@ function Get-Browser {
 			}
 		}
 		if (Test-Path -Path '~/.var/app/org.mozilla.firefox/config/firefox') {
+			Write-Verbose "Searching for Firefox at: ~/.var/app/org.mozilla.firefox/config/firefox"
 			if ($IncludeProfiles.IsPresent) {
 				$profiles = Get-BrowserProfile -Browser 'Firefox'
 			}
@@ -76,6 +82,7 @@ function Get-Browser {
 			}
 		}
 		if (Get-Command "firefox" -ErrorAction SilentlyContinue) {
+			Write-Verbose "Searching for Firefox via command: firefox"
 			if ($IncludeProfiles.IsPresent) {
 				$profiles = Get-BrowserProfile -Browser 'Firefox'
 			}
@@ -88,6 +95,7 @@ function Get-Browser {
 			}
 		}
 		if (Test-Path -Path '/var/lib/flatpak/app/com.brave.Browser/current/active/files/brave') {
+			Write-Verbose "Searching for Brave at: /var/lib/flatpak/app/com.brave.Browser/current/active/files/brave"
 			$json = Get-Content -Path '/var/lib/flatpak/app/com.brave.Browser/current/active/files/manifest.json' -Raw | ConvertFrom-Json
 			if ($IncludeProfiles.IsPresent) {
 				$profiles = Get-BrowserProfile -Browser 'Brave'
@@ -101,6 +109,7 @@ function Get-Browser {
 			}
 		}
 		if (Test-Path -Path '~/.var/app/org.chromium.Chromium/config/chromium') {
+			Write-Verbose "Searching for Chromium at: ~/.var/app/org.chromium.Chromium/config/chromium"
 			if ($IncludeProfiles.IsPresent) {
 				$profiles = Get-BrowserProfile -Browser 'Chromium'
 			}
@@ -114,6 +123,7 @@ function Get-Browser {
 		}
 	} else {
 		if (Test-Path -Path "${env:ProgramFiles(x86)}\Microsoft\Edge\Application\msedge.exe") {
+			Write-Verbose "Searching for Edge at: ${env:ProgramFiles(x86)}\Microsoft\Edge\Application\msedge.exe"
 			if ($IncludeProfiles.IsPresent) {
 				$profiles = Get-BrowserProfile -Browser 'Edge'
 			}
@@ -126,6 +136,7 @@ function Get-Browser {
 			}
 		}
 		if (Test-Path -Path "$env:PROGRAMFILES\Google\Chrome\Application\chrome.exe") {
+			Write-Verbose "Searching for Chrome at: $env:PROGRAMFILES\Google\Chrome\Application\chrome.exe"
 			if ($IncludeProfiles.IsPresent) {
 				$profiles = Get-BrowserProfile -Browser 'Chrome'
 			}
@@ -138,6 +149,7 @@ function Get-Browser {
 			}
 		}
 		if (Test-Path -Path "$env:PROGRAMFILES\Mozilla Firefox\firefox.exe") {
+			Write-Verbose "Searching for Firefox at: $env:PROGRAMFILES\Mozilla Firefox\firefox.exe"
 			if ($IncludeProfiles.IsPresent) {
 				$profiles = Get-BrowserProfile -Browser 'Firefox'
 			}
@@ -150,6 +162,7 @@ function Get-Browser {
 			}
 		}
 		if (Test-Path -Path "$env:LOCALAPPDATA\BraveSoftware\Brave-Browser\Application\brave.exe") {
+			Write-Verbose "Searching for Brave at: $env:LOCALAPPDATA\BraveSoftware\Brave-Browser\Application\brave.exe"
 			if ($IncludeProfiles.IsPresent) {
 				$profiles = Get-BrowserProfile -Browser 'Brave'
 			}
