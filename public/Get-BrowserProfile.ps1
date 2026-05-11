@@ -28,6 +28,10 @@ function Get-BrowserProfile {
 	switch ($Browser) {
 		'Chrome' {
 			if ($IsLinux) {
+				if (!(Get-Browser | Where-Object { $_.ProductName -eq 'Chrome' })) {
+					Write-Output "Chrome Browser not installed"
+					return
+				}
 				$rootpath = '~/.var/app/com.google.Chrome/config/google-chrome'
 				if (Test-Path -Path $rootpath) {
 					$installType = 'Flatpak'
@@ -95,8 +99,12 @@ function Get-BrowserProfile {
 				$profpath = "$rootpath/Local State"
 				if (!(Test-Path $profpath)) { throw "File not found: $profpath" }
 				$profileData = Get-Content $profpath | ConvertFrom-Json
-				$buildinfo   = Get-Content '~/.var/app/com.microsoft.Edge/config/microsoft-edge/Last Version'
-				$profiles    = $profileData.profile.info_cache.psobject.Properties.Name
+				if (Test-Path -Path '~/.var/app/com.microsoft.Edge/config/microsoft-edge/Last Version') {
+					$buildinfo = Get-Content '~/.var/app/com.microsoft.Edge/config/microsoft-edge/Last Version'
+				} else {
+					$buildinfo = "notfound"
+				}
+				$profiles = $profileData.profile.info_cache.psobject.Properties.Name
 				foreach ($profileItem in $profiles) {
 					$profileName = $profileData.profile.info_cache."$profileItem".name
 					[pscustomobject]@{
@@ -113,7 +121,11 @@ function Get-BrowserProfile {
 				}
 			} else {
 				$rootpath = "$env:LOCALAPPDATA\Microsoft\Edge\User Data"
-				$profiles = Get-ChildItem -Path "HKCU:\Software\Microsoft\Edge\Profiles"
+				if (Test-Path -Path "HKCU:\Software\Microsoft\Edge\Profiles") {
+					$profiles = Get-ChildItem -Path "HKCU:\Software\Microsoft\Edge\Profiles"
+				} else {
+					throw "Edge Browser profiles not found in registry"
+				}
 				if (Test-Path "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe") {
 					$buildinfo = (Get-Item "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe").VersionInfo.ProductVersion
 				} else {
@@ -187,27 +199,32 @@ function Get-BrowserProfile {
 					throw "Firefox Browser not installed"
 				}
 				$profpath = Join-Path $rootpath "profiles.ini"
-				if (!(Test-Path $profpath)) { throw "File not found: $profpath" }
-				$profileData    = Get-IniContent -FilePath $profpath -IgnoreComments
-				$profiles       = $profileData.Keys | Where-Object { $_ -match 'Profile\d' }
-				$defaultProfile = $profileData.Item('Profile0')['Path']
-				$defPath        = Join-Path $rootpath $defaultProfile
-				$compFile       = Join-Path $defPath 'compatibility.ini'
-				$buildinfo      = $((Get-IniContent -FilePath $compFile -IgnoreComments)['Compatibility']['LastVersion'] -Split "_")[0]
-				foreach ($profileItem in $profiles) {
-					$profileName = $profileData.Item($profileItem)['Name']
-					$profilePath = $profileData.Item($profileItem)['Path']
-					[pscustomobject]@{
-						ProfileID    = $profileItem
-						Path         = Join-Path $rootpath $profilePath
-						CommandLine  = "firefox -P `"$profileItem`""
-						Name         = $profileName
-						Browser      = $Browser
-						Version      = $buildinfo
-						InstallType  = $installType
-						ComputerName = $(hostname)
-						UserName     = $($env:USER)
+				Write-Verbose "Looking for Firefox profiles.ini at: $profpath"
+				#if (!(Test-Path $profpath)) { throw "File not found: $profpath" }
+				if (Test-Path -Path $profpath) {
+					$profileData    = Get-IniContent -FilePath $profpath -IgnoreComments
+					$profiles       = $profileData.Keys | Where-Object { $_ -match 'Profile\d' }
+					$defaultProfile = $profileData.Item('Profile0')['Path']
+					$defPath        = Join-Path $rootpath $defaultProfile
+					$compFile       = Join-Path $defPath 'compatibility.ini'
+					$buildinfo      = $((Get-IniContent -FilePath $compFile -IgnoreComments)['Compatibility']['LastVersion'] -Split "_")[0]
+					foreach ($profileItem in $profiles) {
+						$profileName = $profileData.Item($profileItem)['Name']
+						$profilePath = $profileData.Item($profileItem)['Path']
+						[pscustomobject]@{
+							ProfileID    = $profileItem
+							Path         = Join-Path $rootpath $profilePath
+							CommandLine  = "firefox -P `"$profileItem`""
+							Name         = $profileName
+							Browser      = $Browser
+							Version      = $buildinfo
+							InstallType  = $installType
+							ComputerName = $(hostname)
+							UserName     = $($env:USER)
+						}
 					}
+				} else {
+					Write-Output "No profiles found for Firefox at: $profpath"
 				}
 			} else {
 				$rootpath = "$env:APPDATA\Mozilla\Firefox"
