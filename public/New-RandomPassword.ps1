@@ -18,10 +18,20 @@ function New-RandomPassword {
 		The base URL of the DinoPass API. Default is 'http://www.dinopass.com/password'.
 	.EXAMPLE
 		New-RandomPassword -pwdLength 12 -useCapitals -useNumbers
+
 		This command generates a random password of length 12 that includes capital letters and numbers.
 	.EXAMPLE
 		New-RandomPassword -Strong
+
 		This command generates a strong random password.
+	.EXAMPLE
+		New-RandomPassword -pwdCount 5 -OutputFormat json
+
+		This command generates 5 random passwords and outputs them in JSON format.
+	.EXAMPLE
+		New-RandomPassword -pwdLength 20 -useCapitals -useNumbers -useSymbols
+
+		This command generates a random password of length 20 that includes capital letters, numbers, and symbols.
 	.NOTES
 		See API reference at https://www.dinopass.com/api for more information.
 	#>
@@ -32,6 +42,8 @@ function New-RandomPassword {
 		[parameter(Mandatory=$false)][switch]$useCapitals,
 		[parameter(Mandatory=$false)][switch]$useNumbers,
 		[parameter(Mandatory=$false)][switch]$useSymbols,
+		[parameter(Mandatory=$false)][int]$pwdCount = 1,
+		[parameter(Mandatory=$false)][string][ValidateSet('text','json')]$OutputFormat = 'text',
 		[parameter(Mandatory=$false)][string]$BaseURL = 'http://www.dinopass.com/password'
 	)
 	$params = @()
@@ -50,7 +62,13 @@ function New-RandomPassword {
 			$params += "useSymbols=true"
 		}
 	}
-	$url = "$BaseURL?" + ($params -join "&")
+	if ($pwdCount -gt 1) {
+		$params += "n=$pwdCount"
+	}
+	if ($OutputFormat -eq 'json') {
+		$params += "format=json"
+	}
+	$url = "$BaseURL`?" + ($params -join "&")
 	Write-Verbose "URL: $url"
 	$newPassword = $(Invoke-WebRequest -Uri $url -UseBasicParsing).Content
 	Write-Output $newPassword
