@@ -14,6 +14,10 @@ function New-RandomPassword {
 		If specified, includes numbers in the password.
 	.PARAMETER useSymbols
 		If specified, includes symbols in the password.
+	.PARAMETER pwdCount
+		The number of passwords to generate. Default is 1.
+	.PARAMETER OutputFormat
+		The format of the output. Can be 'text' or 'json'. Default is 'text'.
 	.PARAMETER BaseURL
 		The base URL of the DinoPass API. Default is 'http://www.dinopass.com/password'.
 	.EXAMPLE

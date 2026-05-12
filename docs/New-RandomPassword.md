@@ -21,7 +21,7 @@ Creates a new random password.
 
 ```
 New-RandomPassword [[-pwdLength] <Int32>] [-Strong] [-useCapitals] [-useNumbers] [-useSymbols]
- [-BaseURL <String>] [<CommonParameters>]
+ [-pwdCount <Int32>] [-OutputFormat <String>] [-BaseURL <String>] [<CommonParameters>]
 ```
 
 ## ALIASES
@@ -46,6 +46,18 @@ Generates a 12-character random password with capital letters and numbers.
 New-RandomPassword -Strong
 
 Generates a strong random password using the DinoPass strong endpoint.
+
+### EXAMPLE 3
+
+New-RandomPassword -pwdCount 5 -OutputFormat json
+
+Generates 5 random passwords and outputs them in JSON format.
+
+### EXAMPLE 4
+
+New-RandomPassword -pwdLength 20 -useCapitals -useNumbers -useSymbols
+
+Generates a 20-character random password with capital letters, numbers, and symbols.
 
 ## PARAMETERS
 
@@ -159,6 +171,50 @@ AcceptedValues: []
 HelpMessage: ''
 ```
 
+### -pwdCount
+
+Optional.
+Number of passwords to generate.
+
+```yaml
+Type: System.Int32
+DefaultValue: 1
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -OutputFormat
+
+Optional.
+Output format. Valid values are `text` and `json`.
+
+```yaml
+Type: System.String
+DefaultValue: 'text'
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: [text, json]
+HelpMessage: ''
+```
+
 ### -BaseURL
 
 Optional.
@@ -194,7 +250,11 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### System.String
 
-Returns the generated password.
+Returns the generated password content.
+
+### System.Object
+
+When `-OutputFormat json` is used, returns JSON content from the API.
 
 ## NOTES
 
