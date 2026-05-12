@@ -1,5 +1,8 @@
 # Revision History
 
+## 1.6.0
+- Added: New-RandomPassword
+
 ## 1.5.2
 - Fixed: Bug fix in Publish-GalleryUpdate. No, seriously. I really mean it this time.
 
