@@ -1,5 +1,8 @@
 # Revision History
 
+## 1.7.0
+- Added: Get-ObjectCount (Count-Object)
+
 ## 1.6.0
 - Added: New-RandomPassword
 
