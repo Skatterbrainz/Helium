@@ -21,45 +21,58 @@ Optional. Single (Default) or Multiple.
 Optional. On Windows machines, forces ConsoleGridView
 
 .EXAMPLE
-Get-Process | Out-GridSelect
+$choice = Get-Process | Out-GridSelect
+
+Display a selection menu for choosing processes.
 
 .EXAMPLE
-Get-Process | Out-GridSelect -Title "Select Processes" -OutputMode Multiple
+$choices = Get-Process | Out-GridSelect -Title "Select Processes" -OutputMode Multiple
+
+Display a selection menu for choosing multiple processes.
 
 .NOTES
 The Microsoft.PowerShell.ConsoleGuiTools module is required on Linux, or when using -ForceConsole.
-I had some challenges with getting this function to accept pipeline input, mostly because I'm too
-stupid to figure it out and I need to cut down my coffee consumption. If you want to show me how to
-make that work please submit a pull request and I'll gladly plaster your name all over it for credit.
 
 .LINK
 https://github.com/Skatterbrainz/helium/blob/master/docs/Out-GridSelect.md
 #>
 function Out-GridSelect {
 	param (
-		[parameter(Mandatory=$True)] $InputObject,
+		[parameter(Mandatory=$True, ValueFromPipeline=$True)] $InputObject,
 		[parameter(Mandatory=$False)][string] $Title,
 		[parameter(Mandatory=$False)][string][ValidateSet('Single','Multiple')] $OutputMode = 'Single',
 		[parameter(Mandatory=$False)][switch] $ForceConsole
 	)
-	if (-not($PSBoundParameters.ContainsKey($Title))) {
-		if ($OutputMode -eq 'Single') {
-			$Title = "Select Item"
-		} else {
-			$Title = "Select Items"
-		}
+	begin {
+		$items = @()
 	}
-	if ($IsLinux -eq $True) {
-		if (Get-Module microsoft.powershell.consoleguitools -ListAvailable) {
-			$InputObject | Out-ConsoleGridView -Title $Title -OutputMode $OutputMode
-		} else {
-			Write-Warning "Linux platforms require module: microsoft.powershell.consoleguitools"
+	process {
+		$items += $InputObject
+	}
+	end {
+		if (-not($PSBoundParameters.ContainsKey('Title'))) {
+			if ($OutputMode -eq 'Single') {
+				$Title = "Select Item"
+			} else {
+				$Title = "Select Items"
+			}
 		}
-	} else {
-		if ($ForceConsole.IsPresent -and (Get-Module Microsoft.PowerShell.ConsoleGuiTools -ListAvailable)) {
-			$InputObject | Out-ConsoleGridView -Title $Title -OutputMode $OutputMode
+		if ($IsLinux -or $IsMacOS) {
+			if (Get-Module microsoft.powershell.consoleguitools -ListAvailable) {
+				$items | Out-ConsoleGridView -Title $Title -OutputMode $OutputMode
+			} else {
+				Write-Warning "Linux platforms require module: microsoft.powershell.consoleguitools"
+			}
 		} else {
-			$InputObject | Out-GridView -Title $Title -OutputMode $OutputMode
+			if ($ForceConsole.IsPresent) {
+				if (Get-Module Microsoft.PowerShell.ConsoleGuiTools -ListAvailable) {
+					$items | Out-ConsoleGridView -Title $Title -OutputMode $OutputMode
+				} else {
+					Write-Warning "Module Microsoft.PowerShell.ConsoleGuiTools is required for ConsoleGridView"
+				}
+			} else {
+				$items | Out-GridView -Title $Title -OutputMode $OutputMode
+			}
 		}
 	}
 }
