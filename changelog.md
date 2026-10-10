@@ -1,5 +1,9 @@
 # Revision History
 
+## 1.7.1
+- Updated: Out-GridSelect to accept pipeline input (finally!)
+- Renamed: revisions.md to changelog.md
+
 ## 1.7.0
 - Added: Get-ObjectCount (Count-Object)
 
